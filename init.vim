@@ -8,20 +8,16 @@ if !filereadable(expand(vimdir . "autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-ruby/vim-ruby'
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-" Colorschemes/themes
+" Theme
 Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-" Ack
+"Ack
 Plug 'mileszs/ack.vim'
 " Git
 Plug 'tpope/vim-fugitive'
-" EditorConfig
+" Editor Config
 Plug 'editorconfig/editorconfig-vim'
 " Show lines changed
 Plug 'airblade/vim-gitgutter'
@@ -68,7 +64,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 " Elixir
 Plug 'elixir-editors/vim-elixir'
-
 "whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -76,7 +71,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
-
 "Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -99,7 +93,6 @@ Plug 'Shougo/denite.nvim'
 
 Plug 'Shougo/echodoc.vim'
 
-Plug 'wookiehangover/jshint.vim'
 
 "rubocop
 Plug 'ngmy/vim-rubocop'
@@ -118,11 +111,10 @@ Plug 'christoomey/vim-tmux-navigator'
 "
 " Plug to resolve git merge conflict
 Plug 'christoomey/vim-conflicted'
-
 call plug#end()
 
 if !was_installed
-  PlugInstall
+	PlugInstall
 endif
 
 set runtimepath^=~/.vim/plugged/ctrlp.vim
@@ -207,6 +199,7 @@ let g:strip_whitespace_on_save=1
 " use rubocop
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
+\   'javascript': ['jshint'],
 \}
 
 " Cursor motion
