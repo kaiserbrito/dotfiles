@@ -18,6 +18,10 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+" Map spacebar to :
+nno <Space> :
+vno <Space> :
+
 nmap <silent> <Leader>f :Files<CR>
 
 :imap jk <Esc>
