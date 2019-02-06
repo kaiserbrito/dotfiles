@@ -92,9 +92,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'Shougo/denite.nvim'
 
 Plug 'Shougo/echodoc.vim'
-
-"Material Theme
-Plug 'tyrannicaltoucan/vim-quantum'
 "rubocop
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-cucumber'
@@ -125,7 +122,7 @@ let mapleader=","
 
 set autoread
 set number
-colorscheme quantum
+colorscheme gruvbox
 set t_Co=256
 set background=dark
 set tabstop=2
