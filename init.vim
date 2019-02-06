@@ -120,6 +120,8 @@ set runtimepath^=~/.vim/plugged/ctrlp.vim
 let g:mapleader=","
 let mapleader=","
 
+let g:airline_theme='deus'
+
 set autoread
 set number
 colorscheme gruvbox
