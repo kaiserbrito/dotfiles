@@ -109,6 +109,9 @@ Plug 'christoomey/vim-tmux-navigator'
 "
 " Plug to resolve git merge conflict
 Plug 'christoomey/vim-conflicted'
+
+" Snow Theme
+Plug 'nightsense/snow'
 call plug#end()
 
 if !was_installed
@@ -124,7 +127,7 @@ let g:airline_theme='deus'
 
 set autoread
 set number
-colorscheme gruvbox
+colorscheme snow
 set t_Co=256
 set background=dark
 set tabstop=2
