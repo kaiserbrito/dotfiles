@@ -112,6 +112,8 @@ Plug 'christoomey/vim-conflicted'
 
 " Snow Theme
 Plug 'nightsense/snow'
+" Material Theme
+Plug 'kaicataldo/material.vim'
 call plug#end()
 
 if !was_installed
@@ -123,11 +125,11 @@ set runtimepath^=~/.vim/plugged/ctrlp.vim
 let g:mapleader=","
 let mapleader=","
 
-let g:airline_theme='deus'
+let g:airline_theme='luna'
 
 set autoread
 set number
-colorscheme snow
+colorscheme material
 set t_Co=256
 set background=dark
 set tabstop=2
