@@ -18,6 +18,9 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+" Replace all :
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+
 " Map spacebar to :
 nno <Space> :
 vno <Space> :
