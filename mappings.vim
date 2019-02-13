@@ -12,6 +12,9 @@ nnoremap p p=`]
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nmap <silent> <Leader>l :NERDTreeFind<CR>
 
+" Copy filepath
+nmap <Leader>cs :let @+=expand("%")<CR>
+
 " Easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
