@@ -114,6 +114,8 @@ Plug 'christoomey/vim-conflicted'
 Plug 'nightsense/snow'
 " Material Theme
 Plug 'kaicataldo/material.vim'
+" Blame line
+Plug 'tveskag/nvim-blame-line'
 call plug#end()
 
 if !was_installed
