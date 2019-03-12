@@ -209,6 +209,11 @@ let g:ale_fixers = {
 \   'javascript': ['jshint'],
 \}
 
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\   'javascript': ['jshint'],
+\}
+
 " Cursor motion
 set scrolloff=3
 set backspace=indent,eol,start
