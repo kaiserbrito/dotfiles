@@ -128,6 +128,7 @@ let g:mapleader=","
 let mapleader=","
 
 let g:airline_theme='luna'
+let g:user_emmet_leader_key="'"
 
 set autoread
 set number
