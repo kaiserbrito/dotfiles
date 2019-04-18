@@ -158,6 +158,9 @@ nmap <leader>t :TestFile<CR>
 " Insert Mode
 iabbr bp binding.pry
 
+" Debugger in JS
+iabbr dbg debugger;
+
 "" ALEFix
 nmap <Leader>af <Plug>(ale_fix):e!<Enter>
 
