@@ -15,6 +15,10 @@ nmap <silent> <Leader>l :NERDTreeFind<CR>
 " Copy filepath
 nmap <Leader>cs :let @+=expand("%")<CR>
 
+" CtrlSF
+nmap <Leader>cf <Plug>CtrlSFPrompt
+vmap <Leader>cf <Plug>CtrlSFVwordPath
+
 " Easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -93,6 +97,10 @@ inoremap <S-Tab> <C-n>
 " Ack
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>--ruby<Space>--js<Space>
+
+" Prettier
+vmap <leader>z  <Plug>(coc-format-selected)
+nmap <leader>z  <Plug>(coc-format-selected)
 
 " Conflicted
 let g:diffget_local_map = 'gl'

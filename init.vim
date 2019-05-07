@@ -116,6 +116,11 @@ Plug 'nightsense/snow'
 Plug 'kaicataldo/material.vim'
 " Blame line
 Plug 'tveskag/nvim-blame-line'
+" COC vim
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" CtrlSF
+Plug 'dyng/ctrlsf.vim'
 call plug#end()
 
 if !was_installed
@@ -128,7 +133,6 @@ let g:mapleader=","
 let mapleader=","
 
 let g:airline_theme='luna'
-let g:user_emmet_leader_key="'"
 
 set autoread
 set number
