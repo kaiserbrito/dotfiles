@@ -39,8 +39,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'ap/vim-css-color'
 " Automatically change dir when opening files
 Plug 'airblade/vim-rooter'
-" Autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Text object for function arguments
 Plug 'b4winckler/vim-angry'
 " Many handy text objects
@@ -62,8 +60,6 @@ Plug 'blueyed/vim-diminactive'
 " Ruby blocks text object
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
-" Elixir
-Plug 'elixir-editors/vim-elixir'
 "whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -96,7 +92,6 @@ Plug 'Shougo/echodoc.vim'
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 " splitjoin
 Plug 'AndrewRadev/splitjoin.vim'
@@ -114,8 +109,6 @@ Plug 'christoomey/vim-conflicted'
 Plug 'nightsense/snow'
 " Material Theme
 Plug 'kaicataldo/material.vim'
-" Blame line
-Plug 'tveskag/nvim-blame-line'
 " COC vim
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 

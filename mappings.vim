@@ -172,5 +172,3 @@ iabbr dbg debugger;
 "" ALEFix
 nmap <Leader>af <Plug>(ale_fix):e!<Enter>
 
-" Blame line
-nmap <expr> <leader>b ToggleBlameLine()
