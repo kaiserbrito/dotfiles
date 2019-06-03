@@ -177,6 +177,13 @@ set clipboard+=unnamedplus
 " Highlight search results
 set hlsearch
 
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
 " livedown setup
 let g:livedown_browser = "firefoxNightly"
 

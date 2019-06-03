@@ -4,6 +4,15 @@ noremap <Right> :echoe "Use l"<CR>
 noremap <Up> :echoe "Use k"<CR>
 noremap <Down> :echoe "Use j"<CR>
 
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Auto format any pasted text
 nnoremap P P=`]
 nnoremap p p=`]
