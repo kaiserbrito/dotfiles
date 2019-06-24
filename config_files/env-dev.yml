@@ -1,0 +1,27 @@
+windows:
+  - name: servers
+    root: ~/Documents/workspace
+    layout: tiled
+    panes:
+      - commands:
+        - cd  redis-5.0.5/src/
+        - ./redis-server
+      - commands:
+        - cd mongodb-linux-x86_64-ubuntu1804-4.0.10/bin
+        - ./mongod --dbpath ../data
+      - commands:
+        - cd elasticsearch-5.6.6/bin
+        - ./elasticsearch
+      - commands:
+        - docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password1!' -v mssql-data:/var/opt/mssql -p 1433:1433 -d microsoft/mssql-server-linux:latest
+        - docker ps
+        - clear
+        - cd ~/Documents/phoenix-api
+  - name: phoenix
+    root: ~/Documents
+    layout: even-vertical
+    panes:
+      - commands:
+        - cd phoenix-api
+      - commands:
+        - cd phoenix-ui
