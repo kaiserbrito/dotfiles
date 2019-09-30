@@ -58,10 +58,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Grepping made easy
-" ==================
-command! -nargs=1 SearchInRepo :silent! Ggrep! "\b<args>\b" | :copen
-nnoremap <leader>g :SearchInRepo <C-R><C-W>
-
+nnoremap <leader>g :Ag <C-R><C-W>
 set nohlsearch
 nnoremap <leader>h :set hlsearch!<CR>
 
@@ -85,8 +82,8 @@ nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
 " git gutter hunk movements
-nmap <leader>j <Plug>GitGutterNextHunk
-nmap <leader>k <Plug>GitGutterPrevHunk
+nmap <leader>j <Plug>(GitGutterNextHunk)
+nmap <leader>k <Plug>(GitGutterPrevHunk)
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -180,4 +177,12 @@ iabbr dbg debugger;
 
 "" ALEFix
 nmap <Leader>af <Plug>(ale_fix):e!<Enter>
+
+" Remap keys for gotos
+nmap <silent> gdd :ALEGoToDefinition<cr>
+nmap <silent> gdt :ALEGoToDefinitionInTab<cr>
+nmap <silent> gdv :ALEGoToDefinitionInVSplit<cr>
+nmap <silent> gds :ALEGoToDefinitionInSplit<cr>
+
+nnoremap <silent> <F2> :call LanguageClient#textDocument_definition()<CR>
 

@@ -8,11 +8,9 @@ if !filereadable(expand(vimdir . "autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-ruby/vim-ruby'
-" Theme
-Plug 'morhetz/gruvbox'
 "Ack
 Plug 'mileszs/ack.vim'
 " Git
@@ -33,18 +31,10 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 " Heuristically adjust shiftwidth and expandtab
 Plug 'tpope/vim-sleuth'
-" Keep layout when deleting/wiping buffers
-Plug 'qpkorr/vim-bufkill'
 " Highlight colors
 Plug 'ap/vim-css-color'
-" Automatically change dir when opening files
-Plug 'airblade/vim-rooter'
-" Text object for function arguments
-Plug 'b4winckler/vim-angry'
 " Many handy text objects
 Plug 'wellle/targets.vim'
-" Easy swap of text objects
-Plug 'tommcdo/vim-exchange'
 " Make . work with surround (and other plugins)
 Plug 'tpope/vim-repeat'
 " Readline key bindings.
@@ -57,12 +47,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
 " Change background of inactive windows
 Plug 'blueyed/vim-diminactive'
-" Ruby blocks text object
-Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
 "whitespace
 Plug 'ntpeters/vim-better-whitespace'
-
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
@@ -70,8 +56,6 @@ Plug 'easymotion/vim-easymotion'
 "Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" live markdown - use :LivedownToggle to launch/kill
-Plug 'shime/vim-livedown'
 " https://github.com/junegunn/fzf#as-vim-plugin
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -91,7 +75,6 @@ Plug 'Shougo/echodoc.vim'
 "rubocop
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-git'
 " splitjoin
 Plug 'AndrewRadev/splitjoin.vim'
@@ -111,9 +94,10 @@ Plug 'nightsense/snow'
 Plug 'kaicataldo/material.vim'
 " COC vim
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
 " CtrlSF
 Plug 'dyng/ctrlsf.vim'
+" Syntax
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 if !was_installed
@@ -196,6 +180,7 @@ let g:loaded_netrwPlugin = 1
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Enable deoplete at startup
 let g:deoplete#enable_at_startup = 1
@@ -207,17 +192,23 @@ let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 " better whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:ale_ruby_solargraph_executable = 'solargraph'
 
 " use rubocop
 let g:ale_fixers = {
-\   'ruby': ['rubocop'],
 \   'javascript': ['jshint'],
 \}
 
 let g:ale_linters = {
-\   'ruby': ['rubocop'],
+\   'ruby': ['rubocop', 'solargraph'],
 \   'javascript': ['jshint'],
 \}
+
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_serverCommands = {
+\ 'javascript': ['javascript-typescript-langserver', '--stdio'],
+\ }
 
 " Cursor motion
 set scrolloff=3
