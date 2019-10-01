@@ -62,12 +62,6 @@ Plug 'junegunn/fzf.vim'
 " JS highlighting and indent support. Sometimes buggy, but has support for
 " " jsdocs and flow
 Plug 'pangloss/vim-javascript', { 'for': ['javascript']}
-"Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 "buffer files
 Plug 'Shougo/denite.nvim'
 
@@ -203,12 +197,6 @@ let g:ale_linters = {
 \   'ruby': ['rubocop', 'solargraph'],
 \   'javascript': ['jshint'],
 \}
-
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_serverCommands = {
-\ 'javascript': ['javascript-typescript-langserver', '--stdio'],
-\ }
 
 " Cursor motion
 set scrolloff=3

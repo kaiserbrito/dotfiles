@@ -176,13 +176,10 @@ iabbr bp binding.pry
 iabbr dbg debugger;
 
 "" ALEFix
-nmap <Leader>af <Plug>(ale_fix):e!<Enter>
+nmap <F8> <Plug>(ale_fix):e!<Enter>
 
 " Remap keys for gotos
 nmap <silent> gdd :ALEGoToDefinition<cr>
 nmap <silent> gdt :ALEGoToDefinitionInTab<cr>
 nmap <silent> gdv :ALEGoToDefinitionInVSplit<cr>
 nmap <silent> gds :ALEGoToDefinitionInSplit<cr>
-
-nnoremap <silent> <F2> :call LanguageClient#textDocument_definition()<CR>
-
