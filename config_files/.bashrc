@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -64,13 +64,13 @@ fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
-#case "$TERM" in
-#xterm*|rxvt*)
-#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-#    ;;
-#*)
-#    ;;
-#esac
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -83,6 +83,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -112,105 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export REDIS_PORT="6379"
-export REDIS_HOST="127.0.0.1"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Path to the bash it configuration
-export BASH_IT="/home/administrator/.bash_it"
-
-# Lock and Load a custom theme file
-# location /.bash_it/themes/
-export BASH_IT_THEME='bobby'
-
-export PATH=$PATH:/usr/local/go/bin
-
-# (Advanced): Change this to the name of your remote repo if you
-# cloned bash-it with a remote other than origin such as `bash-it`.
-# export BASH_IT_REMOTE='bash-it'
-
-# Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
-
-# Don't check mail when opening terminal.
-unset MAILCHECK
-
-# Change this to your console based IRC client of choice.
-export IRC_CLIENT='irssi'
-
-# Set this to the command you use for todo.txt-cli
-export TODO="t"
-
-# Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
-
-# Set Xterm/screen/Tmux title with only a short hostname.
-# Uncomment this (or set SHORT_HOSTNAME to something else),
-# Will otherwise fall back on $HOSTNAME.
-#export SHORT_HOSTNAME=$(hostname -s)
-
-# Custom title-setting code that adds a triangle play-arrow
-# if the terminal is not waiting on the prompt
-case "$TERM" in
-xterm*|rxvt*)
-    # This tells bash: before showing the prompt, run this
-    PROMPT_COMMAND='echo -ne "\033]0;${THIS_TERMINAL_TITLE}\007"'
-
-    # Edit the title if a command is running:
-    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
-    show_command_in_title_bar()
-    {
-        case "$BASH_COMMAND" in
-            *\033]0*)
-                # The command is trying to set the title bar as well;
-                # this is most likely the execution of $PROMPT_COMMAND.
-                # In any case nested escapes confuse the terminal, so don't
-                # output them.
-                ;;
-            *)
-                echo -ne "\033]0;▶ ${THIS_TERMINAL_TITLE}\007"
-                ;;
-        esac
-    }
-    # The DEBUG signal simply announces the last-run command
-    trap show_command_in_title_bar DEBUG
-    ;;
-*)
-    ;;
-esac
-
-# Now we can set the title of the terminal with terminal_title my title
-function terminal_title ()
-{
-    export THIS_TERMINAL_TITLE="$@"
-}
-# Here's a good default
-export THIS_TERMINAL_TITLE="$USER@$HOSTNAME"
-
-# Set Xterm/screen/Tmux title with only a short username.
-# Uncomment this (or set SHORT_USER to something else),
-# Will otherwise fall back on $USER.
-#export SHORT_USER=${USER:0:8}
-
-# Set Xterm/screen/Tmux title with shortened command and directory.
-# Uncomment this to set.
-#export SHORT_TERM_LINE=true
-
-# Set vcprompt executable path for scm advance info in prompt (demula theme)
-# https://github.com/djl/vcprompt
-#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
-
-# (Advanced): Uncomment this to make Bash-it reload itself automatically
-# after enabling or disabling aliases, plugins, and completions.
-# export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
-
-# Load Bash It
-source "$BASH_IT"/bash_it.sh
-
-set -o vi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

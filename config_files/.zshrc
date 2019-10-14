@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/administrator/.oh-my-zsh"
+  export ZSH="/home/victor/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -10,6 +10,7 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
+# ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -63,10 +64,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-autosuggestions
-)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,9 +84,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+export HTTP_PROXY=http://proxy.conseur.org:3128/
+export HTTPS_PROXY=http://proxy.conseur.org:3128/
+export http_proxy=http://proxy.conseur.org:3128/
+export https_proxy=http://proxy.conseur.org:3128/
+export NO_PROXY="127.0.0.1, localhost, .conseur.org, 10.0.0.0/8"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -98,15 +100,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export HTTP_PROXY=http://proxy.conseur.org:3128/
-export HTTPS_PROXY=http://proxy.conseur.org:3128/
-export http_proxy=http://proxy.conseur.org:3128/
-export https_proxy=http://proxy.conseur.org:3128/
-export NO_PROXY="127.0.0.1, localhost, .conseur.org, 10.0.0.0/8"
+alias api_deco="cd /home/victor/Documents/phoenix-api"
+alias ui_deco="cd /home/victor/Documents/phoenix-ui"
+alias glm="gl origin master"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export NVM_DIR="/home/victor/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
