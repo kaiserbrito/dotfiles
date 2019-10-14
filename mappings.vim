@@ -176,7 +176,7 @@ iabbr bp binding.pry
 iabbr dbg debugger;
 
 "" ALEFix
-nmap <F8> <Plug>(ale_fix):e!<Enter>
+nmap <F8> <Plug>(ale_fix)
 
 " Remap keys for gotos
 nmap <silent> gdd :ALEGoToDefinition<cr>

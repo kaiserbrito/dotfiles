@@ -162,9 +162,6 @@ function! s:check_back_space() abort
 endfunction
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" livedown setup
-let g:livedown_browser = "firefoxNightly"
-
 " Disable bloated stuff that is on by default.
 let g:loaded_2html_plugin = 1
 let g:loaded_gzip = 1
@@ -190,12 +187,13 @@ let g:ale_ruby_solargraph_executable = 'solargraph'
 
 " use rubocop
 let g:ale_fixers = {
-\   'javascript': ['jshint'],
+\   'ruby': ['rubocop'],
+\   'javascript': ['jshint']
 \}
 
 let g:ale_linters = {
 \   'ruby': ['rubocop', 'solargraph'],
-\   'javascript': ['jshint'],
+\   'javascript': ['jshint']
 \}
 
 " Cursor motion
@@ -212,7 +210,6 @@ set conceallevel=1
 let g:indentLine_conceallevel=1
 
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType eelixir set omnifunc=htmlcomplete#CompleteTags
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
