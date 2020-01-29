@@ -86,12 +86,12 @@ Plug 'christoomey/vim-conflicted'
 Plug 'nightsense/snow'
 " Material Theme
 Plug 'kaicataldo/material.vim'
-" COC vim
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-" CtrlSF
+  " CtrlSF
 Plug 'dyng/ctrlsf.vim'
 " Syntax
 Plug 'vim-syntastic/syntastic'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 if !was_installed
@@ -131,6 +131,7 @@ set mouse=a
 set laststatus=2
 
 " turn on syntax highlighting
+syntax enable
 syntax on
 " highlight to vim-clojure-static
 filetype plugin indent on
@@ -225,5 +226,11 @@ let g:angular_source_directory = 'src/scripts'
 let g:angular_find_ignore = ['components/', 'node_modules/', 'dist/']
 
 let test#ruby#rspec#executable = 'rspec'
+
+" Blamer config
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_date_format = '%d/%m/%y'
+highlight Blamer guifg=darkgrey
 
 so ~/.config/nvim/mappings.vim
