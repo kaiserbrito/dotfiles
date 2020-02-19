@@ -78,10 +78,6 @@ Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 " using ctrl + h/j/k/l on tmux
 Plug 'christoomey/vim-tmux-navigator'
-"
-" Plug to resolve git merge conflict
-Plug 'christoomey/vim-conflicted'
-
 " Snow Theme
 Plug 'nightsense/snow'
 " Material Theme
@@ -92,6 +88,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'APZelos/blamer.nvim'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 if !was_installed
