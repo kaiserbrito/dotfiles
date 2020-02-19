@@ -13,6 +13,8 @@ inoremap <silent><expr> <Tab>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+nmap <S-Tab> :tabprevious <CR>
+
 " Auto format any pasted text
 nnoremap P P=`]
 nnoremap p p=`]
@@ -136,16 +138,21 @@ nnoremap <f4> :call Term_toggle()<cr>
 " Exit from terminal
 :tnoremap <F5> <C-\><C-n>
 
+" Resolve conflicts
+nmap <leader>gd :Gvdiffsplit!<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
 " Vim-Fugitive
 nmap <leader>gs :Gstatus<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gb :Gbrowse<CR>
+nmap <leader>gb :Gblame<CR>
 nmap <leader>ga :Git add .<CR>:bd!<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gl :Glog
 nmap <leader>ge :Gedit<CR>
 nmap <leader>gh :Git checkout
 nmap <leader>gg :Git pull<CR>
+nmap <leader>gp :Gpush<CR>
 nmap <leader>gm :Git checkout master
 nmap <leader>gwd :Git diff HEAD .<CR>
 
@@ -183,3 +190,5 @@ nmap <silent> gdd :ALEGoToDefinition<cr>
 nmap <silent> gdt :ALEGoToDefinitionInTab<cr>
 nmap <silent> gdv :ALEGoToDefinitionInVSplit<cr>
 nmap <silent> gds :ALEGoToDefinitionInSplit<cr>
+
+:nnoremap <F9> <C-W><_><C-W><|>
