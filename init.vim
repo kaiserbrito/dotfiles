@@ -9,40 +9,21 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale'
-Plug 'sheerun/vim-polyglot'
 Plug 'vim-ruby/vim-ruby'
 "Ack
 Plug 'mileszs/ack.vim'
 " Git
 Plug 'tpope/vim-fugitive'
-" Editor Config
-Plug 'editorconfig/editorconfig-vim'
 " Show lines changed
 Plug 'airblade/vim-gitgutter'
-" Display indent steps
-Plug 'Yggdroot/indentLine'
 " Comment in/out stuff easily
 Plug 'tomtom/tcomment_vim'
-" Unix stuff, including editing things with sudo
-Plug 'tpope/vim-eunuch'
 " Add end to ruby blocks automatically
 Plug 'tpope/vim-endwise'
-" Easily change delimiters
-Plug 'tpope/vim-surround'
 " Heuristically adjust shiftwidth and expandtab
 Plug 'tpope/vim-sleuth'
-" Highlight colors
-Plug 'ap/vim-css-color'
-" Many handy text objects
-Plug 'wellle/targets.vim'
 " Make . work with surround (and other plugins)
 Plug 'tpope/vim-repeat'
-" Readline key bindings.
-Plug 'tpope/vim-rsi'
-" Useful toggling mappings
-Plug 'tpope/vim-unimpaired'
-" Auto close pairs
-Plug 'jiangmiao/auto-pairs'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 " Change background of inactive windows
@@ -50,45 +31,42 @@ Plug 'blueyed/vim-diminactive'
 "whitespace
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree'
-Plug 'mattn/emmet-vim'
-Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
-"Plug 'justinmk/vim-dirvish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " https://github.com/junegunn/fzf#as-vim-plugin
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" JS highlighting and indent support. Sometimes buggy, but has support for
-" " jsdocs and flow
-Plug 'pangloss/vim-javascript', { 'for': ['javascript']}
-"buffer files
-Plug 'Shougo/denite.nvim'
-
-Plug 'Shougo/echodoc.vim'
-"rubocop
-Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-git'
 " splitjoin
 Plug 'AndrewRadev/splitjoin.vim'
-"rails
-Plug 'tpope/vim-rails'
 " test
 Plug 'janko-m/vim-test'
 " using ctrl + h/j/k/l on tmux
 Plug 'christoomey/vim-tmux-navigator'
+"
 " Snow Theme
 Plug 'nightsense/snow'
 " Material Theme
 Plug 'kaicataldo/material.vim'
-  " CtrlSF
+" COC vim
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" CtrlSF
 Plug 'dyng/ctrlsf.vim'
 " Syntax
 Plug 'vim-syntastic/syntastic'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'APZelos/blamer.nvim'
 Plug 'mhinz/vim-startify'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript']}
+"rails
+Plug 'tpope/vim-rails'
+Plug 'jiangmiao/auto-pairs'
+Plug 'mattn/emmet-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'wellle/targets.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 if !was_installed
@@ -181,16 +159,13 @@ let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 " better whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-let g:ale_ruby_solargraph_executable = 'solargraph'
 
 " use rubocop
 let g:ale_fixers = {
-\   'ruby': ['rubocop'],
 \   'javascript': ['jshint']
 \}
 
 let g:ale_linters = {
-\   'ruby': ['rubocop', 'solargraph'],
 \   'javascript': ['jshint']
 \}
 
@@ -222,10 +197,12 @@ set colorcolumn=+1
 let g:angular_source_directory = 'src/scripts'
 let g:angular_find_ignore = ['components/', 'node_modules/', 'dist/']
 
+let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
+
 let test#ruby#rspec#executable = 'rspec'
 
 " Blamer config
-let g:blamer_enabled = 1
+let g:blamer_enabled = 0
 let g:blamer_delay = 500
 let g:blamer_date_format = '%d/%m/%y'
 highlight Blamer guifg=darkgrey

@@ -13,7 +13,21 @@ inoremap <silent><expr> <Tab>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
 nmap <S-Tab> :tabprevious <CR>
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Auto format any pasted text
 nnoremap P P=`]
@@ -156,17 +170,6 @@ nmap <leader>gp :Gpush<CR>
 nmap <leader>gm :Git checkout master
 nmap <leader>gwd :Git diff HEAD .<CR>
 
-" Rails Stuff
-nmap <leader>rt :A<CR>
-nmap <leader>rm :Emodel<CR>
-nmap <leader>rc :Econtroller<CR>
-nmap <leader>rv :Eview<CR>
-nmap <leader>rwt :AV<CR>
-nmap <leader>rwm :Vmodel<CR>
-nmap <leader>rwc :Vcontroller<CR>
-nmap <leader>rwv :Vview<CR>
-nmap <leader>rwu :RuboCop -a<CR>
-
 " test
 map <Leader>tn :TestNearest<CR>
 map <Leader>tf :TestFile<CR>
@@ -182,13 +185,9 @@ iabbr bp binding.pry
 " Debugger in JS
 iabbr dbg debugger;
 
-"" ALEFix
-nmap <F8> <Plug>(ale_fix)
+"" Fixer
+nmap <F8> :call CocActionAsync('format')<cr>
 
 " Remap keys for gotos
-nmap <silent> gdd :ALEGoToDefinition<cr>
-nmap <silent> gdt :ALEGoToDefinitionInTab<cr>
-nmap <silent> gdv :ALEGoToDefinitionInVSplit<cr>
-nmap <silent> gds :ALEGoToDefinitionInSplit<cr>
-
-:nnoremap <F9> <C-W><_><C-W><|>
+nmap <silent> gdd :call CocAction('jumpDefinition', 'drop')<cr>
+nmap <silent> gdt :call CocAction('jumpDefinition', 'tab drop')<cr>
