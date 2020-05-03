@@ -1,0 +1,9 @@
+{
+  "solargraph.definitions": true,
+  "solargraph.transport": "stdio",
+  "solargraph.completion": true,
+  "solargraph.hover": true,
+  "solargraph.formatting": true,
+  "solargraph.references": true,
+  "coc.preferences.jumpCommand": "tab drop"
+}
