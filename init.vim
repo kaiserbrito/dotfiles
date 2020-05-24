@@ -50,7 +50,7 @@ Plug 'nightsense/snow'
 " Material Theme
 Plug 'kaicataldo/material.vim'
 " COC vim
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " CtrlSF
 Plug 'dyng/ctrlsf.vim'
 " Syntax
