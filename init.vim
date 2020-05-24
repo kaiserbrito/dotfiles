@@ -167,13 +167,6 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
-
-"deoplete async-clj-omni config
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
-
 " better whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
