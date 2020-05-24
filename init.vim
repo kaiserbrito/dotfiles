@@ -8,7 +8,6 @@ if !filereadable(expand(vimdir . "autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'dense-analysis/ale'
 Plug 'vim-ruby/vim-ruby'
 "Ack
 Plug 'mileszs/ack.vim'
