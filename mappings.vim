@@ -191,3 +191,5 @@ nmap <F8> :call CocActionAsync('format')<cr>
 " Remap keys for gotos
 nmap <silent> gdd :call CocAction('jumpDefinition', 'drop')<cr>
 nmap <silent> gdt :call CocAction('jumpDefinition', 'tab drop')<cr>
+nmap <silent> gds :call CocAction('jumpDefinition', 'split')<cr>
+nmap <silent> gdv :call CocAction('jumpDefinition', 'vsplit')<cr>
