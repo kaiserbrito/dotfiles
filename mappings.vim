@@ -57,7 +57,13 @@ map  N <Plug>(easymotion-prev)
 nno <Space> :
 vno <Space> :
 
-nmap <silent> <Leader>f :Files<CR>
+" nmap <silent> <Leader>f :Files<CR>
+nnoremap <Leader>f :FZF<CR>
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \}
 
 :imap jk <Esc>
 
