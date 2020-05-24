@@ -178,15 +178,6 @@ let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-" use rubocop
-let g:ale_fixers = {
-\   'javascript': ['jshint']
-\}
-
-let g:ale_linters = {
-\   'javascript': ['jshint']
-\}
-
 " Cursor motion
 set scrolloff=3
 set backspace=indent,eol,start
