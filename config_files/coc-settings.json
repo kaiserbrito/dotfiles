@@ -1,9 +1,13 @@
 {
-  "solargraph.definitions": true,
+  "coc.preferences.jumpCommand": "tab drop",
+  "prettier.semi": true,
+  "prettier.printWidth": 100,
   "solargraph.transport": "stdio",
+  "solargraph.diagnostics": true,
+  "solargraph.definitions": true,
   "solargraph.completion": true,
   "solargraph.hover": true,
   "solargraph.formatting": true,
   "solargraph.references": true,
-  "coc.preferences.jumpCommand": "tab drop"
+  "elixir.enable": true
 }
