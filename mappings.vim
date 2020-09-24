@@ -4,7 +4,6 @@ noremap <Right> :echoe "Use l"<CR>
 noremap <Up> :echoe "Use k"<CR>
 noremap <Down> :echoe "Use j"<CR>
 
-
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
@@ -57,8 +56,7 @@ map  N <Plug>(easymotion-prev)
 nno <Space> :
 vno <Space> :
 
-" nmap <silent> <Leader>f :Files<CR>
-nnoremap <Leader>f :FZF<CR>
+nnoremap <C-p> :Files<CR>
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
@@ -199,3 +197,7 @@ nmap <silent> gdd :call CocAction('jumpDefinition', 'drop')<cr>
 nmap <silent> gdt :call CocAction('jumpDefinition', 'tab drop')<cr>
 nmap <silent> gds :call CocAction('jumpDefinition', 'split')<cr>
 nmap <silent> gdv :call CocAction('jumpDefinition', 'vsplit')<cr>
+nmap <silent> gr <Plug>(coc-references)
+
+" Automated changes or fixes for an issue
+nmap <leader>do <Plug>(coc-codeaction)

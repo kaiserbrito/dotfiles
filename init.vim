@@ -50,6 +50,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nightsense/snow'
 " Material Theme
 Plug 'kaicataldo/material.vim'
+Plug 'sainnhe/gruvbox-material'
 " COC vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " CtrlSF
@@ -78,29 +79,20 @@ if !was_installed
 	PlugInstall
 endif
 
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
 set runtimepath^=~/.vim/plugged/ctrlp.vim
 
 let g:mapleader=","
 let mapleader=","
 
 let g:airline_theme='luna'
+let g:airline_powerline_fonts = 1
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_palette = 'original'
 
 set autoread
 set number
-colorscheme material
+" colorscheme material
+colorscheme gruvbox-material
 set t_Co=256
 set background=dark
 set tabstop=2
@@ -119,6 +111,7 @@ set lazyredraw
 set relativenumber
 set hidden
 set mouse=a
+set encoding=UTF-8
 
 " Status bar
 set laststatus=2
@@ -162,6 +155,13 @@ let g:loaded_gzip = 1
 let g:loaded_tarPlugin = 1 " May cause problems with fireplace
 let g:loaded_zipPlugin = 1
 let g:loaded_netrwPlugin = 1
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-elixir',
+      \ 'coc-json',
+      \ 'coc-prettier',
+      \ 'coc-solargraph'
+      \ ]
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
@@ -220,6 +220,8 @@ let g:LanguageClient_serverCommands = {
       \ }
 " Run gofmt on save
 autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+" autocmd BufEnter *.{js,jsx} :syntax sync fromstart
+" autocmd BufLeave *.{js,jsx} :syntax sync clear
 
 highlight Blamer guifg=darkgrey
 
