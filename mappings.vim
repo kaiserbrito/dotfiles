@@ -56,7 +56,7 @@ map  N <Plug>(easymotion-prev)
 nno <Space> :
 vno <Space> :
 
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :GFiles<CR>
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
@@ -188,6 +188,9 @@ iabbr bp binding.pry
 
 " Debugger in JS
 iabbr dbg debugger;
+
+" Set Trace python
+iabbr pdb import pdb; pdb.set_trace()
 
 "" Fixer
 nmap <F8> :call CocActionAsync('format')<cr>
