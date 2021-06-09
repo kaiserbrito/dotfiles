@@ -138,7 +138,7 @@ set smartindent
 set smartcase
 
 " Last line
-set showmode
+set noshowmode
 set showcmd
 
 " Share the clipboard outside of macvim
@@ -165,7 +165,8 @@ let g:coc_global_extensions = [
       \ 'coc-elixir',
       \ 'coc-json',
       \ 'coc-prettier',
-      \ 'coc-solargraph'
+      \ 'coc-solargraph',
+      \ 'coc-python'
       \ ]
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)

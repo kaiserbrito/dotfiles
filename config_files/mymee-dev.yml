@@ -1,0 +1,39 @@
+windows:
+  - name: API
+    root: ~/Documents/Runtime/mymee
+    layout: even-vertical
+    panes:
+      - commands:
+        - cd mymee_api
+        - source env_upgrade/bin/activate
+        - cd mymee_api
+        - docker compose up -d
+        - export DATABASE_URL="postgres://postgres:postgres@localhost:5432/mymee_api"
+        - clear
+      - commands:
+        - cd mymee_api/mymee_api
+        - clear
+  - name: ADMIN
+    root: ~/Documents/Runtime/mymee
+    layout: even-vertical
+    panes:
+      - commands:
+        - cd mymee_admin
+        - nvm use v10.24.0
+        - clear
+      - commands:
+        - cd mymee_admin
+  - name: MOBILE
+    root: ~/Documents/Runtime/mymee
+    layout: even-vertical
+    panes:
+      - commands:
+        - cd mobile-app
+        - clear
+      - commands:
+        - cd mobile-app
+  - name: NOTAS
+    root: ~/Documents/project
+    panes:
+      - commands:
+        - nvim notas.txt

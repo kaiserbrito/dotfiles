@@ -162,15 +162,15 @@ nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 
 " Vim-Fugitive
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gb :Gblame<CR>
+nmap <leader>gs :Git<CR>
+nmap <leader>gb :Git blame<CR>
 nmap <leader>ga :Git add .<CR>:bd!<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gl :Glog
 nmap <leader>ge :Gedit<CR>
 nmap <leader>gh :Git checkout
 nmap <leader>gg :Git pull<CR>
-nmap <leader>gp :Gpush<CR>
+nmap <leader>gp :Git push<CR>
 nmap <leader>gm :Git checkout master
 nmap <leader>gwd :Git diff HEAD .<CR>
 
@@ -194,6 +194,9 @@ iabbr pdb import pdb; pdb.set_trace()
 
 "" Fixer
 nmap <F8> :call CocActionAsync('format')<cr>
+
+"" Flake 8 Formatter
+autocmd FileType python map <buffer> <F7> :call flake8#Flake8()<CR>
 
 " Remap keys for gotos
 nmap <silent> gdd :call CocAction('jumpDefinition', 'drop')<cr>
