@@ -20,18 +20,18 @@ font:
   # UI for powerline & tmux bottom bar.
   normal:
     # Font name
-    family: FiraMono Nerd Font
+    family: FiraMono Nerd Font Mono
     # Font face
     style: Regular
 
   # Bold font face
   bold:
-    family: FiraMono Nerd Font
+    family: FiraMono Nerd Font Mono
     style: Bold
 
   # Italic font face
   italic:
-    family: FiraMono Nerd Font
+    family: FiraMono Nerd Font Mono
     style: Italic
 
   # Bold italic font face
@@ -39,7 +39,7 @@ font:
   # italic & it just works. You may specifiy the bold italic version if it exists
   # for your font
   bold_italic:
-    family: FiraMono Nerd Font
+    family: FiraMono Nerd Font Mono
     style: Italic
 
   # Font size
@@ -51,7 +51,7 @@ font:
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
    x: 0
-   y: 10
+   y: 4
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
@@ -60,10 +60,10 @@ font:
   glyph_offset:
    x: 0
    # Keeping this as half of offset to vertically align the text in cursor
-   y: 5
+   y: 2
 
   # Better font rendering for mac
-  use_thin_strokes: true
+  use_thin_strokes: false
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -77,11 +77,11 @@ live_config_reload: true
 # Setup some amazing custom key bindings here - Best thing is you can setup key bindings
 # using Mac's 'command' to control your tmux.
 # A great reference: https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/#make-alacritty-feel-like-iterm2
-key_bindings:
-  # ctrl-^ doesn't work in some terminals like alacritty
-  - { key: Key6, mods: Control, chars: "\x1e" }
-  - { key: Left, mods: Alt, chars: "\x1BB" }
-  - { key: Right, mods: Alt, chars: "\x1BF" }
+# key_bindings:
+#   # ctrl-^ doesn't work in some terminals like alacritty
+#   - { key: Key6, mods: Control, chars: "\x1e" }
+#   - { key: Left, mods: Alt, chars: "\x1BB" }
+#   - { key: Right, mods: Alt, chars: "\x1BF" }
 
 alt_send_esc: false
 
