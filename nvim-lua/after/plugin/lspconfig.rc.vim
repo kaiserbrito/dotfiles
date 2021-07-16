@@ -86,7 +86,7 @@ nvim_lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" }
 }
 
-nvim_lsp.pyright.setup {
+nvim_lsp.pylsp.setup {
   on_attach = on_attach,
   filetypes = { "python" }
 }
