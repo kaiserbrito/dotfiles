@@ -45,5 +45,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
+Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
