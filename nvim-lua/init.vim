@@ -21,7 +21,7 @@ set title
 set autoindent
 set background=dark
 set nobackup
-set hlsearch
+set nohlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
