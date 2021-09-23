@@ -86,14 +86,13 @@ nvim_lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" }
 }
 
-nvim_lsp.pylsp.setup {
-  on_attach = on_attach,
-  filetypes = { "python" }
+nvim_lsp.solargraph.setup {
+ on_attach = on_attach
 }
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'scss', 'markdown', 'pandoc', 'python' },
+  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'scss', 'markdown' },
   init_options = {
     linters = {
       eslint = {
@@ -150,10 +149,6 @@ nvim_lsp.diagnosticls.setup {
 }
 
 require'lspconfig'.bashls.setup{}
-nvim_lsp.ember.setup {
-  on_attach = on_attach,
-  filetypes = { "handlebars", "typescript", "javascript" }
-}
 
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

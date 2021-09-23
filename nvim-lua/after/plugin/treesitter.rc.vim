@@ -14,7 +14,6 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
   ensure_installed = {
-    "python",
     "ruby",
     "tsx",
     "json",
@@ -23,9 +22,14 @@ require'nvim-treesitter.configs'.setup {
     "scss",
     "lua"
   },
+  matchup = {
+    disable = {},
+    enable = true,
+    module_path = "treesitter-matchup.internal"
+  },
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.tsx.used_by = { "javascript", "typescript.tsx" }
-parser_config.python.used_by = { "python" }
+parser_config.ruby.used_by = { "ruby" }
 EOF

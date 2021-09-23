@@ -2,7 +2,7 @@ let vimdir = '~/.config/nvim/'
 let was_installed = 1
 
 if !filereadable(expand(vimdir . "autoload/plug.vim"))
-  call system('curl -fLo ' . vimdir . 'autoload/plug.vim --create-dirs https://raw.githubusercontent.
+  call system('curl -fLo ' . vimdir . 'autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
   execute 'source ' . vimdir . 'autoload/plug.vim'
   let was_installed = 0
 endif
@@ -13,7 +13,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
-Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/gruvbox-material'
+Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' }
@@ -46,5 +47,6 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'andymass/vim-matchup'
 
 call plug#end()
