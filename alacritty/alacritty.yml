@@ -1,0 +1,143 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+# Setup term for programs to be able to use it
+env:
+  TERM: xterm-256color
+
+window:
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
+  # Startup Mode (changes require restart)
+  startup_mode: Maximized
+
+# Sample Font configuration for font: FiraMono.
+# Feel free to use different font configuration family & face for each sections
+font:
+  # Normal font face - Also used to draw glyphs on tmux & VIM
+  # NOTE: You may use any font you'd like but make sure the normal fonts
+  # support ligatures/glyphs. That's used by tmux & VIM to provide a better
+  # UI for powerline & tmux bottom bar.
+  normal:
+    # Font name
+    family: FiraCode Nerd Font Mono
+    # Font face
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: FiraCode Nerd Font Mono
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: FiraCode Nerd Font Mono
+    style: Italic
+
+  # Bold italic font face
+  # Note: Since i don't have a font italic version of this font, I just specified
+  # italic & it just works. You may specifiy the bold italic version if it exists
+  # for your font
+  bold_italic:
+    family: FiraCode Nerd Font Mono
+    style: Italic
+
+  # Font size
+  size: 10.0
+
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing
+  # I've given in 14 spacing which fits really well with my fonts, you may change it
+  # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
+  offset:
+   x: 0
+   y: 4
+
+  # Note: This requires RESTART
+  # By default when you change the offset above you'll see an issue, where the texts are bottom
+  # aligned with the cursor, this is to make sure they center align.
+  # This offset should usually be 1/2 of the above offset-y being set.
+  glyph_offset:
+   x: 0
+   # Keeping this as half of offset to vertically align the text in cursor
+   y: 2
+
+  # Better font rendering for mac
+  use_thin_strokes: false
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+# Setup some amazing custom key bindings here - Best thing is you can setup key bindings
+# using Mac's 'command' to control your tmux.
+# A great reference: https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/#make-alacritty-feel-like-iterm2
+# key_bindings:
+#   # ctrl-^ doesn't work in some terminals like alacritty
+#   - { key: Key6, mods: Control, chars: "\x1e" }
+#   - { key: Left, mods: Alt, chars: "\x1BB" }
+#   - { key: Right, mods: Alt, chars: "\x1BF" }
+
+alt_send_esc: false
+
+shell:
+  program: /usr/bin/fish
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
+# Colors (Afterglow)
+colors:
+  # Default colors
+  primary:
+    background: '0x2c2c2c'
+    foreground: '0xd6d6d6'
+
+    dim_foreground:    '0xdbdbdb'
+    bright_foreground: '0xd9d9d9'
+    dim_background:    '0x202020' # not sure
+    bright_background: '0x3a3a3a' # not sure
+
+  # Cursor colors
+  cursor:
+    text:   '0x2c2c2c'
+    cursor: '0xd9d9d9'
+
+  # Normal colors
+  normal:
+    black:   '0x1c1c1c'
+    red:     '0xbc5653'
+    green:   '0x909d63'
+    yellow:  '0xebc17a'
+    blue:    '0x7eaac7'
+    magenta: '0xaa6292'
+    cyan:    '0x86d3ce'
+    white:   '0xcacaca'
+
+  # Bright colors
+  bright:
+    black:   '0x636363'
+    red:     '0xbc5653'
+    green:   '0x909d63'
+    yellow:  '0xebc17a'
+    blue:    '0x7eaac7'
+    magenta: '0xaa6292'
+    cyan:    '0x86d3ce'
+    white:   '0xf7f7f7'
+
+  # Dim colors
+  dim:
+    black:   '0x232323'
+    red:     '0x74423f'
+    green:   '0x5e6547'
+    yellow:  '0x8b7653'
+    blue:    '0x556b79'
+    magenta: '0x6e4962'
+    cyan:    '0x5c8482'
+    white:   '0x828282'
