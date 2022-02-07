@@ -72,6 +72,7 @@ menus/
 mimeapps.list
 neofetch/
 nvim/autoload/
+nvim_backup/autoload/
 okularpartrc
 okularrc
 omf/
