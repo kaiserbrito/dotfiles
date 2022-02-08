@@ -99,9 +99,9 @@ packer.startup {
     use {
       "marko-cerovac/material.nvim",
       config = function()
-        vim.g.material_style = "darker"
+        vim.g.material_style = 'darker'
         require("configs.material").config()
-      end,
+      end
     }
 
     -- Syntax highlighting

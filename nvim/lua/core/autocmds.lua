@@ -2,8 +2,6 @@ local M = {}
 
 local utils = require "core.utils"
 
-vim.cmd "colorscheme onedark"
-
 vim.cmd [[
   augroup packer_user_config
     autocmd!

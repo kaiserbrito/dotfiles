@@ -1,8 +1,37 @@
-require('material').setup({
+local M = {}
 
-	lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
+function M.config()
+  local status_ok, material = pcall(require, "material")
+  if not status_ok then
+    return
+  end
 
-	async_loading = true -- Load parts of the theme asyncronously for faster startup (turned on by default)
+  material.setup({
+    contrast = {
+      sidebars = true,
+      cursor_line = true,
+    },
+    italics = {
+      comments = true,
+      functions = true,
+    },
+    contrast_filetypes = {
+      "terminal",
+      "packer",
+      "qf",
+    },
+    high_visibility = {
+      lighter = true,
+      darker = true
+    },
+    disable = {
+      borders = true,
+      eob_lines = true
+    },
+    lualine_style = 'stealth'
+  })
 
-	custom_highlights = {} -- Overwrite highlights with your own
-})
+  vim.cmd "colorscheme material"
+end
+
+return M
