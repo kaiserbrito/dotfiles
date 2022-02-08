@@ -1,7 +1,6 @@
 local M = {}
 
 local utils = require "core.utils"
-local config = utils.user_settings()
 
 local packer_status_ok, packer = pcall(require, "packer")
 if not packer_status_ok then
@@ -45,11 +44,6 @@ packer.startup {
       "AndrewRadev/splitjoin.vim"
     }
 
-    -- Material Theme
-    use {
-      "marko-cerovac/material.nvim"
-    }
-
     -- Boost startup time
     use {
       "nathom/filetype.nvim",
@@ -90,8 +84,7 @@ packer.startup {
       cmd = "NvimTreeToggle",
       config = function()
         require("configs.nvim-tree").config()
-      end,
-      disable = not config.enabled.nvim_tree,
+      end
     }
 
     -- Statusline
@@ -99,8 +92,16 @@ packer.startup {
       "nvim-lualine/lualine.nvim",
       config = function()
         require("configs.lualine").config()
+      end
+    }
+
+    -- Material Theme
+    use {
+      "marko-cerovac/material.nvim",
+      config = function()
+        vim.g.material_style = "darker"
+        require("configs.material").config()
       end,
-      disable = not config.enabled.lualine,
     }
 
     -- Syntax highlighting
@@ -125,14 +126,12 @@ packer.startup {
         {
           -- Parenthesis highlighting
           "p00f/nvim-ts-rainbow",
-          after = "nvim-treesitter",
-          disable = not config.enabled.ts_rainbow,
+          after = "nvim-treesitter"
         },
         {
           -- Autoclose tags
           "windwp/nvim-ts-autotag",
-          after = "nvim-treesitter",
-          disable = not config.enabled.ts_autotag,
+          after = "nvim-treesitter"
         },
         {
           -- Context based commenting
@@ -217,8 +216,7 @@ packer.startup {
       event = "BufRead",
       config = function()
         require("configs.lsp.lspsaga").config()
-      end,
-      disable = not config.enabled.lspsaga,
+      end
     }
 
     -- LSP symbols
@@ -227,8 +225,7 @@ packer.startup {
       cmd = "SymbolsOutline",
       setup = function()
         require("configs.symbols-outline").setup()
-      end,
-      disable = not config.enabled.symbols_outline,
+      end
     }
 
     -- Formatting and linting
@@ -261,8 +258,7 @@ packer.startup {
       event = "BufRead",
       config = function()
         require("configs.gitsigns").config()
-      end,
-      disable = not config.enabled.gitsigns,
+      end
     }
 
     -- Start screen
@@ -270,8 +266,7 @@ packer.startup {
       "glepnir/dashboard-nvim",
       config = function()
         require("configs.dashboard").config()
-      end,
-      disable = not config.enabled.dashboard,
+      end
     }
 
     -- Color highlighting
@@ -280,8 +275,7 @@ packer.startup {
       event = "BufRead",
       config = function()
         require("configs.colorizer").config()
-      end,
-      disable = not config.enabled.colorizer,
+      end
     }
 
     -- Autopairs
@@ -299,8 +293,7 @@ packer.startup {
       cmd = "ToggleTerm",
       config = function()
         require("configs.toggleterm").config()
-      end,
-      disable = not config.enabled.toggle_term,
+      end
     }
 
     -- Commenting
@@ -309,8 +302,7 @@ packer.startup {
       event = "BufRead",
       config = function()
         require("configs.comment").config()
-      end,
-      disable = not config.enabled.comment,
+      end
     }
 
     -- Indentation
@@ -318,8 +310,7 @@ packer.startup {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
         require("configs.indent-line").config()
-      end,
-      disable = not config.enabled.indent_blankline,
+      end
     }
 
     -- Keymaps popup
@@ -327,8 +318,7 @@ packer.startup {
       "folke/which-key.nvim",
       config = function()
         require("configs.which-key").config()
-      end,
-      disable = not config.enabled.which_key,
+      end
     }
 
     -- Smooth scrolling
@@ -337,8 +327,7 @@ packer.startup {
       event = "BufRead",
       config = function()
         require("configs.neoscroll").config()
-      end,
-      disable = not config.enabled.neoscroll,
+      end
     }
 
     -- Smooth escaping
@@ -353,13 +342,6 @@ packer.startup {
         }
       end,
     }
-
-    -- User defined plugins
-    if config.plugins and not vim.tbl_isempty(config.plugins) then
-      for _, plugin in pairs(config.plugins) do
-        use(plugin)
-      end
-    end
   end,
   config = {
     compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",

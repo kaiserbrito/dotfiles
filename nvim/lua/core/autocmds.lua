@@ -1,7 +1,8 @@
 local M = {}
 
 local utils = require "core.utils"
-local colorscheme = utils.user_settings().colorscheme
+
+vim.cmd "colorscheme onedark"
 
 vim.cmd [[
   augroup packer_user_config
@@ -27,15 +28,6 @@ vim.cmd [[
     autocmd BufEnter * if &ft is "dashboard" | set nocursorline | endif
   augroup end
 ]]
-
-vim.cmd(string.format(
-  [[
-    augroup colorscheme
-      autocmd!
-      autocmd VimEnter * colorscheme %s
-    augroup end]],
-  colorscheme
-))
 
 
 vim.cmd [[

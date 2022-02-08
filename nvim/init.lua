@@ -20,6 +20,4 @@ for _, source in ipairs(sources) do
   end
 end
 
-utils.user_settings()
-
 utils.compiled()
