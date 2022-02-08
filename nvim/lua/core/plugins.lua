@@ -30,6 +30,26 @@ packer.startup {
       "nvim-lua/popup.nvim",
     }
 
+    -- Multiple cursors
+    use {
+      "mg979/vim-visual-multi"
+    }
+
+    -- Run tests in another Tmux pane
+    use {
+      "preservim/vimux"
+    }
+
+    -- Split Join
+    use {
+      "AndrewRadev/splitjoin.vim"
+    }
+
+    -- Material Theme
+    use {
+      "marko-cerovac/material.nvim"
+    }
+
     -- Boost startup time
     use {
       "nathom/filetype.nvim",
@@ -77,7 +97,6 @@ packer.startup {
     -- Statusline
     use {
       "nvim-lualine/lualine.nvim",
-      after = "bufferline.nvim",
       config = function()
         require("configs.lualine").config()
       end,
