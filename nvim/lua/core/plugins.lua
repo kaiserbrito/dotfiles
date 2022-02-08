@@ -55,19 +55,13 @@ packer.startup {
       end,
     }
 
-    -- Bufferline
+    -- Tab
     use {
-      "akinsho/bufferline.nvim",
-      after = "nvim-web-devicons",
+      "alvarosevilla95/luatab.nvim",
       config = function()
-        require("configs.bufferline").config()
+        require("configs.luatab").config()
       end,
-    }
-
-    -- Better buffer closing
-    use {
-      "moll/vim-bbye",
-      after = "bufferline.nvim",
+      requires="kyazdani42/nvim-web-devicons"
     }
 
     -- File explorer
