@@ -71,7 +71,6 @@ function M.config()
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["w"] = { "<cmd>w<CR>", "Save" },
     ["q"] = { "<cmd>q<CR>", "Quit" },
-    ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<cr>", "Comment" },
 
