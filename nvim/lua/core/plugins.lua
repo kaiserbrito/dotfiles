@@ -44,6 +44,14 @@ packer.startup {
       "AndrewRadev/splitjoin.vim"
     }
 
+    -- Neovim Tmux
+    use {
+      "aserowy/tmux.nvim",
+      config = function()
+        require("configs.tmux").config()
+      end
+    }
+
     -- Boost startup time
     use {
       "nathom/filetype.nvim",
