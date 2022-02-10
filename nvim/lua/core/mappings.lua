@@ -16,6 +16,9 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Clear search highlight
+map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+
 -- Disabling arrow keys
 map("n", "<Left>", ":echoe 'Use h'<CR>", opts) 
 map("n", "<Right>", ":echoe 'Use l'<CR>", opts) 
