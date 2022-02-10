@@ -14,7 +14,6 @@ function M.config()
 
       prompt_prefix = " ",
       selection_caret = "❯ ",
-      path_display = { "smart" },
 
       mappings = {
         i = {
