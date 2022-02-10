@@ -59,7 +59,7 @@ function M.config()
 
   local opts = {
     mode = "n",
-    prefix = "<leader>",
+    prefix = "<leader>w",
     buffer = nil,
     silent = true,
     noremap = true,
@@ -67,13 +67,6 @@ function M.config()
   }
 
   local mappings = {
-    ["d"] = { "<cmd>Dashboard<cr>", "Dashboard" },
-    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    ["w"] = { "<cmd>w<CR>", "Save" },
-    ["q"] = { "<cmd>q<CR>", "Quit" },
-    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<cr>", "Comment" },
-
     p = {
       name = "Packer",
       c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -85,7 +78,6 @@ function M.config()
 
     g = {
       name = "Git",
-      g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
       j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
       k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
       l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -96,7 +88,7 @@ function M.config()
       u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
       o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+      c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
       d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
     },
 
