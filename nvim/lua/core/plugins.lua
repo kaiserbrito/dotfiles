@@ -236,15 +236,6 @@ packer.startup {
       end
     }
 
-    -- Formatting and linting
-    use {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = "BufRead",
-      config = function()
-        require "user.null-ls".config()
-      end,
-    }
-
     -- Fuzzy finder
     use {
       "nvim-telescope/telescope.nvim",

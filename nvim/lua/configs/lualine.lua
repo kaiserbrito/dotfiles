@@ -136,12 +136,6 @@ function M.config()
       local buf_ft = vim.bo.filetype
       local buf_client_names = {}
 
-      for _, client in pairs(buf_clients) do
-        if client.name ~= "null-ls" then
-          table.insert(buf_client_names, client.name)
-        end
-      end
-
       local formatters = require "core.utils"
       local supported_formatters = formatters.list_registered_formatters(buf_ft)
       vim.list_extend(buf_client_names, supported_formatters)
