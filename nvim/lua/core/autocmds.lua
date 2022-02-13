@@ -1,7 +1,5 @@
 local M = {}
 
-local utils = require "core.utils"
-
 vim.cmd [[
   augroup packer_user_config
     autocmd!
@@ -27,9 +25,10 @@ vim.cmd [[
   augroup end
 ]]
 
-
 vim.cmd [[
   command! NeovimUpdate lua require('core.utils').update()
 ]]
+
+vim.cmd 'autocmd BufRead,BufNewFile *.ex,*.exs,mix.lock set filetype=elixir'
 
 return M
