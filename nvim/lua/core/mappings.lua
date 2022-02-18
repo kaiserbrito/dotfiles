@@ -16,6 +16,10 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Autoformat paste text
+map("n", "P", "P=`]", opts)
+map("n", "p", "p=`]", opts)
+
 -- Tabs
 map("n", "<S-Tab>", ":tabprev<Return>",opts) 
 map("n", "<Tab>", ":tabnext<Return>",opts) 
