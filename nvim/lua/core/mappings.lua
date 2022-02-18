@@ -16,6 +16,10 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Split windows
+map("n", "vv", "<C-w>v", opts)
+map("n", "ss", "<C-w>s", opts)
+
 -- Gitsigns
 map("n", "<leader>j", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
 map("n", "<leader>k", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
