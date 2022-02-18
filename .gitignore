@@ -98,7 +98,9 @@ xdg-desktop-portal-kderc
 xsettingsd/
 yakuakerc
 
+enchant/
 evolution/
+gedit/
 gnome-initial-setup-done
 ibus/
 nvim/dotfiles/
