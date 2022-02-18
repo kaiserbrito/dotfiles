@@ -81,8 +81,6 @@ map("n", "<leader>o", "<cmd>NvimTreeFocus<CR>", opts)
 map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
 map("n", "<leader>db", "<cmd>Dashboard<CR>", opts)
 map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
-map("n", "<leader>sl", "<cmd>SessionLoad<CR>", opts)
-map("n", "<leader>ss", "<cmd>SessionSave<CR>", opts)
 
 -- Telescope
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", opts)
@@ -109,9 +107,6 @@ map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(v
 
 -- Terminal
 map("n", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
-
--- SaveSession
-map("n", "<leader>ss", "<cmd>SessionSave<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
