@@ -16,6 +16,11 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Tabs
+map("n", "<S-Tab>", ":tabprev<Return>",opts) 
+map("n", "<Tab>", ":tabnext<Return>",opts) 
+map("n", "<C-T>", ":tabnew<Return>",opts) 
+
 -- Split windows
 map("n", "vv", "<C-w>v", opts)
 map("n", "ss", "<C-w>s", opts)
