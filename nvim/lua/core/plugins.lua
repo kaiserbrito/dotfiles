@@ -251,6 +251,15 @@ packer.startup {
       run = "make",
     }
 
+    -- Formatting and linting
+    use {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require("configs.null-ls").config()
+      end,
+      requires = { "nvim-lua/plenary.nvim" }
+    }
+
     -- Git integration
     use {
       "lewis6991/gitsigns.nvim",
