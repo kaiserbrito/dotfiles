@@ -1,7 +1,5 @@
 local M = {}
 
-local utils = require "core.utils"
-
 local packer_status_ok, packer = pcall(require, "packer")
 if not packer_status_ok then
   return
@@ -266,6 +264,15 @@ packer.startup {
       event = "BufRead",
       config = function()
         require("configs.gitsigns").config()
+      end
+    }
+
+    -- Tests
+    use {
+      "vim-test/vim-test",
+      event = "BufRead",
+      config = function()
+        require("configs.vim-test")
       end
     }
 
