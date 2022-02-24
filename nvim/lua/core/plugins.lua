@@ -276,6 +276,18 @@ packer.startup {
       end
     }
 
+    -- Rails
+    use {
+      "tpope/vim-rails",
+      event = "BufRead"
+    }
+
+    -- Abolish
+    use {
+      "tpope/vim-abolish",
+      event = "BufRead"
+    }
+
     -- Start screen
     use {
       "glepnir/dashboard-nvim",
