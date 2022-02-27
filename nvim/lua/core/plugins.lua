@@ -75,14 +75,15 @@ packer.startup {
       end,
     }
 
-    -- Tab
+    -- Buffer
     use {
-      "alvarosevilla95/luatab.nvim",
+      "akinsho/bufferline.nvim",
       config = function()
-        require("configs.luatab").config()
+        require("configs.bufferline").config()
       end,
       requires="kyazdani42/nvim-web-devicons"
     }
+    use "moll/vim-bbye"
 
     -- File explorer
     use {
