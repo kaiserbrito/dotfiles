@@ -16,14 +16,10 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
--- Autoformat paste text
-map("n", "P", "P=`]", opts)
-map("n", "p", "p=`]", opts)
-
 -- Tabs
-map("n", "<S-Tab>", ":tabprev<Return>",opts) 
-map("n", "<Tab>", ":tabnext<Return>",opts) 
-map("n", "<C-T>", ":tabnew<Return>",opts) 
+map("n", "<S-Tab>", ":tabprev<Return>",opts)
+map("n", "<Tab>", ":tabnext<Return>",opts)
+map("n", "<C-T>", ":tabnew<Return>",opts)
 
 -- Split windows
 map("n", "vv", "<C-w>v", opts)
@@ -51,10 +47,10 @@ map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Disabling arrow keys
-map("n", "<Left>", ":echoe 'Use h'<CR>", opts) 
-map("n", "<Right>", ":echoe 'Use l'<CR>", opts) 
-map("n", "<Up>", ":echoe 'Use k'<CR>", opts) 
-map("n", "<Down>", ":echoe 'Use j'<CR>", opts) 
+map("n", "<Left>", ":echoe 'Use h'<CR>", opts)
+map("n", "<Right>", ":echoe 'Use l'<CR>", opts)
+map("n", "<Up>", ":echoe 'Use k'<CR>", opts)
+map("n", "<Down>", ":echoe 'Use j'<CR>", opts)
 
 -- Replace to better go to the beginning of the line
 map("n", "0", "^", opts)
