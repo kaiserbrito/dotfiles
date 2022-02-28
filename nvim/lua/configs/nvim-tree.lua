@@ -6,7 +6,13 @@ function M.config()
     return
   end
 
+  local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+  if not config_status_ok then
+    return
+  end
+
   local g = vim.g
+  local tree_cb = nvim_tree_config.nvim_tree_callback
 
   nvimtree.setup {
     filters = {
@@ -45,7 +51,7 @@ function M.config()
       },
     },
     view = {
-      width = 25,
+      width = 30,
       height = 30,
       side = "left",
       allow_resize = true,
@@ -53,6 +59,14 @@ function M.config()
       number = false,
       relativenumber = false,
       signcolumn = "yes",
+      mappings = {
+        custom_only = false,
+        list = {
+          { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+          { key = "h", cb = tree_cb "close_node" },
+          { key = "v", cb = tree_cb "vsplit" },
+        },
+      },
     },
     git = {
       enable = true,
