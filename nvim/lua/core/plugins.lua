@@ -148,6 +148,10 @@ packer.startup {
       },
     }
 
+    use {
+      "andymass/vim-matchup"
+    }
+
     -- Snippet engine
     use {
       "L3MON4D3/LuaSnip",

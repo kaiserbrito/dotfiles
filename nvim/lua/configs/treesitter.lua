@@ -48,6 +48,9 @@ function M.config()
     autotag = {
       enable = true,
     },
+    matchup = {
+      enable = true,
+    },
   }
 end
 
