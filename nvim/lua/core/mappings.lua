@@ -81,7 +81,8 @@ map("n", "<leader>db", "<cmd>Dashboard<CR>", opts)
 map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
 
 -- Telescope
-map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", opts)
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", opts)
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", opts)
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", opts)
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
