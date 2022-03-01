@@ -284,7 +284,10 @@ packer.startup {
     -- Rails
     use {
       "tpope/vim-rails",
-      event = "BufRead"
+      event = "BufRead",
+      config = function ()
+        require("configs.vim-rails")
+      end
     }
 
     -- Abolish
