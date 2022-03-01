@@ -296,6 +296,11 @@ packer.startup {
       event = "BufRead"
     }
 
+    -- Surround
+    use {
+      "tpope/vim-surround"
+    }
+
     -- Start screen
     use {
       "glepnir/dashboard-nvim",
