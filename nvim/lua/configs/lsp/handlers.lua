@@ -76,6 +76,9 @@ M.on_attach = function(client, bufnr)
   if client.name == "elixirls" then
     client.resolved_capabilities.document_formatting = false
   end
+  if client.name == "yamlls" then
+    client.resolved_capabilities.document_formatting = false
+  end
   lsp_keymaps(bufnr)
 end
 

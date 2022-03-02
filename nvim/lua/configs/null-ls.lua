@@ -23,7 +23,9 @@ function M.config()
       formatting.mix,
       diagnostics.credo,
       -- JS
-      formatting.prettierd,
+      formatting.prettier.with {
+        extra_args = {"--single-quote"}
+      },
       -- Fish
       formatting.fish_indent,
       -- Go
