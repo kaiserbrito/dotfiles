@@ -58,30 +58,23 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+  local lsp_client = {
+    "elixirls",
+    "gopls",
+    "html",
+    "jsonls",
+    "solargraph",
+    "sumneko_lua",
+    "tsserver",
+    "yamlls"
+  }
+
+  for _, value in ipairs(lsp_client) do
+    if client.name == value then
+      client.resolved_capabilities.document_formatting = false
+    end
   end
-  if client.name == "jsonls" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "html" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "solargraph" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "elixirls" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "yamlls" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "gopls" then
-    client.resolved_capabilities.document_formatting = false
-  end
+
   lsp_keymaps(bufnr)
 end
 
