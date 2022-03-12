@@ -29,6 +29,7 @@ function M.config()
       -- Fish
       formatting.fish_indent,
       -- Go
+      diagnostics.golangci_lint,
       formatting.gofmt,
       formatting.goimports,
       -- Ruby
