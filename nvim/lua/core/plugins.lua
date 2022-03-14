@@ -361,6 +361,13 @@ packer.startup {
       end
     }
 
+    -- Preview Markdown
+    use {
+      "iamcco/markdown-preview.nvim",
+      event = "BufRead",
+      run = ":call mkdp#util#install()",
+    }
+
     -- Smooth scrolling
     use {
       "karb94/neoscroll.nvim",

@@ -107,6 +107,9 @@ map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(v
 -- Terminal
 map("n", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
 
+-- Markdown Preview
+map("n", "<leader>mp", "<Plug>MarkdownPreview", opts)
+
 -- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", opts)

@@ -102,6 +102,11 @@ function M.config()
       s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     },
 
+    m = {
+      name = "Markdown Preview",
+      p = { "<Plug>MarkdownPreview", "Preview" },
+    },
+
     s = {
       name = "Search",
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
