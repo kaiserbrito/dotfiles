@@ -102,12 +102,11 @@ packer.startup {
       end
     }
 
-    -- Material Theme
+    -- Github Theme
     use {
-      "marko-cerovac/material.nvim",
+      "projekt0n/github-nvim-theme",
       config = function()
-        vim.g.material_style = 'darker'
-        require("configs.material").config()
+        require("configs.theme").config()
       end
     }
 
