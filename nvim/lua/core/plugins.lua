@@ -271,6 +271,18 @@ packer.startup {
       end
     }
 
+    use {
+      "pwntester/octo.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+        "kyazdani42/nvim-web-devicons",
+      },
+      config = function ()
+        require("configs.octo").config()
+      end
+    }
+
     -- Tests
     use {
       "vim-test/vim-test",
