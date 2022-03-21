@@ -72,6 +72,8 @@ menus/
 mimeapps.list
 neofetch/
 nvim/autoload/
+nvim/lua/packer_compiled.lua
+nvim_backup/autoload/
 okularpartrc
 okularrc
 omf/
@@ -107,4 +109,9 @@ mozc/
 nvim/dotfiles/
 qalculate/
 pop-shell/
+qalculate/
 touchegg/
+
+lazygit
+monitors.xml
+monitors.xml~
