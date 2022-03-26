@@ -387,19 +387,6 @@ packer.startup {
         require("configs.neoscroll").config()
       end
     }
-
-    -- Smooth escaping
-    use {
-      "max397574/better-escape.nvim",
-      event = { "InsertEnter" },
-      config = function()
-        require("better_escape").setup {
-          mapping = { "ii", "jj", "jk", "kj" },
-          timeout = vim.o.timeoutlen,
-          keys = "<ESC>",
-        }
-      end,
-    }
   end,
   config = {
     compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
