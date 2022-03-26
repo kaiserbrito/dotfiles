@@ -292,6 +292,15 @@ packer.startup {
       end
     }
 
+    -- Golang
+    use {
+      "fatih/vim-go",
+      event = "BufRead",
+      config = function ()
+        require("configs.vim-go")
+      end
+    }
+
     -- Rails
     use {
       "tpope/vim-rails",
