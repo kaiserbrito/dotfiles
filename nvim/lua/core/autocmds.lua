@@ -31,6 +31,7 @@ vim.cmd [[
 
 vim.cmd 'autocmd BufRead,BufNewFile *.ex,*.exs,mix.lock set filetype=elixir'
 vim.cmd 'autocmd BufRead,BufNewFile *.rb,*.rake,Gemfile.lock,Gemfile,*.erb,*.haml set filetype=ruby'
+vim.cmd 'autocmd FileType go setlocal shiftwidth=4 tabstop=4'
 
 vim.cmd [[
   " auto save 
