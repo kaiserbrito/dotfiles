@@ -32,4 +32,11 @@ vim.cmd [[
 vim.cmd 'autocmd BufRead,BufNewFile *.ex,*.exs,mix.lock set filetype=elixir'
 vim.cmd 'autocmd BufRead,BufNewFile *.rb,*.rake,Gemfile.lock,Gemfile,*.erb,*.haml set filetype=ruby'
 
+vim.cmd [[
+  " auto save 
+  autocmd FocusLost * silent! wa
+  autocmd BufLeave * silent! wa
+  autocmd WinLeave * silent! wa
+]]
+
 return M
