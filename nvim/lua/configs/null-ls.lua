@@ -21,7 +21,6 @@ function M.config()
     sources = {
       -- Elixir
       formatting.mix,
-      diagnostics.credo,
       -- JS
       formatting.prettier.with {
         extra_args = {"--single-quote"}
