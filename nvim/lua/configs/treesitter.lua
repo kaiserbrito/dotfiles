@@ -9,6 +9,7 @@ function M.config()
   treesitter.setup {
     ensure_installed = {
       "ruby",
+      "typescript",
       "tsx",
       "json",
       "yaml",
