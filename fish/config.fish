@@ -16,6 +16,7 @@ alias be="bundle exec"
 set -x BUNDLE_GITHUB__COM x-access-token:$github_token
 set -x EDITOR nvim
 set -x DISABLE_SPRING 1
+set -x TERM screen-256color
 
 # Functions needed for !! and !$
 function __history_previous_command
