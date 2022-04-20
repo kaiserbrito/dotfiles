@@ -68,12 +68,13 @@ function M.config()
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     },
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    window = {
+      documentation = {
+        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
     },
-    experimental = {
-      ghost_text = false,
-      native_menu = false,
+    },
+    view = {
+      entries = "native",
     },
     completion = {
       keyword_length = 1,
@@ -84,12 +85,12 @@ function M.config()
       { name = "buffer" },
       { name = "path" },
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
       ["<C-k>"] = cmp.mapping.select_prev_item(),
       ["<C-j>"] = cmp.mapping.select_next_item(),
-      ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-      ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+      ["<C-d>"] = cmp.mapping.scroll_docs(-1),
+      ["<C-f>"] = cmp.mapping.scroll_docs(1),
+      ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-y>"] = cmp.config.disable,
       ["<C-e>"] = cmp.mapping {
         i = cmp.mapping.abort(),
@@ -124,7 +125,7 @@ function M.config()
         "i",
         "s",
       }),
-    },
+    }),
   }
 end
 
