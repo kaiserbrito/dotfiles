@@ -347,15 +347,6 @@ packer.startup {
       end
     }
 
-    -- Commenting
-    use {
-      "numToStr/Comment.nvim",
-      event = "BufRead",
-      config = function()
-        require("configs.comment").config()
-      end
-    }
-
     -- Indentation
     use {
       "lukas-reineke/indent-blankline.nvim",
