@@ -41,6 +41,9 @@ map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", opts)
 map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
+-- Neogit
+map("n", "<leader>gt", "<cmd>Neogit<CR>", opts)
+
 -- Clear search highlight
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
@@ -83,7 +86,6 @@ map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
 -- Telescope
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
 map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", opts)
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", opts)
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", opts)
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
