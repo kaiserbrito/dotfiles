@@ -10,8 +10,8 @@ function M.config()
     disable_signs = false,
     disable_hint = false,
     disable_context_highlighting = false,
-    disable_commit_confirmation = false,
-    -- Neogit refreshes its internal state after specific events, which can be expensive depending on the repository size. 
+    disable_commit_confirmation = true,
+    -- Neogit refreshes its internal state after specific events, which can be expensive depending on the repository size.
     -- Disabling `auto_refresh` will make it so you have to manually refresh the status after you open it.
     auto_refresh = true,
     disable_builtin_notifications = false,
@@ -33,15 +33,15 @@ function M.config()
       -- The diffview integration enables the diff popup, which is a wrapper around `sindrets/diffview.nvim`.
       --
       -- Requires you to have `sindrets/diffview.nvim` installed.
-      -- use { 
-      --   'TimUntersberger/neogit', 
-      --   requires = { 
+      -- use {
+      --   'TimUntersberger/neogit',
+      --   requires = {
       --     'nvim-lua/plenary.nvim',
-      --     'sindrets/diffview.nvim' 
+      --     'sindrets/diffview.nvim'
       --   }
       -- }
       --
-      diffview = false  
+      diffview = false
     },
     -- Setting any section to `false` will make the section not render at all
     sections = {
