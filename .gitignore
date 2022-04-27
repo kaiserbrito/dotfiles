@@ -121,3 +121,5 @@ dleyna-server-service.conf
 pavucontrol.ini
 zoomus.conf
 pop-system-updater
+.gsd-keyboard.settings-ported
+khelpcenterrc
