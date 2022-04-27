@@ -50,6 +50,15 @@ packer.startup {
       end
     }
 
+    -- Open file paths printed in tmux pane
+    use {
+      "shivamashtikar/tmuxjump.vim",
+      event = "BufRead",
+      config = function ()
+        vim.g.tmuxjump_telescope = true
+      end
+    }
+
     -- Boost startup time
     use {
       "nathom/filetype.nvim",

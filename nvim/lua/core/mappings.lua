@@ -102,6 +102,10 @@ map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)
 map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
 map("n", "<leader>f", ":Format<CR>", opts)
 
+-- Tmuxump
+map("n", "<leader>ft", ":TmuxJumpFile<CR>", opts)
+map("n", "<leader>;", ":TmuxJumpFirst<CR>", opts)
+
 -- Comment
 map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
