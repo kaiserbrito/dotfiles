@@ -50,6 +50,14 @@ packer.startup {
       end
     }
 
+    -- Comment
+    use {
+      "numToStr/Comment.nvim",
+      config = function ()
+        require("configs.comment").config()
+      end
+    }
+
     -- Open file paths printed in tmux pane
     use {
       "shivamashtikar/tmuxjump.vim",
@@ -147,11 +155,6 @@ packer.startup {
           -- Autoclose tags
           "windwp/nvim-ts-autotag",
           after = "nvim-treesitter"
-        },
-        {
-          -- Context based commenting
-          "JoosepAlviste/nvim-ts-context-commentstring",
-          after = "nvim-treesitter",
         },
       },
     }
