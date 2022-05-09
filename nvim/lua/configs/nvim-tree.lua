@@ -15,6 +15,7 @@ function M.config()
   local tree_cb = nvim_tree_config.nvim_tree_callback
 
   nvimtree.setup {
+    auto_reload_on_write = true,
     filters = {
       dotfiles = false,
       custom = {
@@ -23,23 +24,33 @@ function M.config()
         ".cache",
       },
     },
-    disable_netrw = true,
+    disable_netrw = false,
     hijack_netrw = true,
     ignore_ft_on_setup = {
       "dashboard",
       "startify",
       "alpha",
     },
+    ignore_buffer_on_setup = false,
     auto_close = true,
     open_on_tab = false,
-    quit_on_open = false,
+    open_on_setup = false,
+    open_on_setup_file = false,
     hijack_cursor = true,
-    hide_root_folder = true,
+    hijack_unnamed_buffer_when_opening = false,
+    hijack_directories = {
+      enable = true,
+      auto_open = true,
+    },
     update_cwd = true,
     update_focused_file = {
       enable = true,
       update_cwd = true,
       ignore_list = {},
+    },
+    system_open = {
+      cmd = "",
+      args = {},
     },
     diagnostics = {
       enable = false,
@@ -51,14 +62,8 @@ function M.config()
       },
     },
     view = {
-      width = 30,
       height = 30,
-      side = "left",
-      allow_resize = true,
       hide_root_folder = false,
-      number = false,
-      relativenumber = false,
-      signcolumn = "yes",
       mappings = {
         custom_only = false,
         list = {
@@ -67,18 +72,49 @@ function M.config()
           { key = "v", cb = tree_cb "vsplit" },
         },
       },
+      number = false,
+      preserve_window_proportions = false,
+      relativenumber = false,
+      side = "left",
+      signcolumn = "yes",
+      width = 30,
     },
     git = {
       enable = true,
       ignore = false,
       timeout = 500,
     },
-    show_icons = {
-      git = 1,
-      folders = 1,
-      files = 1,
-      folder_arrows = 0,
-      tree_width = 30,
+    actions = {
+      use_system_clipboard = true,
+      change_dir = {
+        enable = true,
+        global = false,
+        restrict_above_cwd = false,
+      },
+      open_file = {
+        quit_on_open = false,
+        resize_window = false,
+        window_picker = {
+          enable = true,
+          chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+          exclude = {
+            filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+            buftype = { "nofile", "terminal", "help" },
+          },
+        },
+      },
+    },
+    log = {
+      enable = false,
+      truncate = false,
+      types = {
+        all = false,
+        config = false,
+        copy_paste = false,
+        diagnostics = false,
+        git = false,
+        profile = false,
+      },
     },
   }
 
