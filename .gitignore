@@ -125,3 +125,5 @@ pop-system-updater
 khelpcenterrc
 yarn/global
 font-manager
+alacritty/target
+dleyna-renderer-service.conf
