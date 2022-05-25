@@ -19,6 +19,7 @@ set -x BUNDLE_GITHUB__COM x-access-token:$github_token
 set -x EDITOR nvim
 set -x DISABLE_SPRING 1
 set -x TERM tmux-256color
+set -x GPG_TTY (tty)
 
 # Functions needed for !! and !$
 function __history_previous_command
