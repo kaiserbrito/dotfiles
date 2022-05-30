@@ -32,7 +32,6 @@ function M.config()
       "alpha",
     },
     ignore_buffer_on_setup = false,
-    auto_close = true,
     open_on_tab = false,
     open_on_setup = false,
     open_on_setup_file = false,
