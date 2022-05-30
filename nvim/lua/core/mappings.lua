@@ -95,12 +95,8 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 -- Lspsaga
 map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-map("n", "rn", "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
-map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
 map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
-map("n", "<leader>f", ":Format<CR>", opts)
 
 -- Tmuxump
 map("n", "<leader>ft", ":TmuxJumpFile<CR>", opts)
