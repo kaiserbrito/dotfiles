@@ -82,6 +82,7 @@ map("n", "<leader>o", "<cmd>NvimTreeFocus<CR>", opts)
 map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
 map("n", "<leader>db", "<cmd>Dashboard<CR>", opts)
 map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
+map("n", "<leader>sl", "<cmd>SessionLoad<CR>", opts)
 
 -- Telescope
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
