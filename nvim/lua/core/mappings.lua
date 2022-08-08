@@ -76,7 +76,6 @@ map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 
 -- NvimTree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
-map("n", "<leader>o", "<cmd>NvimTreeFocus<CR>", opts)
 
 -- Dashboard
 map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
@@ -98,10 +97,6 @@ map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
 map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
-
--- Tmuxump
-map("n", "<leader>ft", ":TmuxJumpFile<CR>", opts)
-map("n", "<leader>;", ":TmuxJumpFirst<CR>", opts)
 
 -- Comment
 map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
