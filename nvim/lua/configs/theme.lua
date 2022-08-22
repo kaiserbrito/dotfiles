@@ -1,31 +1,30 @@
 local M = {}
 
 function M.config()
-  local status_ok, github_theme = pcall(require, "github-theme")
+  local status_ok, tokyonight = pcall(require, "tokyonight")
   if not status_ok then
     return
   end
 
-  github_theme.setup({
-    theme_style = "dark_default",
-    function_style = "italic",
-    sidebars = {"qf", "vista_kind", "terminal", "packer"},
-
-    -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-    colors = {hint = "orange", error = "#ff0000"},
-
-    -- Overwrite the highlight groups
-    overrides = function(c)
-      return {
-        htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
-        DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
-        -- this will remove the highlight groups
-        TSField = {},
-      }
-    end
+  tokyonight.setup({
+    style = "night",
+    transparent = false,
+    terminal_colors = true,
+    styles = {
+      comments = "italic",
+      keywords = "italic",
+      functions = "NONE",
+      variables = "NONE",
+      sidebars = "dark",
+      floats = "dark",
+    },
+    sidebars = { "qf", "vista_kind", "terminal", "packer" },
+    hide_inactive_statusline = true,
+    dim_inactive = true,
+    lualine_bold = false,
   })
 
-  -- vim.cmd "colorscheme github-theme"
+  vim.cmd "colorscheme tokyonight"
 end
 
 return M
