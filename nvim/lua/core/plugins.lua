@@ -53,7 +53,7 @@ packer.startup {
     -- Comment
     use {
       "numToStr/Comment.nvim",
-      config = function ()
+      config = function()
         require("configs.comment").config()
       end
     }
@@ -62,7 +62,7 @@ packer.startup {
     use {
       "shivamashtikar/tmuxjump.vim",
       event = "BufRead",
-      config = function ()
+      config = function()
         vim.g.tmuxjump_telescope = true
       end
     }
@@ -98,7 +98,7 @@ packer.startup {
       config = function()
         require("configs.bufferline").config()
       end,
-      requires="kyazdani42/nvim-web-devicons"
+      requires = "kyazdani42/nvim-web-devicons"
     }
     use "moll/vim-bbye"
 
@@ -290,7 +290,7 @@ packer.startup {
         "nvim-telescope/telescope.nvim",
         "kyazdani42/nvim-web-devicons",
       },
-      config = function ()
+      config = function()
         require("configs.octo").config()
       end
     }
@@ -299,7 +299,7 @@ packer.startup {
       "TimUntersberger/neogit",
       requires = "nvim-lua/plenary.nvim",
       event = "BufRead",
-      config = function ()
+      config = function()
         require("configs.neogit")
       end
     }
@@ -317,7 +317,7 @@ packer.startup {
     use {
       "tpope/vim-rails",
       event = "BufRead",
-      config = function ()
+      config = function()
         require("configs.vim-rails")
       end
     }
