@@ -103,7 +103,7 @@ map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()
 map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 
 -- Terminal
-map("n", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
+map("n", "<C-\\>", '<cmd>lua require("FTerm").toggle()<CR>', opts)
 
 -- Markdown Preview
 map("n", "<leader>mp", "<Plug>MarkdownPreview", opts)
