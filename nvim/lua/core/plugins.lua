@@ -121,7 +121,8 @@ packer.startup {
 
     -- Colorscheme
     use {
-      "folke/tokyonight.nvim",
+      "catppuccin/nvim",
+      as = "catppuccin",
       config = function()
         require("configs.theme").config()
       end
