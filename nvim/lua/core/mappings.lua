@@ -24,8 +24,8 @@ map("n", "vv", "<C-w>v", opts)
 map("n", "ss", "<C-w>s", opts)
 
 -- Gitsigns
-map("n", "<leader>j", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
-map("n", "<leader>k", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+map("n", "<leader>j", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+map("n", "<leader>k", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
 -- Actions
 map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
 map("v", "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
@@ -91,6 +91,7 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
+map("n", "<leader>fr", "<cmd>Telescope registers<CR>", opts)
 
 -- Lspsaga
 map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
