@@ -34,6 +34,8 @@ function M.config()
       -- Ruby
       formatting.rubocop,
       diagnostics.rubocop,
+      -- Terraform
+      formatting.terraform_fmt,
     },
   }
 end

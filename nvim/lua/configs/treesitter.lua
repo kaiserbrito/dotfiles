@@ -14,6 +14,7 @@ function M.config()
       "json",
       "yaml",
       "html",
+      "hcl",
       "scss",
       "lua",
       "bash",
