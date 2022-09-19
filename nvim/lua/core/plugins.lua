@@ -75,15 +75,6 @@ packer.startup {
       end,
     }
 
-    -- Cursorhold fix
-    use {
-      "antoinemadec/FixCursorHold.nvim",
-      event = "BufRead",
-      config = function()
-        vim.g.cursorhold_updatetime = 100
-      end,
-    }
-
     -- Icons
     use {
       "kyazdani42/nvim-web-devicons",
