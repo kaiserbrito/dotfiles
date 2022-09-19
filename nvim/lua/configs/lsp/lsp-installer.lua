@@ -23,5 +23,10 @@ lsp_installer.on_server_ready(function(server)
     local solargraph = require "configs.lsp.server-settings.solargraph"
     opts = vim.tbl_deep_extend("force", solargraph, opts)
   end
+
+  if server.name == "gopls" then
+    local gopls = require "configs.lsp.server-settings.gopls"
+    opts = vim.tbl_deep_extend("force", gopls, opts)
+  end
   server:setup(opts)
 end)
