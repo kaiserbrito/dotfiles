@@ -16,6 +16,7 @@ alias ber="bundle exec rspec"
 alias be="bundle exec"
 
 set -x BUNDLE_GITHUB__COM x-access-token:$github_token
+set -x NPM_TOKEN $npm_token
 set -x EDITOR nvim
 set -x DISABLE_SPRING 1
 set -x TERM tmux-256color
