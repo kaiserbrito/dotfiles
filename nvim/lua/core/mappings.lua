@@ -99,6 +99,17 @@ map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
 map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
 
+-- Debugger
+map("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
+map("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>", opts)
+map("n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>", opts)
+map("n", "<F12>", "<cmd>lua require'dap'.step_out()<CR>", opts)
+map("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+map("n", "<leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+map("n", "<leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+map("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", opts)
+map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", opts)
+
 -- Comment
 map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)

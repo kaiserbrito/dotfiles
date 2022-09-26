@@ -242,6 +242,15 @@ packer.startup {
       end
     }
 
+    -- Debugger
+    use {
+      "mfussenegger/nvim-dap",
+      event = "BufRead",
+      config = function ()
+        require("configs.nvim-dap")
+      end
+    }
+
     -- Fuzzy finder
     use {
       "nvim-telescope/telescope.nvim",
