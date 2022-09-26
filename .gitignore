@@ -133,3 +133,8 @@ FortiClient
 connections.db
 gnome-control-center/backgrounds
 ngrok/ngrok.yml
+cef_user_data/Dictionaries
+gnome-boxes/sources
+libvirt
+nautilus
+lutris
