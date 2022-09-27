@@ -72,7 +72,7 @@ function __git.init
   __git.create_abbr glog       git log --oneline --decorate --color --graph
   __git.create_abbr gloga      git log --oneline --decorate --color --graph --all
   __git.create_abbr glom       git log --oneline --decorate --color \(__git.default_branch\)..
-  __git.create_abbr glod       git log --oneline --decorate --color develop..
+  __git.create_abbr glod       git log --oneline --decorate --color development..
   __git.create_abbr gloo       "git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
   __git.create_abbr gm         git merge
   __git.create_abbr gmt        git mergetool --no-prompt
@@ -94,9 +94,9 @@ function __git.init
   __git.create_abbr grbm       git rebase \(__git.default_branch\)
   __git.create_abbr grbmi      git rebase \(__git.default_branch\) --interactive
   __git.create_abbr grbmia     git rebase \(__git.default_branch\) --interactive --autosquash
-  __git.create_abbr grbd       git rebase develop
-  __git.create_abbr grbdi      git rebase develop --interactive
-  __git.create_abbr grbdia     git rebase develop --interactive --autosquash
+  __git.create_abbr grbd       git rebase development
+  __git.create_abbr grbdi      git rebase development --interactive
+  __git.create_abbr grbdia     git rebase development --interactive --autosquash
   __git.create_abbr grbs       git rebase --skip
   __git.create_abbr grev       git revert
   __git.create_abbr grh        git reset
@@ -140,7 +140,7 @@ function __git.init
   # git checkout abbreviations
   __git.create_abbr gco        git checkout
   __git.create_abbr gcb        git checkout -b
-  __git.create_abbr gcod       git checkout develop
+  __git.create_abbr gcod       git checkout development
   __git.create_abbr gcom       git checkout \(__git.default_branch\)
 
   # git flow abbreviations
