@@ -24,6 +24,7 @@ function M.config()
     },
     sync_install = false,
     ignore_install = {},
+    autoinstall = true,
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
