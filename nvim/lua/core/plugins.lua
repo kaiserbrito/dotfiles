@@ -61,7 +61,6 @@ packer.startup {
     -- Open file paths printed in tmux pane
     use {
       "shivamashtikar/tmuxjump.vim",
-      event = "BufRead",
       config = function()
         vim.g.tmuxjump_telescope = true
       end
@@ -170,7 +169,6 @@ packer.startup {
     -- Completion engine
     use {
       "hrsh7th/nvim-cmp",
-      event = "BufRead",
       config = function()
         require("configs.cmp").config()
       end,
@@ -202,7 +200,6 @@ packer.startup {
     -- LSP manager
     use {
       "williamboman/nvim-lsp-installer",
-      event = "BufRead",
       cmd = {
         "LspInstall",
         "LspInstallInfo",
@@ -218,7 +215,6 @@ packer.startup {
     -- Built-in LSP
     use {
       "neovim/nvim-lspconfig",
-      event = "BufRead",
       config = function()
         require "configs.lsp"
       end,
@@ -227,7 +223,6 @@ packer.startup {
     -- LSP enhancer
     use {
       "tami5/lspsaga.nvim",
-      event = "BufRead",
       config = function()
         require("configs.lsp.lspsaga").config()
       end
@@ -245,7 +240,6 @@ packer.startup {
     -- Debugger
     use {
       "mfussenegger/nvim-dap",
-      event = "BufRead",
       config = function ()
         require("configs.nvim-dap")
       end
@@ -278,7 +272,6 @@ packer.startup {
     -- Git integration
     use {
       "lewis6991/gitsigns.nvim",
-      event = "BufRead",
       config = function()
         require("configs.gitsigns").config()
       end
@@ -287,7 +280,6 @@ packer.startup {
     -- Tests
     use {
       "vim-test/vim-test",
-      event = "BufRead",
       config = function()
         require("configs.vim-test")
       end
@@ -296,7 +288,6 @@ packer.startup {
     -- Rails
     use {
       "tpope/vim-rails",
-      event = "BufRead",
       config = function()
         require("configs.vim-rails")
       end
@@ -305,7 +296,6 @@ packer.startup {
     -- Abolish
     use {
       "tpope/vim-abolish",
-      event = "BufRead"
     }
 
     -- Surround
@@ -324,7 +314,6 @@ packer.startup {
     -- Color highlighting
     use {
       "norcalli/nvim-colorizer.lua",
-      event = "BufRead",
       config = function()
         require("configs.colorizer").config()
       end
@@ -366,14 +355,12 @@ packer.startup {
     -- Preview Markdown
     use {
       "iamcco/markdown-preview.nvim",
-      event = "BufRead",
       run = ":call mkdp#util#install()",
     }
 
     -- Smooth scrolling
     use {
       "karb94/neoscroll.nvim",
-      event = "BufRead",
       config = function()
         require("configs.neoscroll").config()
       end
