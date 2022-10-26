@@ -284,27 +284,6 @@ packer.startup {
       end
     }
 
-    use {
-      "pwntester/octo.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
-        "kyazdani42/nvim-web-devicons",
-      },
-      config = function()
-        require("configs.octo").config()
-      end
-    }
-
-    use {
-      "TimUntersberger/neogit",
-      requires = "nvim-lua/plenary.nvim",
-      event = "BufRead",
-      config = function()
-        require("configs.neogit")
-      end
-    }
-
     -- Tests
     use {
       "vim-test/vim-test",

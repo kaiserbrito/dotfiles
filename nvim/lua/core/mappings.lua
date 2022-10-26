@@ -41,9 +41,6 @@ map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", opts)
 map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
--- Neogit
-map("n", "<leader>gt", "<cmd>Neogit<CR>", opts)
-
 -- Clear search highlight
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
