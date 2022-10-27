@@ -7,14 +7,16 @@ function M.config()
   end
 
   catppuccin.setup({
+    flavour = "mocha",
+    background = {
+      light = "latte",
+      dark = "mocha",
+    },
+    compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     transparent_background = false,
     term_colors = false,
-    compile = {
-      enabled = false,
-      path = vim.fn.stdpath("cache") .. "/catppuccin",
-    },
     dim_inactive = {
-      enabled = false,
+      enabled = true,
       shade = "dark",
       percentage = 0.15,
     },
@@ -47,8 +49,7 @@ function M.config()
     highlight_overrides = {},
   })
 
-  vim.g.catppuccin_flavour = "mocha"
-  vim.cmd "colorscheme catppuccin"
+  vim.api.nvim_command "colorscheme catppuccin"
 end
 
 return M
