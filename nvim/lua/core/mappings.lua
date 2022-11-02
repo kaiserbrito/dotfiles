@@ -117,6 +117,9 @@ map("n", "<C-\\>", '<cmd>lua require("FTerm").toggle()<CR>', opts)
 -- Markdown Preview
 map("n", "<leader>mp", "<Plug>MarkdownPreview", opts)
 
+-- Screenshot
+map("v", "<leader>ms", "<esc><cmd>lua require('silicon').visualise_api({to_clip = true})<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", opts)

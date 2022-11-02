@@ -365,6 +365,14 @@ packer.startup {
         require("configs.neoscroll").config()
       end
     }
+
+    -- Better screenshot
+    use {
+      "narutoxy/silicon.lua",
+      config = function()
+        require("configs.silicon").config()
+      end
+    }
   end,
   config = {
     compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
