@@ -14,6 +14,7 @@ alias authapi="cd ~/Documents/Lavanda/auth-api"
 alias nvim_config="cd ~/.config/nvim/"
 alias ber="bundle exec rspec"
 alias be="bundle exec"
+alias cat="bat --paging=never"
 
 set -x BUNDLE_GITHUB__COM x-access-token:$github_token
 set -x BUNDLE_ENTERPRISE__CONTRIBSYS__COM $sidekiq_token
