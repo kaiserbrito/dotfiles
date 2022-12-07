@@ -1,0 +1,12 @@
+gui:
+  showIcons:
+    true
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - white
+      - bold
+    inactiveBorderColor:
+      - black
+    selectedLineBgColor:
+      - black

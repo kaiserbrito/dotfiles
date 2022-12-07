@@ -112,7 +112,6 @@ pop-shell/
 qalculate/
 touchegg/
 
-lazygit
 monitors.xml
 monitors.xml~
 eog
@@ -143,3 +142,4 @@ qBittorrent
 goa-1.0
 Pop
 plugin-Autenticacao.Gov
+lazygit/state.yml
