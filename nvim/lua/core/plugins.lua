@@ -1,396 +1,126 @@
-local M = {}
+-- auto install packer if not installed
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
+    return true
+  end
+  return false
+end
+local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
-local packer_status_ok, packer = pcall(require, "packer")
-if not packer_status_ok then
+-- autocommand that reloads neovim and installs/updates/removes plugins
+-- when file is saved
+vim.cmd([[ 
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+  augroup end
+]])
+
+-- import packer safely
+local status, packer = pcall(require, "packer")
+if not status then
   return
 end
 
-packer.startup {
-  function(use)
-    -- Plugin manager
-    use {
-      "wbthomason/packer.nvim",
-    }
+-- add list of plugins to install
+return packer.startup(function(use)
+  -- packer can manage itself
+  use("wbthomason/packer.nvim")
 
-    -- Optimiser
-    use {
-      "lewis6991/impatient.nvim",
-    }
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-    -- Lua functions
-    use {
-      "nvim-lua/plenary.nvim",
-    }
+  use("glepnir/dashboard-nvim") -- Dashboard
 
-    -- Popup API
-    use {
-      "nvim-lua/popup.nvim",
-    }
+  -- Colorscheme
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin",
+  })
 
-    -- Multiple cursors
-    use {
-      "mg979/vim-visual-multi"
-    }
+  use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+  use("preservim/vimux") -- Run tests in another tmux pane
+  use("aserowy/tmux.nvim")
 
-    -- Run tests in another Tmux pane
-    use {
-      "preservim/vimux"
-    }
+  use("numToStr/Comment.nvim") -- commenting with gc
 
-    -- Split Join
-    use {
-      "AndrewRadev/splitjoin.vim"
-    }
+  use("AndrewRadev/splitjoin.vim")
 
-    -- Neovim Tmux
-    use {
-      "aserowy/tmux.nvim",
-      config = function()
-        require("configs.tmux").config()
-      end
-    }
+  use("kyazdani42/nvim-web-devicons")
 
-    -- Comment
-    use {
-      "numToStr/Comment.nvim",
-      config = function()
-        require("configs.comment").config()
-      end
-    }
+  use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- Buffer
 
-    -- Open file paths printed in tmux pane
-    use {
-      "shivamashtikar/tmuxjump.vim",
-      config = function()
-        vim.g.tmuxjump_telescope = true
-      end
-    }
+  use("moll/vim-bbye") -- Delete buffers
 
-    -- Boost startup time
-    use {
-      "nathom/filetype.nvim",
-      config = function()
-        vim.g.did_load_filetypes = 1
-      end,
-    }
+  use({ "nvim-tree/nvim-tree.lua", requires = "nvim-tree/nvim-web-devicons" }) -- file explorer
 
-    -- Icons
-    use {
-      "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("configs.icons").config()
-      end,
-    }
+  use("nvim-lualine/lualine.nvim") -- statusline
 
-    -- Buffer
-    use {
-      "akinsho/bufferline.nvim",
-      config = function()
-        require("configs.bufferline").config()
-      end,
-      requires = "kyazdani42/nvim-web-devicons"
-    }
-    use "moll/vim-bbye"
-
-    -- File explorer
-    use {
-      "kyazdani42/nvim-tree.lua",
-      cmd = "NvimTreeToggle",
-      config = function()
-        require("configs.nvim-tree").config()
-      end
-    }
-
-    -- Statusline
-    use {
-      "nvim-lualine/lualine.nvim",
-      config = function()
-        require("configs.lualine").config()
-      end
-    }
-
-    -- Colorscheme
-    use {
-      "catppuccin/nvim",
-      as = "catppuccin",
-      config = function()
-        require("configs.theme").config()
-      end
-    }
-
-    -- Syntax highlighting
-    use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-      event = "BufRead",
-      cmd = {
-        "TSInstall",
-        "TSInstallInfo",
-        "TSInstallSync",
-        "TSUninstall",
-        "TSUpdate",
-        "TSUpdateSync",
-        "TSDisableAll",
-        "TSEnableAll",
+  -- Syntax highlighting
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    requires = {
+      {
+        -- Parenthesis highlighting
+        "p00f/nvim-ts-rainbow",
+        after = "nvim-treesitter"
       },
-      config = function()
-        require("configs.treesitter").config()
-      end,
-      requires = {
-        {
-          -- Parenthesis highlighting
-          "p00f/nvim-ts-rainbow",
-          after = "nvim-treesitter"
-        },
-        {
-          -- Autoclose tags
-          "windwp/nvim-ts-autotag",
-          after = "nvim-treesitter"
-        },
+      {
+        -- Autoclose tags
+        "windwp/nvim-ts-autotag",
+        after = "nvim-treesitter"
       },
-    }
-
-    use {
-      "andymass/vim-matchup"
-    }
-
-    -- Snippet engine
-    use {
-      "L3MON4D3/LuaSnip",
-      config = function()
-        require("luasnip/loaders/from_vscode").lazy_load()
-      end,
-      requires = {
-        -- Snippet collections
-        "rafamadriz/friendly-snippets",
-      },
-    }
-
-    -- Completion engine
-    use {
-      "hrsh7th/nvim-cmp",
-      config = function()
-        require("configs.cmp").config()
-      end,
-    }
-
-    -- Snippet completion source
-    use {
-      "saadparwaiz1/cmp_luasnip",
-      after = "nvim-cmp",
-    }
-
-    -- Buffer completion source
-    use {
-      "hrsh7th/cmp-buffer",
-      after = "nvim-cmp",
-    }
-
-    -- Path completion source
-    use {
-      "hrsh7th/cmp-path",
-      after = "nvim-cmp",
-    }
-
-    -- LSP completion source
-    use {
-      "hrsh7th/cmp-nvim-lsp",
-    }
-
-    -- LSP manager
-    use {
-      "williamboman/nvim-lsp-installer",
-      cmd = {
-        "LspInstall",
-        "LspInstallInfo",
-        "LspPrintInstalled",
-        "LspRestart",
-        "LspStart",
-        "LspStop",
-        "LspUninstall",
-        "LspUninstallAll",
-      },
-    }
-
-    -- Built-in LSP
-    use {
-      "neovim/nvim-lspconfig",
-      config = function()
-        require "configs.lsp"
-      end,
-    }
-
-    -- LSP enhancer
-    use {
-      "tami5/lspsaga.nvim",
-      config = function()
-        require("configs.lsp.lspsaga").config()
-      end
-    }
-
-    -- LSP symbols
-    use {
-      "simrat39/symbols-outline.nvim",
-      cmd = "SymbolsOutline",
-      setup = function()
-        require("configs.symbols-outline").setup()
-      end
-    }
-
-    -- Debugger
-    use {
-      "mfussenegger/nvim-dap",
-      config = function ()
-        require("configs.nvim-dap")
-      end
-    }
-
-    -- Fuzzy finder
-    use {
-      "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
-      config = function()
-        require("configs.telescope").config()
-      end,
-    }
-
-    -- Fuzzy finder syntax support
-    use {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make",
-    }
-
-    -- Formatting and linting
-    use {
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        require("configs.null-ls").config()
-      end,
-      requires = { "nvim-lua/plenary.nvim" }
-    }
-
-    -- Git integration
-    use {
-      "lewis6991/gitsigns.nvim",
-      config = function()
-        require("configs.gitsigns").config()
-      end
-    }
-
-    -- Tests
-    use {
-      "vim-test/vim-test",
-      config = function()
-        require("configs.vim-test")
-      end
-    }
-
-    -- Rails
-    use {
-      "tpope/vim-rails",
-      config = function()
-        require("configs.vim-rails")
-      end
-    }
-
-    -- Abolish
-    use {
-      "tpope/vim-abolish",
-    }
-
-    -- Surround
-    use {
-      "tpope/vim-surround"
-    }
-
-    -- Start screen
-    use {
-      "glepnir/dashboard-nvim",
-      config = function()
-        require("configs.dashboard").config()
-      end
-    }
-
-    -- Color highlighting
-    use {
-      "norcalli/nvim-colorizer.lua",
-      config = function()
-        require("configs.colorizer").config()
-      end
-    }
-
-    -- Autopairs
-    use {
-      "windwp/nvim-autopairs",
-      event = "InsertEnter",
-      config = function()
-        require("configs.autopairs").config()
-      end,
-    }
-
-    -- Terminal
-    use {
-      "numToStr/FTerm.nvim",
-      config = function()
-        require("configs.terminal").config()
-      end
-    }
-
-    -- Indentation
-    use {
-      "lukas-reineke/indent-blankline.nvim",
-      config = function()
-        require("configs.indent-line").config()
-      end
-    }
-
-    -- Keymaps popup
-    use {
-      "folke/which-key.nvim",
-      config = function()
-        require("configs.which-key").config()
-      end
-    }
-
-    -- Preview Markdown
-    use {
-      "iamcco/markdown-preview.nvim",
-      run = ":call mkdp#util#install()",
-    }
-
-    -- Smooth scrolling
-    use {
-      "karb94/neoscroll.nvim",
-      config = function()
-        require("configs.neoscroll").config()
-      end
-    }
-
-    -- Better screenshot
-    use {
-      "narutoxy/silicon.lua",
-      config = function()
-        require("configs.silicon").config()
-      end
-    }
-  end,
-  config = {
-    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
-    display = {
-      open_fn = function()
-        return require("packer.util").float { border = "rounded" }
-      end,
     },
-    profile = {
-      enable = true,
-      threshold = 0.0001,
-    },
-    git = {
-      clone_timeout = 300,
-    },
-    auto_clean = true,
-    compile_on_sync = true,
-  },
-}
+  })
 
-return M
+  -- auto closing
+  use({ "windwp/nvim-autopairs" })
+
+  -- snippets
+  use("L3MON4D3/LuaSnip") -- snippet engine
+  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  use("rafamadriz/friendly-snippets") -- useful snippets
+
+  -- autocompletion
+  use("hrsh7th/nvim-cmp") -- completion plugin
+  use("hrsh7th/cmp-buffer") -- source for text in buffer
+  use("hrsh7th/cmp-path") -- source for file system paths
+  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+
+  -- managing & installing lsp servers, linters & formatters
+  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+
+  -- formatting & linting
+  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+
+  -- configuring lsp servers
+  use("neovim/nvim-lspconfig") -- easily configure language servers
+  use({ "glepnir/lspsaga.nvim" }) -- enhanced lsp uis
+  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+
+  -- fuzzy finding w/ telescope
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+  use({ "nvim-telescope/telescope.nvim" }) -- fuzzy finder
+
+  -- git integration
+  use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+  -- Essential plugins
+  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+  use("vim-test/vim-test") -- Run tests on neovim
+  use("tpope/vim-rails") -- Rails
+  use("tpope/vim-abolish")
+  use("numToStr/FTerm.nvim") -- Terminal
+  use("folke/which-key.nvim") -- Keymaps popup
+  use("karb94/neoscroll.nvim") -- Smooth scrolling
+  use("narutoxy/silicon.lua") -- Better screenshot
+
+  if packer_bootstrap then
+    require("packer").sync()
+  end
+end)

@@ -1,23 +1,27 @@
-local utils = require "core.utils"
-
-utils.disabled_builtins()
-
-utils.bootstrap()
-
-utils.impatient()
-
-local sources = {
-  "core.options",
-  "core.autocmds",
-  "core.plugins",
-  "core.mappings",
-}
-
-for _, source in ipairs(sources) do
-  local status_ok, fault = pcall(require, source)
-  if not status_ok then
-    error("Failed to load " .. source .. "\n\n" .. fault)
-  end
-end
-
-utils.compiled()
+require("core.plugins")
+require("core.options")
+require("core.mappings")
+require("configs.dashboard")
+require("configs.icons")
+require("configs.theme")
+require("configs.comment")
+require("configs.nvim-tree")
+require("configs.lualine")
+require("configs.telescope")
+require("configs.nvim-cmp")
+require("configs.null-ls")
+require("configs.lsp.mason")
+require("configs.lsp.lspsaga")
+require("configs.lsp.lspconfig")
+require("configs.gitsigns")
+require("configs.tmux")
+require("configs.bufferline")
+require("configs.treesitter")
+require("configs.autopairs")
+require("configs.vim-test")
+require("configs.vim-rails")
+require("configs.terminal")
+require("configs.which-key")
+require("configs.neoscroll")
+require("configs.silicon")
+require("core.autocmds")

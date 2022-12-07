@@ -1,5 +1,3 @@
-local M = {}
-
 local opts = { noremap = true, silent = true }
 
 local map = vim.api.nvim_set_keymap
@@ -72,7 +70,7 @@ map("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
 map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 
 -- NvimTree
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 
 -- Dashboard
 map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
@@ -136,5 +134,3 @@ map("x", "J", "<cmd>move '>+1<CR>gv-gv", opts)
 map("x", "K", "<cmd>move '<-2<CR>gv-gv", opts)
 map("x", "<A-j>", "<cmd>move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", "<cmd>move '<-2<CR>gv-gv", opts)
-
-return M

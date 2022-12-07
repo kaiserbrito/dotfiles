@@ -1,5 +1,3 @@
-local M = {}
-
 vim.cmd [[
   augroup packer_user_config
     autocmd!
@@ -25,10 +23,6 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.cmd [[
-  command! NeovimUpdate lua require('core.utils').update()
-]]
-
 vim.cmd 'autocmd BufRead,BufNewFile *.ex,*.exs,mix.lock set filetype=elixir'
 vim.cmd 'autocmd BufRead,BufNewFile *.rb,*.rake,Gemfile.lock,Gemfile,*.erb,*.haml set filetype=ruby'
 vim.cmd 'autocmd FileType go setlocal expandtab shiftwidth=4 tabstop=4'
@@ -44,5 +38,3 @@ vim.cmd [[
   autocmd BufLeave * silent! wa
   autocmd WinLeave * silent! wa
 ]]
-
-return M
