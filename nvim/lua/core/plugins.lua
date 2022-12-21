@@ -41,9 +41,13 @@ return packer.startup(function(use)
     as = "catppuccin",
   })
 
-  use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
   use("preservim/vimux") -- Run tests in another tmux pane
-  use("aserowy/tmux.nvim")
+  use({
+    "aserowy/tmux.nvim",
+    config = function ()
+      require("tmux").setup()
+    end
+  })
 
   use("numToStr/Comment.nvim") -- commenting with gc
 
