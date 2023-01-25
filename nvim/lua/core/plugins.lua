@@ -104,7 +104,14 @@ return packer.startup(function(use)
 
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
-  use({ "glepnir/lspsaga.nvim" }) -- enhanced lsp uis
+  use({
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
+    config = function ()
+      require("lspsaga").setup({})
+    end
+  })
+  -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
   -- fuzzy finding w/ telescope
