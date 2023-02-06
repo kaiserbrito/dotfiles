@@ -33,8 +33,6 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-  use("glepnir/dashboard-nvim") -- Dashboard
-
   -- Colorscheme
   use({
     "catppuccin/nvim",

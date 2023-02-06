@@ -1,7 +1,6 @@
 require("core.plugins")
 require("core.options")
 require("core.mappings")
-require("configs.dashboard")
 require("configs.icons")
 require("configs.theme")
 require("configs.comment")
