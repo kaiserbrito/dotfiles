@@ -1,5 +1,3 @@
-local M = {}
-
 local set = vim.opt
 
 set.fileencoding = "utf-8"                      -- File content encoding for the buffer
@@ -7,7 +5,7 @@ set.spelllang = "en"                            -- Support US english
 set.clipboard = "unnamedplus"                   -- Connection to the system clipboard
 set.signcolumn = "yes"                          -- Always show the sign column
 set.foldmethod = "manual"                       -- Create folds manually
-set.completeopt = { "menuone", "noselect" }     -- Options for insert mode completion
+set.completeopt = { "menu", "menuone", "noselect" }     -- Options for insert mode completion
 set.colorcolumn = "99999"                       -- Fix for the indentline problem
 set.backup = false                              -- Disable making a backup file
 set.expandtab = true                            -- Enable the use of space in tab
@@ -38,7 +36,17 @@ set.sidescrolloff = 8                           -- Number of columns to keep at 
 set.pumheight = 10                              -- Height of the pop up menu
 set.history = 100                               -- Number of commands to remember in a history table
 set.timeoutlen = 300                            -- Length of time to wait for a mapped sequence
-set.updatetime = 300                            -- Length of time to wait before triggering the plugin
+set.updatetime = 200                            -- Length of time to wait before triggering the plugin
 set.mouse = ""                                  -- Disabled mouse
+set.grepformat = "%f:%l:%c:%m"
+set.grepprg = "rg --vimgrep"
+set.laststatus = 0
+set.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
+set.shiftround = true -- Round indent
+set.spelllang = { "en" }
+set.wildmode = "longest:full,full" -- Command-line completion mode
 
-return M
+if vim.fn.has("nvim-0.9.0") == 1 then
+  set.splitkeep = "screen"
+  set.shortmess:append { C = true }
+end
