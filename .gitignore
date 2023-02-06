@@ -148,3 +148,5 @@ nvim/plugin/packer_compiled.lua
 geary/goa_account_1671451677_0
 zoom.conf
 MongoDB Compass
+GNOME-xdg-terminals.list
+xdg-terminals.list
