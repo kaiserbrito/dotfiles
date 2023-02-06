@@ -79,12 +79,12 @@ map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
 map("n", "<leader>sl", "<cmd>SessionLoad<CR>", opts)
 
 -- Telescope
-map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", opts)
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", opts)
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
-map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+map("n", "<leader>ff", "<cmd>lua require('configs.telescope-cmd').project_files()<cr>", opts)
+map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 map("n", "<leader>fr", "<cmd>Telescope registers<CR>", opts)
 
