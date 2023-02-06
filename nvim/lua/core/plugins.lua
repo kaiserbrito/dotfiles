@@ -53,7 +53,7 @@ return packer.startup(function(use)
 
   use("kyazdani42/nvim-web-devicons")
 
-  use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- Buffer
+  use({ "akinsho/bufferline.nvim" })
 
   use("moll/vim-bbye") -- Delete buffers
 
