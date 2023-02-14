@@ -65,12 +65,11 @@ local opts = {
 
 local mappings = {
   p = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
+    name = "Lazy",
+    h = { "<cmd>require('lazy').health(),cr>", "Checkhealth" },
+    i = { "<cmd>require('lazy').install()<cr>", "Install" },
+    s = { "<cmd>require('lazy').sync()<cr>", "Sync" },
+    u = { "<cmd>require('lazy').update()<cr>", "Update" },
   },
 
   g = {
