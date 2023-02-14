@@ -14,7 +14,7 @@ alias authapi="cd ~/Documents/Lavanda/auth-api"
 alias nvim_config="cd ~/.config/nvim/"
 alias ber="bundle exec rspec"
 alias be="bundle exec"
-alias cat="batcat --paging=never"
+alias cat="bat --paging=never"
 alias lzg="lazygit"
 alias lzd="lazydocker"
 
@@ -61,11 +61,5 @@ function ggone
 end
 
 starship init fish | source
-
-#fish_add_path $HOME/go/bin
-#fish_add_path $HOME/.cargo/bin
-#fish_add_path $HOME/.local/bin
-
-#set -x GOPATH $HOME/go
 
 source ~/.asdf/asdf.fish
