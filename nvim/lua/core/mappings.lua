@@ -70,7 +70,7 @@ map("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
 map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 
 -- NvimTree
-map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
+map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>", opts)
 
 -- Dashboard
 map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
