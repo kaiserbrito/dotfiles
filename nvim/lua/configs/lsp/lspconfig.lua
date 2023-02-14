@@ -55,7 +55,7 @@ local lsp_client = {
   "html",
   "jsonls",
   "solargraph",
-  "sumneko_lua",
+  "lua_ls",
   "tsserver",
   "yamlls"
 }
