@@ -13,7 +13,6 @@ function M.config()
     "help",
     "startify",
     "dashboard",
-    "packer",
     "neogitstatus",
     "NvimTree",
     "Trouble",

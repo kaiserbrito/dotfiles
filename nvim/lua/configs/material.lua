@@ -17,7 +17,6 @@ function M.config()
     },
     contrast_filetypes = {
       "terminal",
-      "packer",
       "qf",
     },
     high_visibility = {
