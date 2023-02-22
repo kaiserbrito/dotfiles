@@ -66,10 +66,10 @@ local opts = {
 local mappings = {
   p = {
     name = "Lazy",
-    h = { "<cmd>require('lazy').health(),cr>", "Checkhealth" },
-    i = { "<cmd>require('lazy').install()<cr>", "Install" },
-    s = { "<cmd>require('lazy').sync()<cr>", "Sync" },
-    u = { "<cmd>require('lazy').update()<cr>", "Update" },
+    h = { "<cmd>lua require('lazy').health()cr>", "Checkhealth" },
+    i = { "<cmd>lua require('lazy').install()<cr>", "Install" },
+    s = { "<cmd>lua require('lazy').sync()<cr>", "Sync" },
+    u = { "<cmd>lua require('lazy').update()<cr>", "Update" },
   },
 
   g = {
