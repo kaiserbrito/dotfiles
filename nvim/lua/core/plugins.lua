@@ -135,7 +135,7 @@ require("lazy").setup {
   { "vim-test/vim-test" }, -- Run tests on neovim
   { "tpope/vim-rails" }, -- Rails
   { "tpope/vim-abolish" },
-  { "numToStr/FTerm.nvim" }, -- Terminal
+  { "akinsho/toggleterm.nvim" }, -- Terminal
   { "folke/which-key.nvim" }, -- Keymaps popup
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
   { "narutoxy/silicon.lua" }, -- Better screenshot
