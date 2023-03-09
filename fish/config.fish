@@ -60,6 +60,8 @@ function ggone
     git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs git branch -D
 end
 
+fish_add_path (python3 -m site --user-base)/bin
+
 starship init fish | source
 
 source ~/.asdf/asdf.fish
