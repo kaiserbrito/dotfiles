@@ -61,6 +61,7 @@ function ggone
 end
 
 fish_add_path (python3 -m site --user-base)/bin
+fish_add_path /home/victor/.rover/bin
 
 starship init fish | source
 
