@@ -100,6 +100,13 @@ map("n", "<leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.in
 map("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", opts)
 map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", opts)
 
+-- Trouble
+map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
+map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
+map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
+map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
+map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
+
 -- Comment
 map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)

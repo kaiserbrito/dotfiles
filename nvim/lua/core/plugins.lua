@@ -127,6 +127,8 @@ require("lazy").setup {
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope.nvim" },
 
+  { "folke/trouble.nvim", event = "BufRead" },
+
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
 
