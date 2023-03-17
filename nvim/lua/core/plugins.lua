@@ -23,7 +23,6 @@ require("lazy").setup {
   -- Colorscheme
   { "catppuccin/nvim", name = "catppuccin" },
 
-  { "preservim/vimux" }, -- Run tests in another tmux pane
   { "aserowy/tmux.nvim" },
 
   { "numToStr/Comment.nvim" }, -- commenting with gc
@@ -140,5 +139,4 @@ require("lazy").setup {
   { "akinsho/toggleterm.nvim" }, -- Terminal
   { "folke/which-key.nvim" }, -- Keymaps popup
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
-  { "narutoxy/silicon.lua" }, -- Better screenshot
 }
