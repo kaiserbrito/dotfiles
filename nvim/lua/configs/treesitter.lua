@@ -51,4 +51,7 @@ treesitter.setup {
   matchup = {
     enable = true,
   },
+  endwise = {
+    enable = true,
+  },
 }
