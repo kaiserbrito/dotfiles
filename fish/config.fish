@@ -21,6 +21,7 @@ alias lzd="lazydocker"
 set -x BUNDLE_GITHUB__COM x-access-token:$github_token
 set -x BUNDLE_ENTERPRISE__CONTRIBSYS__COM $sidekiq_token
 set -x NPM_TOKEN $npm_token
+set -x NPM_GH_TOKEN $npm_gh_token
 set -x EDITOR nvim
 set -x DISABLE_SPRING 1
 set -x TERM tmux-256color
