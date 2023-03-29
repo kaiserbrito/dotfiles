@@ -140,4 +140,5 @@ require("lazy").setup {
   { "akinsho/toggleterm.nvim" }, -- Terminal
   { "folke/which-key.nvim" }, -- Keymaps popup
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
+  { "Exafunction/codeium.vim" }
 }
