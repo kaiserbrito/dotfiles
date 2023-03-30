@@ -118,6 +118,9 @@ map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
 map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
 map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
 
+-- Navbuddy
+map("n", "<leader>nb", "<cmd>lua require('nvim-navbuddy').open()<CR>", opts)
+
 -- Comment
 map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)

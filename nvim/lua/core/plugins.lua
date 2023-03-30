@@ -137,5 +137,14 @@ require("lazy").setup {
   { "akinsho/toggleterm.nvim" }, -- Terminal
   { "folke/which-key.nvim" }, -- Keymaps popup
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
-  { "Exafunction/codeium.vim" }
+  { "Exafunction/codeium.vim" },
+
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim"
+    }
+  },
 }
