@@ -113,10 +113,7 @@ require("lazy").setup {
 
   {
     "glepnir/lspsaga.nvim",
-    event = "BufRead",
-    config = function()
-      require("lspsaga").setup {}
-    end,
+    event = "LspAttach",
   },
 
   -- enhanced lsp uis
