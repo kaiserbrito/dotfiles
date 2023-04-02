@@ -63,6 +63,7 @@ end
 
 fish_add_path (python3 -m site --user-base)/bin
 fish_add_path /home/victor/.rover/bin
+fish_add_path /home/victor/.asdf/installs/rust/1.68.2/bin
 
 starship init fish | source
 
