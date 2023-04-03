@@ -1,72 +1,63 @@
--- import lspconfig plugin safely
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-  return
-end
+require("mason").setup()
 
--- import cmp-nvim-lsp plugin safely
-local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_status then
-  return
-end
-
-local keymap = vim.keymap -- for conciseness
-
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local navbuddy = require("nvim-navbuddy")
--- enable keybinds only for when lsp server available
-local on_attach = function(client, bufnr)
-  -- keybind options
-  local opts = { noremap = true, silent = true, buffer = bufnr }
-
-  -- set keybinds
-  keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap.set("n", "<C-p>", "<cmd>LSoutlineToggle<CR>", opts)
-  keymap.set("n", "<space>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
-
-  if client.supports_method "textDocument/formatting" then
-    vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-  end
-  navbuddy.attach(client, bufnr)
-end
-
--- used to enable autocompletion (assign to every lsp server config)
-local capabilities = cmp_nvim_lsp.default_capabilities()
-
--- Change the Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
-local lsp_client = {
-  "elixirls",
-  "gopls",
-  "html",
-  "jsonls",
-  "solargraph",
-  "lua_ls",
-  "tsserver",
-  "yamlls",
-}
-
-for _, value in ipairs(lsp_client) do
-  lspconfig[value].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-end
-
-local saga_status, lspsaga = pcall(require, "lspsaga")
-if not saga_status then
-  return
-end
-
-lspsaga.setup {
-  symbol_in_winbar = { enable = false },
-  beacon = {
-    enable = true,
-    frequency = 7,
+require("mason-lspconfig").setup {
+  ensure_installed = {
+    "elixirls",
+    "gopls",
+    "html",
+    "jsonls",
+    "solargraph",
+    "lua_ls",
+    "tsserver",
+    "yamlls",
   },
 }
+
+local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
+if not mason_null_ls_status then
+  return
+end
+
+mason_null_ls.setup {
+  -- list of formatters & linters for mason to install
+  ensure_installed = {
+    "eslint_d",      -- ts/js linter
+    "gofmt",         -- golang
+    "goimports",     -- golang
+    "mix",           -- elixir
+    "prettier",      -- ts/js formatter
+    "rubocop",       -- ruby
+    "stylua",        -- lua formatter
+    "terraform_fmt", -- terraform
+    "yamlfmt",       -- Yaml
+  },
+  -- auto-install configured formatters & linters (with null-ls)
+  automatic_installation = true,
+  automatic_setup = true,
+}
+mason_null_ls.setup_handlers()
+
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lsp_attach = function(client, bufnr)
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  local keymap = vim.keymap
+  keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+  keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+  keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+  keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+  keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  keymap.set("n", "gr", vim.lsp.buf.references, opts)
+  keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+end
+
+local lspconfig = require "lspconfig"
+local get_servers = require("mason-lspconfig").get_installed_servers
+
+for _, server_name in ipairs(get_servers()) do
+  lspconfig[server_name].setup {
+    on_attach = lsp_attach,
+    capabilities = lsp_capabilities,
+  }
+end

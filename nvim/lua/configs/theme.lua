@@ -35,7 +35,6 @@ catppuccin.setup({
     -- For various plugins integrations see https://github.com/catppuccin/nvim#integrations
     dashboard = true,
     gitsigns = true,
-    lsp_saga = true,
     nvimtree = true,
     telescope = true,
     treesitter = true,

@@ -90,11 +90,9 @@ local mappings = {
 
   l = {
     name = "LSP",
-    a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
     f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    r = { "<cmd>lua require('lspsaga.rename').rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
   },
 

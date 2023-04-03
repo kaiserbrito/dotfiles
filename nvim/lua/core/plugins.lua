@@ -89,32 +89,30 @@ require("lazy").setup {
   -- auto closing
   { "windwp/nvim-autopairs" },
 
+  -- LSP Support
+  { "neovim/nvim-lspconfig" },
+  {
+    "williamboman/mason.nvim",
+    build = function()
+      pcall(vim.cmd, "MasonUpdate")
+    end,
+  },
+  { "williamboman/mason-lspconfig.nvim" },
+
   -- snippets
-  { "L3MON4D3/LuaSnip" }, -- snippet engine
   { "saadparwaiz1/cmp_luasnip" }, -- for autocompletion
   { "rafamadriz/friendly-snippets" }, -- useful snippets
 
   -- autocompletion
-  { "hrsh7th/nvim-cmp" }, -- completion plugin
   { "hrsh7th/cmp-buffer" }, -- source for text in buffer
   { "hrsh7th/cmp-path" }, -- source for file system paths
-  { "hrsh7th/cmp-nvim-lsp" }, -- for autocompletion
-
-  -- managing & installing lsp servers, linters & formatters
-  { "williamboman/mason.nvim" }, -- in charge of managing lsp servers, linters & formatters
-  { "williamboman/mason-lspconfig.nvim" }, -- bridges gap b/w mason & lspconfig
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "L3MON4D3/LuaSnip" },
 
   -- formatting & linting
   { "jose-elias-alvarez/null-ls.nvim" }, -- configure formatters & linters
   { "jayp0521/mason-null-ls.nvim" }, -- bridges gap b/w mason & null-ls
-
-  -- configuring lsp servers
-  { "neovim/nvim-lspconfig" }, -- easily configure language servers
-
-  {
-    "glepnir/lspsaga.nvim",
-    event = "LspAttach",
-  },
 
   -- enhanced lsp uis
   { "onsails/lspkind.nvim" }, -- vs-code like icons for autocompletion

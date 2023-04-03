@@ -84,22 +84,6 @@ map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", 
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 map("n", "<leader>fr", "<cmd>Telescope registers<CR>", opts)
 
--- Lspsaga
-map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
-map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
-map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
-map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
-map("n", "gD", "<cmd>Lspsaga peek_definition<CR>", opts)
-map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-map("n", "<leader>gr", "<cmd>Lspsaga rename ++project<CR>", opts)
-map("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-
 -- Debugger
 map("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
 map("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>", opts)
