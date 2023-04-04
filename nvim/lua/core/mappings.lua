@@ -33,7 +33,14 @@ map("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
 map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", opts)
 map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", opts)
-map("n", "<leader>gt", "<cmd>Neogit<CR>", opts)
+
+-- Fugitive
+map("n", "<leader>gt", ":Git<CR>", opts)
+map("n", "<leader>gp", ":Git push --force-with-lease<CR>", opts)
+map("n", "<leader>gc", ":Gcommit<CR>", opts)
+map("n", "<leader>gd", ":Gvdiffsplit!<CR>", opts)
+map("n", "gdh", ":diffget //2", opts)
+map("n", "gdl", ":diffget //3", opts)
 
 -- Clear search highlight
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -77,7 +84,6 @@ map("n", "<leader>sl", "<cmd>SessionLoad<CR>", opts)
 -- Telescope
 map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", opts)
-map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", opts)
 map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
 map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
