@@ -35,7 +35,6 @@ mason_null_ls.setup {
   automatic_installation = true,
   automatic_setup = true,
 }
-mason_null_ls.setup_handlers()
 
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lsp_attach = function(client, bufnr)

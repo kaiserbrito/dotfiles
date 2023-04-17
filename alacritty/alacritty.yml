@@ -80,8 +80,6 @@ live_config_reload: true
 #   - { key: Left, mods: Alt, chars: "\x1BB" }
 #   - { key: Right, mods: Alt, chars: "\x1BF" }
 
-alt_send_esc: false
-
 shell:
   program: /usr/bin/fish
   args:
