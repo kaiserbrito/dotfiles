@@ -126,6 +126,14 @@ require("lazy").setup {
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
   { "tpope/vim-fugitive" },
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-lua/popup.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 
   -- Essential plugins
   { "tpope/vim-surround" }, -- add, delete, change surroundings (it's awesome)
