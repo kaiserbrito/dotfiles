@@ -134,6 +134,7 @@ require("lazy").setup {
       "nvim-telescope/telescope.nvim",
     },
   },
+  { "github/copilot.vim" },
 
   -- Essential plugins
   { "tpope/vim-surround" }, -- add, delete, change surroundings (it's awesome)
@@ -143,11 +144,6 @@ require("lazy").setup {
   { "akinsho/toggleterm.nvim" }, -- Terminal
   { "folke/which-key.nvim" }, -- Keymaps popup
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-  },
 
   {
     "SmiteshP/nvim-navbuddy",
