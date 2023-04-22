@@ -17,6 +17,8 @@ alias be="bundle exec"
 alias cat="bat --paging=never"
 alias lzg="lazygit"
 alias lzd="lazydocker"
+alias lvdam_console_prod="fly ssh console --pty -C 'myapp/bin/rails console' -a lvd-am"
+alias lvdam_console_staging="fly ssh console --pty -C 'myapp/bin/rails console' -a lvdam-staging"
 
 set -x BUNDLE_GITHUB__COM x-access-token:$github_token
 set -x BUNDLE_ENTERPRISE__CONTRIBSYS__COM $sidekiq_token
