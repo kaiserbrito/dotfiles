@@ -5,7 +5,6 @@ end
 
 local actions = require "telescope.actions"
 local trouble = require("trouble.providers.telescope")
-telescope.load_extension "fzf"
 
 telescope.setup {
   defaults = {
@@ -85,3 +84,4 @@ telescope.setup {
     },
   },
 }
+telescope.load_extension "fzf"

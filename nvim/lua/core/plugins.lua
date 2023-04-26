@@ -118,8 +118,12 @@ require("lazy").setup {
   { "onsails/lspkind.nvim" }, -- vs-code like icons for autocompletion
 
   -- fuzzy finding w/ telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.1",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  { "nvim-telescope/telescope.nvim" },
 
   { "folke/trouble.nvim", event = "BufRead" },
 
