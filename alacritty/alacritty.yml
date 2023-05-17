@@ -3,14 +3,11 @@
 # Setup term for programs to be able to use it
 env:
   TERM: xterm-256color
-
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
-
   # Startup Mode (changes require restart)
   startup_mode: Maximized
-
 # Sample Font configuration for font: FiraMono.
 # Feel free to use different font configuration family & face for each sections
 font:
@@ -23,17 +20,14 @@ font:
     family: JetBrains Mono Nerd Font Mono
     # Font face
     style: Regular
-
   # Bold font face
   bold:
     family: JetBrains Mono Nerd Font Mono
     style: Bold
-
   # Italic font face
   italic:
     family: JetBrains Mono Nerd Font Mono
     style: Italic
-
   # Bold italic font face
   # Note: Since i don't have a font italic version of this font, I just specified
   # italic & it just works. You may specifiy the bold italic version if it exists
@@ -41,36 +35,29 @@ font:
   bold_italic:
     family: JetBrains Mono Nerd Font Mono
     style: Italic
-
   # Font size
   size: 12.0
-
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing
   # I've given in 14 spacing which fits really well with my fonts, you may change it
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
-   x: 0
-   y: 4
-
+    x: 0
+    y: 4
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
   # aligned with the cursor, this is to make sure they center align.
   # This offset should usually be 1/2 of the above offset-y being set.
   glyph_offset:
-   x: 0
-   # Keeping this as half of offset to vertically align the text in cursor
-   y: 2
-
+    x: 0
+    # Keeping this as half of offset to vertically align the text in cursor
+    y: 2
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
-
 # Live config reload (changes require restart)
 live_config_reload: true
-
 # Setup some amazing custom key bindings here - Best thing is you can setup key bindings
 # using Mac's 'command' to control your tmux.
 # A great reference: https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/#make-alacritty-feel-like-iterm2
@@ -79,83 +66,38 @@ live_config_reload: true
 #   - { key: Key6, mods: Control, chars: "\x1e" }
 #   - { key: Left, mods: Alt, chars: "\x1BB" }
 #   - { key: Right, mods: Alt, chars: "\x1BF" }
-
 shell:
   program: /usr/bin/fish
   args:
     - -l
     - -c
-    - "tmux"
-
-
-# Catppuccin mocha Alacritty Colors
+    - 'tmux'
+# Kanagawa Alacritty Colors
 colors:
   primary:
-    background: '#1E1E2E' # base
-    foreground: '#CDD6F4' # text
-    # Bright and dim foreground colors
-    dim_foreground: '#CDD6F4' # text
-    bright_foreground: '#CDD6F4' # text
-  # Cursor colors
-  cursor:
-    text: '#1E1E2E' # base
-    cursor: '#F5E0DC' # rosewater
-  vi_mode_cursor:
-    text: '#1E1E2E' # base
-    cursor: '#B4BEFE' # lavender
-  # Search colors
-  search:
-    matches:
-      foreground: '#1E1E2E' # base
-      background: '#A6ADC8' # subtext0
-    focused_match:
-      foreground: '#1E1E2E' # base
-      background: '#A6E3A1' # green
-    footer_bar:
-      foreground: '#1E1E2E' # base
-      background: '#A6ADC8' # subtext0
-  # Keyboard regex hints
-  hints:
-    start:
-      foreground: '#1E1E2E' # base
-      background: '#F9E2AF' # yellow
-    end:
-      foreground: '#1E1E2E' # base
-      background: '#A6ADC8' # subtext0
-  # Selection colors
-  selection:
-    text: '#1E1E2E' # base
-    background: '#F5E0DC' # rosewater
-  # Normal colors
+    background: '0x1f1f28'
+    foreground: '0xdcd7ba'
   normal:
-    black: '#45475A' # surface1
-    red: '#F38BA8' # red
-    green: '#A6E3A1' # green
-    yellow: '#F9E2AF' # yellow
-    blue: '#89B4FA' # blue
-    magenta: '#F5C2E7' # pink
-    cyan: '#94E2D5' # teal
-    white: '#BAC2DE' # subtext1
-  # Bright colors
+    black: '0x090618'
+    red: '0xc34043'
+    green: '0x76946a'
+    yellow: '0xc0a36e'
+    blue: '0x7e9cd8'
+    magenta: '0x957fb8'
+    cyan: '0x6a9589'
+    white: '0xc8c093'
   bright:
-    black: '#585B70' # surface2
-    red: '#F38BA8' # red
-    green: '#A6E3A1' # green
-    yellow: '#F9E2AF' # yellow
-    blue: '#89B4FA' # blue
-    magenta: '#F5C2E7' # pink
-    cyan: '#94E2D5' # teal
-    white: '#A6ADC8' # subtext0
-  # Dim colors
-  dim:
-    black: '#45475A' # surface1
-    red: '#F38BA8' # red
-    green: '#A6E3A1' # green
-    yellow: '#F9E2AF' # yellow
-    blue: '#89B4FA' # blue
-    magenta: '#F5C2E7' # pink
-    cyan: '#94E2D5' # teal
-    white: '#BAC2DE' # subtext1
+    black: '0x727169'
+    red: '0xe82424'
+    green: '0x98bb6c'
+    yellow: '0xe6c384'
+    blue: '0x7fb4ca'
+    magenta: '0x938aa9'
+    cyan: '0x7aa89f'
+    white: '0xdcd7ba'
+  selection:
+    background: '0x2d4f67'
+    foreground: '0xc8c093'
   indexed_colors:
-    - {index: 16, color: '#FAB387'}
-    - {index: 17, color: '#F5E0DC'}
+    - {index: 16, color: '0xffa066'}
+    - {index: 17, color: '0xff5d62'}
