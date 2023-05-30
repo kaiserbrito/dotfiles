@@ -21,7 +21,7 @@ require("lazy").setup {
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
 
   -- Colorscheme
-  { "catppuccin/nvim", name = "catppuccin" },
+  { "rebelot/kanagawa.nvim" },
 
   { "aserowy/tmux.nvim" },
 
