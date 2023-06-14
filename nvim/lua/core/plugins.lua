@@ -157,4 +157,10 @@ require("lazy").setup {
       "MunifTanjim/nui.nvim"
     }
   },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    event = "BufRead",
+    build = ":call mkdp#util#install()",
+  },
 }
