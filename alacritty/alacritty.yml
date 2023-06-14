@@ -2,7 +2,7 @@
 
 # Setup term for programs to be able to use it
 env:
-  TERM: xterm-256color
+  TERM: screen-256color
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -17,26 +17,26 @@ font:
   # UI for powerline & tmux bottom bar.
   normal:
     # Font name
-    family: JetBrains Mono Nerd Font Mono
+    family: FiraCode Nerd Font Mono
     # Font face
     style: Regular
   # Bold font face
   bold:
-    family: JetBrains Mono Nerd Font Mono
+    family: FiraCode Nerd Font Mono
     style: Bold
   # Italic font face
   italic:
-    family: JetBrains Mono Nerd Font Mono
+    family: FiraCode Nerd Font Mono
     style: Italic
   # Bold italic font face
   # Note: Since i don't have a font italic version of this font, I just specified
   # italic & it just works. You may specifiy the bold italic version if it exists
   # for your font
   bold_italic:
-    family: JetBrains Mono Nerd Font Mono
+    family: FiraCode Nerd Font Mono
     style: Italic
   # Font size
-  size: 12.0
+  size: 13.0
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing
   # I've given in 14 spacing which fits really well with my fonts, you may change it
@@ -61,13 +61,13 @@ live_config_reload: true
 # Setup some amazing custom key bindings here - Best thing is you can setup key bindings
 # using Mac's 'command' to control your tmux.
 # A great reference: https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/#make-alacritty-feel-like-iterm2
-# key_bindings:
-#   # ctrl-^ doesn't work in some terminals like alacritty
-#   - { key: Key6, mods: Control, chars: "\x1e" }
-#   - { key: Left, mods: Alt, chars: "\x1BB" }
-#   - { key: Right, mods: Alt, chars: "\x1BF" }
+key_bindings:
+  # ctrl-^ doesn't work in some terminals like alacritty
+  - { key: Key6, mods: Control, chars: "\x1e" }
+  - { key: Left, mods: Alt, chars: "\x1BB" }
+  - { key: Right, mods: Alt, chars: "\x1BF" }
 shell:
-  program: /usr/bin/fish
+  program: /opt/homebrew/bin/fish
   args:
     - -l
     - -c
