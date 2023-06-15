@@ -1,16 +1,18 @@
 local set = vim.opt
 
+set.breakindent = true
 set.fileencoding = "utf-8"                      -- File content encoding for the buffer
-set.spelllang = "en"                            -- Support US english
+set.spelllang = { "en" }                        -- Support US english
 set.clipboard = "unnamedplus"                   -- Connection to the system clipboard
 set.signcolumn = "yes"                          -- Always show the sign column
 set.foldmethod = "manual"                       -- Create folds manually
 set.completeopt = { "menu", "menuone", "noselect" }     -- Options for insert mode completion
-set.colorcolumn = "99999"                       -- Fix for the indentline problem
+set.colorcolumn = "90"                          -- Fix for the indentline problem
 set.backup = false                              -- Disable making a backup file
 set.expandtab = true                            -- Enable the use of space in tab
 set.hidden = true                               -- Ignore unsaved buffers
 set.hlsearch = true                             -- Highlight all the matches of search pattern
+set.incsearch = true
 set.ignorecase = true                           -- Case insensitive searching
 set.smartcase = true                            -- Case sensitivie searching
 set.spell = false                               -- Disable spelling checking and highlighting
@@ -31,22 +33,16 @@ set.cmdheight = 1                               -- Number of screen lines to use
 set.shiftwidth = 2                              -- Number of space inserted for indentation
 set.textwidth = 99                              -- Width of the screen
 set.tabstop = 2                                 -- Number of space in a tab
+set.softtabstop = 2
 set.scrolloff = 8                               -- Number of lines to keep above and below the cursor
 set.sidescrolloff = 8                           -- Number of columns to keep at the sides of the cursor
 set.pumheight = 10                              -- Height of the pop up menu
 set.history = 100                               -- Number of commands to remember in a history table
 set.timeoutlen = 300                            -- Length of time to wait for a mapped sequence
-set.updatetime = 200                            -- Length of time to wait before triggering the plugin
+set.updatetime = 50                             -- Length of time to wait before triggering the plugin
 set.mouse = ""                                  -- Disabled mouse
 set.grepformat = "%f:%l:%c:%m"
 set.grepprg = "rg --vimgrep"
 set.laststatus = 0
-set.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
-set.shiftround = true -- Round indent
-set.spelllang = { "en" }
-set.wildmode = "longest:full,full" -- Command-line completion mode
-
-if vim.fn.has("nvim-0.9.0") == 1 then
-  set.splitkeep = "screen"
-  set.shortmess:append { C = true }
-end
+set.nu = true
+set.isfname:append("@-@")
