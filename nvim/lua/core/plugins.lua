@@ -143,7 +143,7 @@ require("lazy").setup {
       "nvim-telescope/telescope.nvim",
     },
   },
-  { "github/copilot.vim" },
+  { "Exafunction/codeium.vim" },
 
   -- Essential plugins
   { "tpope/vim-surround" }, -- add, delete, change surroundings (it's awesome)
