@@ -168,4 +168,10 @@ require("lazy").setup {
     event = "BufRead",
     build = ":call mkdp#util#install()",
   },
+
+  {
+    "sourcegraph/sg.nvim",
+    build = "cargo build --workspace",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 }

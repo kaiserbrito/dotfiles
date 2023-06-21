@@ -18,6 +18,8 @@ set -x TERM screen-256color
 # set -gx CPPFLAGS "-I/opt/homebrew/opt/libpq/include"
 set -x HOMEBREW_PREFIX "/opt/homebrew"
 set -x GPG_TTY (tty)
+set -x SRC_ACCESS_TOKEN $src_access_token
+set -x SRC_ENDPOINT $src_endpoint
 
 # Functions needed for !! and !$
 function __history_previous_command
