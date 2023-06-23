@@ -117,6 +117,13 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+  c = {
+    name = "Cody",
+    t = { "<cmd>CodyToggle<CR>", "Cody Toggle" },
+    h = { "<cmd>CodyHistory<CR>", "Cody History" },
+    e = { "<cmd>CodyExplain<CR>", "Cody Explain" },
+    c = { "<cmd>CodyChat<CR>", "Cody Chat" },
+  },
 }
 
 which_key.setup(setup)

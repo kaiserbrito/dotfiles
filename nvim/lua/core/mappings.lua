@@ -120,6 +120,12 @@ map('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 -- Markdown Preview
 map("n", "<leader>mp", "<Plug>MarkdownPreview", opts)
 
+-- Cody
+map("n", "<leader>ct", "<cmd>CodyToggle<CR>", opts)
+map("n", "<leader>ch", "<cmd>CodyHistory<CR>", opts)
+map("n", "<leader>ce", "<cmd>CodyExplain<CR>", opts)
+map("n", "<leader>cc", "<cmd>CodyChat<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
