@@ -75,12 +75,6 @@ map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 -- NvimTree
 map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 
--- Dashboard
-map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
-map("n", "<leader>db", "<cmd>Dashboard<CR>", opts)
-map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
-map("n", "<leader>sl", "<cmd>SessionLoad<CR>", opts)
-
 -- Telescope
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", opts)

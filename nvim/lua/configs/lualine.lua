@@ -34,7 +34,7 @@ local conditions = {
 
 local config = {
   options = {
-    disabled_filetypes = { "NvimTree", "dashboard", "Outline" },
+    disabled_filetypes = { "NvimTree", "Outline" },
     component_separators = "",
     section_separators = "",
     theme = "tokyonight",

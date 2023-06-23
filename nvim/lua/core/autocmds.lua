@@ -6,16 +6,6 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.cmd [[
-  augroup dashboard_settings
-    autocmd!
-    autocmd FileType dashboard set showtabline=0
-    autocmd BufWinLeave <buffer> set showtabline=2
-    autocmd BufEnter * if &ft is "dashboard" | set laststatus=0 | else | set laststatus=2 | endif
-    autocmd BufEnter * if &ft is "dashboard" | set nocursorline | endif
-  augroup end
-]]
-
 vim.cmd 'autocmd BufRead,BufNewFile *.ex,*.exs,mix.lock set filetype=elixir'
 vim.cmd 'autocmd BufRead,BufNewFile *.rb,*.rake,Gemfile.lock,Gemfile,*.erb,*.haml set filetype=ruby'
 vim.cmd 'autocmd FileType go setlocal expandtab shiftwidth=4 tabstop=4'

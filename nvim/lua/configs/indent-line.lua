@@ -12,7 +12,6 @@ function M.config()
   vim.g.indent_blankline_filetype_exclude = {
     "help",
     "startify",
-    "dashboard",
     "neogitstatus",
     "NvimTree",
     "Trouble",

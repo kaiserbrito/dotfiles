@@ -7,7 +7,6 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "codeium.vim": { "branch": "main", "commit": "c620cea17f898c6c66961f09d05cb2c0fa5ffcd8" },
-  "dashboard-nvim": { "branch": "master", "commit": "ab84915f7cfd7bc7a5bfe7409c3eccf8d09c162a" },
   "friendly-snippets": { "branch": "main", "commit": "01f80274100fe3ff6c9183b9c0674a520141be4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "a36bc3360d584d39b4fb076d855c4180842d4444" },
   "lazy.nvim": { "branch": "main", "commit": "c1aad95243f0d180f41348be26b2417547fb168b" },
