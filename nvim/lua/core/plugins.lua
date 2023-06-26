@@ -61,6 +61,9 @@ require("lazy").setup {
     },
   },
 
+  -- Context
+  { "nvim-treesitter/nvim-treesitter-context" },
+
   -- auto closing
   { "windwp/nvim-autopairs" },
 

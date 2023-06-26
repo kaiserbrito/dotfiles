@@ -126,6 +126,9 @@ map("n", "<leader>ch", "<cmd>CodyHistory<CR>", opts)
 map("n", "<leader>ce", "<cmd>CodyExplain<CR>", opts)
 map("n", "<leader>cc", "<cmd>CodyChat<CR>", opts)
 
+-- Treesitter context
+map("n", "[c", "<cmd>lua require('treesitter-context').go_to_context()<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
