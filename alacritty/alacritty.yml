@@ -1,8 +1,5 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
-# Setup term for programs to be able to use it
-env:
-  TERM: screen-256color
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
