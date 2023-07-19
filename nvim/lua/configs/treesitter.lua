@@ -17,7 +17,8 @@ treesitter.setup {
     "bash",
     "fish",
     "go",
-    "elixir"
+    "elixir",
+    "javascript"
   },
   sync_install = false,
   ignore_install = {},
