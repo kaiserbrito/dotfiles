@@ -34,13 +34,9 @@ map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", opts)
 map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
--- Fugitive
-map("n", "<leader>gt", ":Git<CR>", opts)
-map("n", "<leader>gp", ":Git push --force-with-lease<CR>", opts)
-map("n", "<leader>gc", ":Gcommit<CR>", opts)
-map("n", "<leader>gd", ":Gvdiffsplit!<CR>", opts)
-map("n", "gdh", ":diffget //2", opts)
-map("n", "gdl", ":diffget //3", opts)
+-- Neogit
+map("n", "<leader>gt", "<cmd>Neogit<CR>", opts)
+map("n", "<leader>gc", "<cmd>lua require'neogit'.open({ 'commit' })<CR>", opts)
 
 -- Clear search highlight
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)

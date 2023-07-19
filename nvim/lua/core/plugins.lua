@@ -107,7 +107,7 @@ require("lazy").setup {
 
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
-  { "tpope/vim-fugitive" },
+  { 'NeogitOrg/neogit', dependencies = 'nvim-lua/plenary.nvim', opts = {} },
   {
     "pwntester/octo.nvim",
     dependencies = {
