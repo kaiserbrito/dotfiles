@@ -21,12 +21,7 @@ require("lazy").setup {
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
 
   -- Colorscheme
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
+  { "ellisonleao/gruvbox.nvim", priority = 1000 },
 
   { "aserowy/tmux.nvim" },
 
@@ -107,7 +102,7 @@ require("lazy").setup {
 
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
-  { 'NeogitOrg/neogit', dependencies = 'nvim-lua/plenary.nvim', opts = {} },
+  { 'NeogitOrg/neogit', opts = {} },
   {
     "pwntester/octo.nvim",
     dependencies = {

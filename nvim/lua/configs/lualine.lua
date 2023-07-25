@@ -37,7 +37,7 @@ local config = {
     disabled_filetypes = { "NvimTree", "Outline" },
     component_separators = "",
     section_separators = "",
-    theme = "tokyonight",
+    theme = "gruvbox_dark",
   },
   sections = {
     lualine_a = {},
