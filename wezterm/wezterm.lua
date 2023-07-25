@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = {}
 
-config.color_scheme = "tokyonight_night"
+config.color_scheme = 'Gruvbox Dark (Gogh)'
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 13
