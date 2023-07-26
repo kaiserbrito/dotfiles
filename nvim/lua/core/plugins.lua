@@ -131,4 +131,10 @@ require("lazy").setup {
     build = "cargo build --workspace",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 }
