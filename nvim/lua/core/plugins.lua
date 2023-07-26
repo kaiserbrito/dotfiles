@@ -42,18 +42,7 @@ require("lazy").setup {
   -- Syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      {
-        -- Parenthesis highlighting
-        "p00f/nvim-ts-rainbow",
-        "nvim-treesitter",
-      },
-      {
-        -- Autoclose tags
-        "windwp/nvim-ts-autotag",
-        "nvim-treesitter",
-      },
-    },
+    build = ":TSUpdate"
   },
 
   -- Context
