@@ -21,7 +21,7 @@ require("lazy").setup {
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
 
   -- Colorscheme
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  { "morhetz/gruvbox", config = function() vim.cmd.colorscheme("gruvbox") end },
 
   { "aserowy/tmux.nvim" },
 
