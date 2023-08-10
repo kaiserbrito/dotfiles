@@ -35,7 +35,7 @@ map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
 -- Fugitive
-map("n", "<leader>gt", "<cmd>Git<CR>", opts)
+map("n", "<leader>gt", "<cmd>Gedit :<CR>", opts)
 map("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", opts)
 map("n", "gdh", "<cmd>diffget //2<CR>", opts)
 map("n", "gdl", "<cmd>diffget //3<CR>", opts)
