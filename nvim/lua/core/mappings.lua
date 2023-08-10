@@ -108,12 +108,9 @@ map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()
 map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 
 -- Terminal
-map("n", "<C-\\>", '<cmd>ToggleTerm<CR>', opts)
-map('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-map('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-map('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-map('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-map('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+map("n", "<C-\\>", "<cmd>terminal<CR>", opts)
+map("n", "<leader>lg", "<cmd>terminal lazygit<CR>", opts)
+map("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 
 -- Markdown Preview
 map("n", "<leader>mp", "<Plug>MarkdownPreview", opts)

@@ -107,7 +107,6 @@ require("lazy").setup {
   { "vim-test/vim-test" }, -- Run tests on neovim
   { "tpope/vim-rails" }, -- Rails
   { "tpope/vim-abolish" },
-  { "akinsho/toggleterm.nvim" }, -- Terminal
   -- Keymaps popup
   {
     "folke/which-key.nvim",
