@@ -108,7 +108,15 @@ require("lazy").setup {
   { "tpope/vim-rails" }, -- Rails
   { "tpope/vim-abolish" },
   { "akinsho/toggleterm.nvim" }, -- Terminal
-  { "folke/which-key.nvim" }, -- Keymaps popup
+  -- Keymaps popup
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function ()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+  },
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
 
   {

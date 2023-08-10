@@ -12,7 +12,7 @@ local setup = {
       suggestions = 20,
     },
     presets = {
-      operators = false,
+      operators = true,
       motions = true,
       text_objects = true,
       windows = true,
@@ -27,16 +27,20 @@ local setup = {
     separator = "➜",
     group = "+",
   },
+  motions = {
+    count = true,
+  },
   popup_mappings = {
     scroll_down = "<c-d>",
     scroll_up = "<c-u>",
   },
   window = {
-    border = "rounded",
+    border = "none",
     position = "bottom",
     margin = { 1, 0, 1, 0 },
     padding = { 2, 2, 2, 2 },
     winblend = 0,
+    zindex = 1000,
   },
   layout = {
     height = { min = 4, max = 25 },
@@ -44,9 +48,10 @@ local setup = {
     spacing = 3,
     align = "left",
   },
-  ignore_missing = true,
+  ignore_missing = false,
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
   show_help = true,
+  show_keys = true,
   triggers = "auto",
   triggers_blacklist = {
     i = { "j", "k" },
