@@ -11,6 +11,8 @@ map("n", "<C-l>", "<C-w>l", opts)
 
 -- Close buffer
 map("n", "Q", "<cmd>Bdelete!<CR>", opts)
+-- Close all buffers but the current
+map("n", "<leader>o", ":%bd|e#|bd#<CR>", opts)
 
 -- Split windows
 map("n", "vv", "<C-w>v", opts)
