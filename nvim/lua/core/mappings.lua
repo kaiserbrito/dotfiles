@@ -113,6 +113,11 @@ map("n", "<leader>cc", "<cmd>CodyChat<CR>", opts)
 -- Treesitter context
 map("n", "[c", "<cmd>lua require('treesitter-context').go_to_context()<CR>", opts)
 
+-- Neorg
+map("n", "<leader>no", "<cmd>Neorg index<CR>", opts)
+map("n", "<leader>nr", "<cmd>Neorg return<CR>", opts)
+map("n", "<leader>nt", "<cmd>Neorg toggle-concealer<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
