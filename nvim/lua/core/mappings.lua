@@ -106,12 +106,6 @@ map("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 -- Markdown Preview
 map("n", "<leader>mp", "<Plug>MarkdownPreview", opts)
 
--- Cody
-map("n", "<leader>ct", "<cmd>CodyToggle<CR>", opts)
-map("n", "<leader>ch", "<cmd>CodyHistory<CR>", opts)
-map("n", "<leader>ce", "<cmd>CodyExplain<CR>", opts)
-map("n", "<leader>cc", "<cmd>CodyChat<CR>", opts)
-
 -- Treesitter context
 map("n", "[c", "<cmd>lua require('treesitter-context').go_to_context()<CR>", opts)
 

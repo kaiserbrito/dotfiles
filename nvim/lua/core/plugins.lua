@@ -142,12 +142,6 @@ require("lazy").setup {
   },
 
   {
-    "sourcegraph/sg.nvim",
-    build = "cargo build --workspace",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-
-  {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
