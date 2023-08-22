@@ -10,7 +10,7 @@ map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
 -- Close buffer
-map("n", "Q", "<cmd>Bdelete!<CR>", opts)
+map("n", "Q", "<cmd>lua require('mini.bufremove').delete(0, false)<CR>", opts)
 -- Close all buffers but the current
 map("n", "<leader>o", ":%bd|e#|bd#<CR>", opts)
 

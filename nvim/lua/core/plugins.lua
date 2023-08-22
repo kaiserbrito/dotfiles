@@ -39,9 +39,9 @@ require("lazy").setup {
 
   { "kyazdani42/nvim-web-devicons" },
 
-  { "akinsho/bufferline.nvim" },
+  { "akinsho/bufferline.nvim", event = "VeryLazy" },
 
-  { "moll/vim-bbye" }, -- Delete buffers
+  { "echasnovski/mini.bufremove" }, -- Delete buffers
 
   { "nvim-tree/nvim-tree.lua" },
 
