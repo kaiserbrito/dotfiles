@@ -57,7 +57,11 @@ require("lazy").setup {
   { "nvim-treesitter/nvim-treesitter-context" },
 
   -- auto closing
-  { "windwp/nvim-autopairs" },
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    opts = {},
+  },
 
   -- LSP Support
   { "neovim/nvim-lspconfig" },
@@ -100,14 +104,6 @@ require("lazy").setup {
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
   { 'tpope/vim-fugitive' },
-  {
-    "pwntester/octo.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
   { "Exafunction/codeium.vim" },
 
   -- Essential plugins
@@ -126,14 +122,7 @@ require("lazy").setup {
   },
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
 
-  {
-    "SmiteshP/nvim-navbuddy",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-      "MunifTanjim/nui.nvim"
-    }
-  },
+  { "SmiteshP/nvim-navic" },
 
   {
     "iamcco/markdown-preview.nvim",
