@@ -41,6 +41,8 @@ require("lazy").setup {
 
   { "akinsho/bufferline.nvim", event = "VeryLazy" },
 
+  { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy" }, -- Indentation guides
+
   { "echasnovski/mini.bufremove" }, -- Delete buffers
 
   { "nvim-tree/nvim-tree.lua" },
