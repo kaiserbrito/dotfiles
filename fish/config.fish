@@ -63,3 +63,7 @@ fish_add_path /opt/homebrew/opt/imagemagick@6/bin
 starship init fish | source
 
 source ~/.asdf/asdf.fish
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
