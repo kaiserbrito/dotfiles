@@ -169,3 +169,5 @@ tiling-assistant
 fish/functions/.DS_Store
 fish/.DS_Store
 .DS_Store
+pgcli/history
+pgcli/log
