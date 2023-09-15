@@ -21,7 +21,15 @@ require("lazy").setup {
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
 
   -- Colorscheme
-  { "navarasu/onedark.nvim" },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd.colorscheme("tokyonight-night")
+    end,
+  },
 
   { "aserowy/tmux.nvim" },
 
