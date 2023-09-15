@@ -69,31 +69,31 @@ shell:
     - -c
     - 'tmux'
 
-# Colors (Gruvbox Material Medium Dark)
+# Colors (Ayu Mirage)
 colors:
   # Default colors
   primary:
-    background: '#282828'
-    foreground: '#d4be98'
+    background: '#202734'
+    foreground: '#CBCCC6'
 
   # Normal colors
   normal:
-    black:   '#3c3836'
-    red:     '#ea6962'
-    green:   '#a9b665'
-    yellow:  '#d8a657'
-    blue:    '#7daea3'
-    magenta: '#d3869b'
-    cyan:    '#89b482'
-    white:   '#d4be98'
+    black: '#191E2A'
+    red: '#FF3333'
+    green: '#BAE67E'
+    yellow: '#FFA759'
+    blue: '#73D0FF'
+    magenta: '#FFD580'
+    cyan: '#95E6CB'
+    white: '#C7C7C7'
 
-  # Bright colors (same as normal colors)
+  # Bright colors
   bright:
-    black:   '#3c3836'
-    red:     '#ea6962'
-    green:   '#a9b665'
-    yellow:  '#d8a657'
-    blue:    '#7daea3'
-    magenta: '#d3869b'
-    cyan:    '#89b482'
-    white:   '#d4be98'
+    black: '#686868'
+    red: '#F27983'
+    green: '#A6CC70'
+    yellow: '#FFCC66'
+    blue: '#5CCFE6'
+    magenta: '#FFEE99'
+    cyan: '#95E6CB'
+    white: '#FFFFFF'
