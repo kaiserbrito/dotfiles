@@ -129,4 +129,10 @@ require("lazy").setup {
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+
+  {
+    "nvim-pack/nvim-spectre",
+    event = "VeryLazy",
+    opts = {},
+  },
 }

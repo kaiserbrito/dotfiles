@@ -115,6 +115,11 @@ map("n", "<leader>no", "<cmd>Neorg index<CR>", opts)
 map("n", "<leader>nr", "<cmd>Neorg return<CR>", opts)
 map("n", "<leader>nt", "<cmd>Neorg toggle-concealer<CR>", opts)
 
+-- Spectre
+map("n", "<leader>s", "<cmd>lua require('spectre').toggle()<CR>", opts)
+map("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({ select_word=true })<CR>", opts)
+map("v", "<leader>sw", "<cmd>lua require('spectre').open_visual()<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
