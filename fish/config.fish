@@ -12,14 +12,15 @@ alias lzd="lazydocker"
 set -x EDITOR nvim
 set -x DISABLE_SPRING 1
 set -x TERM screen-256color
-# set -gx LDFLAGS "-L/opt/homebrew/opt/zlib/lib"
-# set -gx CPPFLAGS "-I/opt/homebrew/opt/zlib/include"
-# set -gx LDFLAGS "-L/opt/homebrew/opt/libpq/lib"
-# set -gx CPPFLAGS "-I/opt/homebrew/opt/libpq/include"
 set -x HOMEBREW_PREFIX "/opt/homebrew"
 set -x GPG_TTY (tty)
 set -x SRC_ACCESS_TOKEN $src_access_token
 set -x SRC_ENDPOINT $src_endpoint
+set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/imagemagick@6/lib"
+set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/imagemagick@6/include"
+set -x PKG_CONFIG_PATH "$PKG_CONFIG_PATH:$HOMEBREW_PREFIX/opt/imagemagick@6/lib/pkgconfig"
+# set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/jemalloc/lib"
+# set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/jemalloc/include"
 
 # Functions needed for !! and !$
 function __history_previous_command
@@ -55,9 +56,9 @@ function ggone
     git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs git branch -D
 end
 fish_add_path (python3 -m site --user-base)/bin
-fish_add_path /opt/homebrew/sbin
-fish_add_path /opt/homebrew/opt/libpq/bin
-fish_add_path /opt/homebrew/opt/imagemagick@6/bin
+fish_add_path $HOMEBREW_PREFIX/sbin
+fish_add_path $HOMEBREW_PREFIX/opt/libpq/bin
+fish_add_path $HOMEBREW_PREFIX/opt/imagemagick@6/bin
 # fish_add_path /opt/homebrew/opt/postgresql@15/bin
 
 starship init fish | source
