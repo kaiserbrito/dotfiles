@@ -45,4 +45,5 @@ set.grepformat = "%f:%l:%c:%m"
 set.grepprg = "rg --vimgrep"
 set.laststatus = 0
 set.nu = true
+set.exrc = true
 set.isfname:append("@-@")
