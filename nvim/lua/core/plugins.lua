@@ -87,7 +87,7 @@ require("lazy").setup {
   { "L3MON4D3/LuaSnip" },
 
   -- formatting & linting
-  { "jose-elias-alvarez/null-ls.nvim" }, -- configure formatters & linters
+  { "nvimtools/none-ls.nvim" }, -- configure formatters & linters
   { "jayp0521/mason-null-ls.nvim" }, -- bridges gap b/w mason & null-ls
 
   -- enhanced lsp uis
@@ -155,5 +155,12 @@ require("lazy").setup {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
+  },
+
+  {
+    "vidocqh/data-viewer.nvim",
+    opts = {},
+    event = "BufRead",
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
 }
