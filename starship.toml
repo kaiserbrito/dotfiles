@@ -1,1 +1,4 @@
 command_timeout = 10000
+
+[docker_context]
+format = '[🐋 ](blue bold)'
