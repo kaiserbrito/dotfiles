@@ -38,7 +38,10 @@ treesitter.setup {
     enable = true,
   },
   indent = {
-    enable = false,
+    enable = true,
+    disable = {
+      "ruby"
+    },
   },
   autotag = {
     enable = true,
