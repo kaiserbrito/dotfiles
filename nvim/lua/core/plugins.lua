@@ -47,6 +47,8 @@ require("lazy").setup {
 
   { "nvim-tree/nvim-tree.lua" },
 
+  { "stevearc/oil.nvim" },
+
   { "nvim-lualine/lualine.nvim" }, -- statusline
 
   -- Syntax highlighting
