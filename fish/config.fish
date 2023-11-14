@@ -62,6 +62,8 @@ fish_add_path $HOMEBREW_PREFIX/opt/libpq/bin
 fish_add_path $HOMEBREW_PREFIX/opt/imagemagick@6/bin
 # fish_add_path /opt/homebrew/opt/postgresql@15/bin
 
+eval (ssh-agent -c) &> /dev/null
+
 starship init fish | source
 
 source ~/.asdf/asdf.fish
