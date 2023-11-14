@@ -165,4 +165,6 @@ require("lazy").setup {
     event = "BufRead",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+
+  { "ThePrimeagen/harpoon", event = "VeryLazy", opts = {} },
 }
