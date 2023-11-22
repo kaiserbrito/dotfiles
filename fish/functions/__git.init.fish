@@ -22,7 +22,7 @@ function __git.init
   __git.create_abbr gau        git add --update
   __git.create_abbr gapa       git add --patch
   __git.create_abbr gap        git apply
-  __git.create_abbr gb         git branch -vv
+  __git.create_abbr gb         git branch
   __git.create_abbr gba        git branch -a -v
   __git.create_abbr gban       git branch -a -v --no-merged
   __git.create_abbr gbd        git branch -d
