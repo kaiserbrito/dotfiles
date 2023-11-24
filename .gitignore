@@ -173,3 +173,4 @@ pgcli/history
 pgcli/log
 containers
 raycast/extensions
+nvim/lazy-lock.json
