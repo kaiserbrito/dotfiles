@@ -6,7 +6,7 @@ config.color_scheme = "Catppuccin Mocha"
 config.window_background_opacity = 0.9
 config.automatically_reload_config = true
 
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("CommitMono")
 config.font_size = 13
 
 -- init tmux by default
