@@ -78,7 +78,6 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim" },
 
   -- snippets
-  { "saadparwaiz1/cmp_luasnip" }, -- for autocompletion
   { "rafamadriz/friendly-snippets" }, -- useful snippets
 
   -- autocompletion
