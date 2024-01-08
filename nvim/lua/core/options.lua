@@ -47,3 +47,5 @@ set.laststatus = 0
 set.nu = true
 set.exrc = true
 set.isfname:append("@-@")
+
+vim.cmd([[ set nofoldenable ]])
