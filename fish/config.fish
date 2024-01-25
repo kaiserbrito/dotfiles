@@ -20,6 +20,7 @@ set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/imagemagick@6/lib"
 set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/imagemagick@6/include"
 set -x PKG_CONFIG_PATH "$PKG_CONFIG_PATH:$HOMEBREW_PREFIX/opt/imagemagick@6/lib/pkgconfig"
 set -x RUBY_YJIT_ENABLE 1
+set -x GITLAB_TOKEN $gitlab_token
 # set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/jemalloc/lib"
 # set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/jemalloc/include"
 
