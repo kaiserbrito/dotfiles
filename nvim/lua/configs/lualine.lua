@@ -7,11 +7,17 @@ lualine.setup {
   options = {
     theme = "auto",
     globalstatus = true,
+    component_sepators = "|",
+    section_separators = { left = "", right = "" },
     disabled_filetypes = { statusline = { "dashboard", "alpha" } },
   },
   sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "branch" },
+    lualine_a = {
+       { "mode", separator = { left = "" }, right_padding = 2 },
+    },
+    lualine_b = {
+      { "branch", separator = { right = "" }, left_padding = 2 },
+    },
     lualine_c = {
       {
         "diagnostics",
@@ -36,13 +42,10 @@ lualine.setup {
       },
     },
     lualine_y = {
-      { "progress", separator = " ", padding = { left = 1, right = 0 } },
-      { "location", padding = { left = 0, right = 1 } },
+      { "progress", separator = { left = "" }, left_padding = 2 },
     },
     lualine_z = {
-      function()
-        return " " .. os.date("%R")
-      end,
+      { 'location', separator = { right = '' }, left_padding = 2 },
     },
   },
   extensions = { "nvim-tree" },
