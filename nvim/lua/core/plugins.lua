@@ -146,15 +146,6 @@ require("lazy").setup {
   },
 
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-    }
-  },
-
-  {
     "vidocqh/data-viewer.nvim",
     opts = {},
     event = "BufRead",
