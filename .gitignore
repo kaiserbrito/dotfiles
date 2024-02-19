@@ -163,7 +163,7 @@ kwalletmanager5rc
 sddmthemeinstallerrc
 plasmaparc
 pteid.conf
-github-copilot/hosts.json
+github-copilot/*
 gsconnect
 tiling-assistant
 fish/functions/.DS_Store

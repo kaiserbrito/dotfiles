@@ -107,7 +107,6 @@ require("lazy").setup {
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
   { 'tpope/vim-fugitive' },
-  { "Exafunction/codeium.vim" },
 
   -- Essential plugins
   { "tpope/vim-surround" }, -- add, delete, change surroundings (it's awesome)
@@ -153,4 +152,6 @@ require("lazy").setup {
   },
 
   { "ThePrimeagen/harpoon", event = "VeryLazy", opts = {} },
+
+  { "github/copilot.vim" },
 }
