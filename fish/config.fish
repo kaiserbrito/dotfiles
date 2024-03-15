@@ -2,32 +2,27 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-alias dbw="cd ~/Documents/Lavanda/direct-booking-websites"
-alias hdb="cd ~/Documents/Lavanda/hanami-direct-bookings"
-alias lvdam="cd ~/Documents/Lavanda/lvdam"
-alias invoicing="cd ~/Documents/Lavanda/invoicing"
-alias crm="cd ~/Documents/Lavanda/crm"
-alias offer_management="cd ~/Documents/Lavanda/offer_management"
-alias pms="cd ~/Documents/Lavanda/pms"
-alias platapi="cd ~/Documents/Lavanda/platapi"
-alias authapi="cd ~/Documents/Lavanda/auth-api"
 alias nvim_config="cd ~/.config/nvim/"
 alias ber="bundle exec rspec"
 alias be="bundle exec"
 alias cat="bat --paging=never"
 alias lzg="lazygit"
 alias lzd="lazydocker"
-alias lvdam_console_prod="fly ssh console --pty -C 'myapp/bin/rails console' -a lvd-am"
-alias lvdam_console_staging="fly ssh console --pty -C 'myapp/bin/rails console' -a lvdam-staging"
 
-set -x BUNDLE_GITHUB__COM x-access-token:$github_token
-set -x BUNDLE_ENTERPRISE__CONTRIBSYS__COM $sidekiq_token
-set -x NPM_TOKEN $npm_token
-set -x NPM_GH_TOKEN $npm_gh_token
 set -x EDITOR nvim
 set -x DISABLE_SPRING 1
-set -x TERM tmux-256color
+set -x TERM screen-256color
+set -x HOMEBREW_PREFIX "/opt/homebrew"
 set -x GPG_TTY (tty)
+set -x SRC_ACCESS_TOKEN $src_access_token
+set -x SRC_ENDPOINT $src_endpoint
+set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/imagemagick@6/lib"
+set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/imagemagick@6/include"
+set -x PKG_CONFIG_PATH "$PKG_CONFIG_PATH:$HOMEBREW_PREFIX/opt/imagemagick@6/lib/pkgconfig"
+set -x RUBY_YJIT_ENABLE 1
+set -x GITLAB_TOKEN $gitlab_token
+# set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/jemalloc/lib"
+# set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/jemalloc/include"
 
 # Functions needed for !! and !$
 function __history_previous_command
@@ -62,12 +57,18 @@ end
 function ggone
     git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs git branch -D
 end
-
 fish_add_path (python3 -m site --user-base)/bin
-fish_add_path /home/victor/.rover/bin
-fish_add_path /home/victor/.asdf/installs/rust/1.68.2/bin
-fish_add_path /home/victor/.fly/bin
+fish_add_path $HOMEBREW_PREFIX/sbin
+fish_add_path $HOMEBREW_PREFIX/opt/libpq/bin
+fish_add_path $HOMEBREW_PREFIX/opt/imagemagick@6/bin
+# fish_add_path /opt/homebrew/opt/postgresql@15/bin
+
+eval (ssh-agent -c) &> /dev/null
 
 starship init fish | source
 
 source ~/.asdf/asdf.fish
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

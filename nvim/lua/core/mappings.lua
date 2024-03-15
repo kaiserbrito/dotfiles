@@ -10,7 +10,9 @@ map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
 -- Close buffer
-map("n", "Q", "<cmd>Bdelete!<CR>", opts)
+map("n", "Q", "<cmd>lua require('mini.bufremove').delete(0, false)<CR>", opts)
+-- Close all buffers but the current
+map("n", "<leader>o", ":%bd|e#|bd#<CR>", opts)
 
 -- Split windows
 map("n", "vv", "<C-w>v", opts)
@@ -27,20 +29,18 @@ map("v", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
 map("n", "<leader>hS", "<cmd>Gitsigns stage_buffer<CR>", opts)
 map("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>", opts)
 map("n", "<leader>hR", "<cmd>Gitsigns reset_buffer<CR>", opts)
-map("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>", opts)
-map("n", "<leader>hb", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', opts)
 map("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
 map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", opts)
 map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
 -- Fugitive
-map("n", "<leader>gt", ":Git<CR>", opts)
-map("n", "<leader>gp", ":Git push --force-with-lease<CR>", opts)
-map("n", "<leader>gc", ":Gcommit<CR>", opts)
-map("n", "<leader>gd", ":Gvdiffsplit!<CR>", opts)
-map("n", "gdh", ":diffget //2", opts)
-map("n", "gdl", ":diffget //3", opts)
+map("n", "<leader>gt", "<cmd>Gedit :<CR>", opts)
+map("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", opts)
+map("n", "<leader>gb", "<cmd>Git blame<CR>", opts)
+map("n", "<leader>gl", "<cmd>Git log<CR>", opts)
+map("n", "gdh", "<cmd>diffget //2<CR>", opts)
+map("n", "gdl", "<cmd>diffget //3<CR>", opts)
 
 -- Clear search highlight
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -75,12 +75,6 @@ map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 -- NvimTree
 map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 
--- Dashboard
-map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
-map("n", "<leader>db", "<cmd>Dashboard<CR>", opts)
-map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
-map("n", "<leader>sl", "<cmd>SessionLoad<CR>", opts)
-
 -- Telescope
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", opts)
@@ -89,17 +83,9 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 map("n", "<leader>fr", "<cmd>Telescope registers<CR>", opts)
-
--- Debugger
-map("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
-map("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>", opts)
-map("n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>", opts)
-map("n", "<F12>", "<cmd>lua require'dap'.step_out()<CR>", opts)
-map("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
-map("n", "<leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
-map("n", "<leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
-map("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", opts)
-map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", opts)
+map("n", "<leader>fc", "<cmd>Telescope git_commits<CR>", opts)
+map("n", "<leader>fgs", "<cmd>Telescope git_stash<CR>", opts)
+map("n", "<leader>fgb", "<cmd>Telescope git_branches<CR>", opts)
 
 -- Trouble
 map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
@@ -116,15 +102,25 @@ map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()
 map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 
 -- Terminal
-map("n", "<C-\\>", '<cmd>ToggleTerm<CR>', opts)
-map('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-map('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-map('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-map('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-map('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+map("n", "<C-\\>", "<cmd>terminal<CR>", opts)
+map("n", "<leader>lg", "<cmd>terminal lazygit<CR>", opts)
+map("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 
 -- Markdown Preview
 map("n", "<leader>mp", "<Plug>MarkdownPreview", opts)
+
+-- Treesitter context
+map("n", "[c", "<cmd>lua require('treesitter-context').go_to_context()<CR>", opts)
+
+-- Neorg
+map("n", "<leader>no", "<cmd>Neorg index<CR>", opts)
+map("n", "<leader>nr", "<cmd>Neorg return<CR>", opts)
+map("n", "<leader>nt", "<cmd>Neorg toggle-concealer<CR>", opts)
+
+-- Spectre
+map("n", "<leader>s", "<cmd>lua require('spectre').toggle()<CR>", opts)
+map("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({ select_word=true })<CR>", opts)
+map("v", "<leader>sw", "<cmd>lua require('spectre').open_visual()<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -142,3 +138,16 @@ map("x", "J", "<cmd>move '>+1<CR>gv-gv", opts)
 map("x", "K", "<cmd>move '<-2<CR>gv-gv", opts)
 map("x", "<A-j>", "<cmd>move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", "<cmd>move '<-2<CR>gv-gv", opts)
+
+-- Harpoon
+map("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", opts)
+map("n", "<leader>hq", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+map("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", opts)
+map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", opts)
+
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
+vim.cmd[[iabbr bp binding.pry]]

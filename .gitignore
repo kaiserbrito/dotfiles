@@ -163,6 +163,15 @@ kwalletmanager5rc
 sddmthemeinstallerrc
 plasmaparc
 pteid.conf
-github-copilot/hosts.json
+github-copilot/*
 gsconnect
 tiling-assistant
+fish/functions/.DS_Store
+fish/.DS_Store
+.DS_Store
+pgcli/history
+pgcli/log
+containers
+raycast/extensions
+nvim/lazy-lock.json
+kitty/kitty.conf.bak

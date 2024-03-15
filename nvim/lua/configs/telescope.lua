@@ -11,6 +11,7 @@ telescope.setup {
 
     prompt_prefix = " ",
     selection_caret = "❯ ",
+    file_ignore_patterns = { "vendor", "node_modules" },
 
     mappings = {
       i = {

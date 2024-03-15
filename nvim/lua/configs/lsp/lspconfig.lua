@@ -1,4 +1,5 @@
 require("mason").setup()
+local navic = require("nvim-navic")
 
 require("mason-lspconfig").setup {
   ensure_installed = {
@@ -49,6 +50,10 @@ local lsp_attach = function(client, bufnr)
   keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
   keymap.set("n", "gr", vim.lsp.buf.references, opts)
   keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
 end
 
 local lspconfig = require "lspconfig"

@@ -17,7 +17,8 @@ treesitter.setup {
     "bash",
     "fish",
     "go",
-    "elixir"
+    "elixir",
+    "javascript"
   },
   sync_install = false,
   ignore_install = {},
@@ -37,13 +38,10 @@ treesitter.setup {
     enable = true,
   },
   indent = {
-    enable = false,
-  },
-  rainbow = {
     enable = true,
-    disable = { "html" },
-    extended_mode = false,
-    max_file_lines = nil,
+    disable = {
+      "ruby"
+    },
   },
   autotag = {
     enable = true,

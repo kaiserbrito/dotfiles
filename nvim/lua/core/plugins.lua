@@ -21,7 +21,15 @@ require("lazy").setup {
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
 
   -- Colorscheme
-  { "rebelot/kanagawa.nvim" },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd.colorscheme("catppuccin-mocha")
+    end,
+  },
 
   { "aserowy/tmux.nvim" },
 
@@ -30,64 +38,34 @@ require("lazy").setup {
   { "AndrewRadev/splitjoin.vim" },
 
   { "kyazdani42/nvim-web-devicons" },
-  {
-    "glepnir/dashboard-nvim",
-    event = "VimEnter",
-    config = function()
-      require("dashboard").setup {
-        theme = "doom",
-        config = {
-          center = {
-            {
-              icon = " ",
-              icon_hl = "Title",
-              desc = "Find File           ",
-              desc_hl = "String",
-              key = "b",
-              keymap = "SPC f f",
-              key_hl = "Number",
-              action = "lua print(2)",
-            },
-            {
-              icon = " ",
-              desc = "Find Dotfiles",
-              key = "f",
-              keymap = "SPC f d",
-              action = "lua print(3)",
-            },
-          },
-        },
-      }
-    end,
-  },
 
-  { "akinsho/bufferline.nvim" },
+  { "akinsho/bufferline.nvim", event = "VeryLazy" },
 
-  { "moll/vim-bbye" }, -- Delete buffers
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", event = "VeryLazy", opts = {} }, -- Indentation guides
+
+  { "echasnovski/mini.bufremove" }, -- Delete buffers
 
   { "nvim-tree/nvim-tree.lua" },
+
+  { "stevearc/oil.nvim" },
 
   { "nvim-lualine/lualine.nvim" }, -- statusline
 
   -- Syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      {
-        -- Parenthesis highlighting
-        "p00f/nvim-ts-rainbow",
-        "nvim-treesitter",
-      },
-      {
-        -- Autoclose tags
-        "windwp/nvim-ts-autotag",
-        "nvim-treesitter",
-      },
-    },
+    build = ":TSUpdate"
   },
 
+  -- Context
+  { "nvim-treesitter/nvim-treesitter-context" },
+
   -- auto closing
-  { "windwp/nvim-autopairs" },
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    opts = {},
+  },
 
   -- LSP Support
   { "neovim/nvim-lspconfig" },
@@ -100,7 +78,6 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim" },
 
   -- snippets
-  { "saadparwaiz1/cmp_luasnip" }, -- for autocompletion
   { "rafamadriz/friendly-snippets" }, -- useful snippets
 
   -- autocompletion
@@ -111,7 +88,7 @@ require("lazy").setup {
   { "L3MON4D3/LuaSnip" },
 
   -- formatting & linting
-  { "jose-elias-alvarez/null-ls.nvim" }, -- configure formatters & linters
+  { "nvimtools/none-ls.nvim" }, -- configure formatters & linters
   { "jayp0521/mason-null-ls.nvim" }, -- bridges gap b/w mason & null-ls
 
   -- enhanced lsp uis
@@ -120,7 +97,7 @@ require("lazy").setup {
   -- fuzzy finding w/ telescope
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
+    tag = "0.1.4",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -129,32 +106,52 @@ require("lazy").setup {
 
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
-  { "tpope/vim-fugitive" },
-  {
-    "pwntester/octo.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-  { "github/copilot.vim" },
+  { 'tpope/vim-fugitive' },
 
   -- Essential plugins
   { "tpope/vim-surround" }, -- add, delete, change surroundings (it's awesome)
   { "vim-test/vim-test" }, -- Run tests on neovim
   { "tpope/vim-rails" }, -- Rails
   { "tpope/vim-abolish" },
-  { "akinsho/toggleterm.nvim" }, -- Terminal
-  { "folke/which-key.nvim" }, -- Keymaps popup
+  -- Keymaps popup
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function ()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+  },
   { "karb94/neoscroll.nvim" }, -- Smooth scrolling
 
+  { "SmiteshP/nvim-navic" },
+
   {
-    "SmiteshP/nvim-navbuddy",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-      "MunifTanjim/nui.nvim"
-    }
+    "iamcco/markdown-preview.nvim",
+    event = "BufRead",
+    build = ":call mkdp#util#install()",
   },
+
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    "nvim-pack/nvim-spectre",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "vidocqh/data-viewer.nvim",
+    opts = {},
+    event = "BufRead",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  { "ThePrimeagen/harpoon", event = "VeryLazy", opts = {} },
+
+  { "github/copilot.vim" },
 }
