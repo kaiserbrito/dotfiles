@@ -83,7 +83,7 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 map("n", "<leader>fr", "<cmd>Telescope registers<CR>", opts)
 map("n", "<leader>fc", "<cmd>Telescope git_commits<CR>", opts)
 map("n", "<leader>fgs", "<cmd>Telescope git_stash<CR>", opts)
-map("n", "<leader>fgb", "<cmd>Telescope git_branches<CR>", opts)
+map("n", "<leader>gB", "<cmd>Telescope git_branches<CR>", opts)
 
 -- Trouble
 map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
