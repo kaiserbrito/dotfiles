@@ -11,7 +11,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- add list of plugins to install
-require("lazy").setup {
+require("lazy").setup({
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
   { "tpope/vim-sleuth" },
 
@@ -198,4 +198,23 @@ require("lazy").setup {
   { "ThePrimeagen/harpoon", event = "VeryLazy", opts = {} },
 
   { "github/copilot.vim" },
-}
+},
+{
+  ui = {
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
+  },
+})
