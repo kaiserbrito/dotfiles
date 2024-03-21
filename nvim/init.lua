@@ -1,5 +1,5 @@
-require("core.plugins")
 require("core.options")
+require("core.plugins")
 require("core.mappings")
 require("configs.icons")
 require("configs.comment")
