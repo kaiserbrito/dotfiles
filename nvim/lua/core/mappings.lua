@@ -41,7 +41,7 @@ map("n", "<leader>gc", "<cmd>Neogit commit<CR>", opts)
 map("n", "<leader>gP", "<cmd>Neogit push<CR>", opts)
 
 -- Clear search highlight
-map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
 -- Disabling arrow keys
 map("n", "<Left>", ":echoe 'Use h'<CR>", opts)
@@ -82,10 +82,6 @@ map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
 
 -- Navbuddy
 map("n", "<leader>nb", "<cmd>lua require('nvim-navbuddy').open()<CR>", opts)
-
--- Comment
-map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 
 -- Terminal
 map("n", "<C-\\>", "<cmd>terminal<CR>", opts)
@@ -132,8 +128,8 @@ map("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", opts)
 map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", opts)
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
-vim.cmd[[iabbr bp binding.pry]]
+vim.cmd [[iabbr bp binding.pry]]
