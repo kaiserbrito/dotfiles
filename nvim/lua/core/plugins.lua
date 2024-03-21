@@ -1,14 +1,8 @@
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  }
-end
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
+end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- Remap space as leader key
@@ -97,16 +91,28 @@ require("lazy").setup {
   -- fuzzy finding w/ telescope
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    event = "VimEnter",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        cond = function()
+          return vim.fn.executable "make" == 1
+        end,
+      },
+      { "nvim-telescope/telescope-ui-select.nvim" },
+
+      { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+    },
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
   { "folke/trouble.nvim", event = "BufRead" },
 
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
-  { 'tpope/vim-fugitive' },
+  { "tpope/vim-fugitive" },
   {
     "NeogitOrg/neogit",
     dependencies = {

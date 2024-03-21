@@ -73,18 +73,6 @@ map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 -- NvimTree
 map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 
--- Telescope
-map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", opts)
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
-map("n", "<leader>fr", "<cmd>Telescope registers<CR>", opts)
-map("n", "<leader>fc", "<cmd>Telescope git_commits<CR>", opts)
-map("n", "<leader>fgs", "<cmd>Telescope git_stash<CR>", opts)
-map("n", "<leader>gB", "<cmd>Telescope git_branches<CR>", opts)
-
 -- Trouble
 map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
 map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
