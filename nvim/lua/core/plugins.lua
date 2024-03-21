@@ -31,8 +31,6 @@ require("lazy").setup {
 
   { "AndrewRadev/splitjoin.vim" },
 
-  { "kyazdani42/nvim-web-devicons" },
-
   { "akinsho/bufferline.nvim", event = "VeryLazy" },
 
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", event = "VeryLazy", opts = {} }, -- Indentation guides
@@ -48,7 +46,7 @@ require("lazy").setup {
   -- Syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate"
+    build = ":TSUpdate",
   },
 
   -- Context
@@ -62,14 +60,16 @@ require("lazy").setup {
   },
 
   -- LSP Support
-  { "neovim/nvim-lspconfig" },
   {
-    "williamboman/mason.nvim",
-    build = function()
-      pcall(vim.cmd, "MasonUpdate")
-    end,
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      { "j-hui/fidget.nvim", opts = {} },
+      { "folke/neodev.nvim", opts = {} },
+    },
   },
-  { "williamboman/mason-lspconfig.nvim" },
 
   -- snippets
   { "rafamadriz/friendly-snippets" }, -- useful snippets
@@ -120,7 +120,7 @@ require("lazy").setup {
       "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    config = true
+    config = true,
   },
 
   -- Essential plugins
@@ -132,7 +132,7 @@ require("lazy").setup {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    init = function ()
+    init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
@@ -149,21 +149,13 @@ require("lazy").setup {
 
   {
     "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    version = "v7.0.0",
   },
 
   {
     "nvim-pack/nvim-spectre",
     event = "VeryLazy",
     opts = {},
-  },
-
-  {
-    "vidocqh/data-viewer.nvim",
-    opts = {},
-    event = "BufRead",
-    dependencies = { "nvim-lua/plenary.nvim" },
   },
 
   { "ThePrimeagen/harpoon", event = "VeryLazy", opts = {} },
