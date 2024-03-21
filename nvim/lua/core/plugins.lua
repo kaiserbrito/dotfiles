@@ -13,6 +13,7 @@ vim.g.maplocalleader = " "
 -- add list of plugins to install
 require("lazy").setup {
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
+  { "tpope/vim-sleuth" },
 
   -- Colorscheme
   {
