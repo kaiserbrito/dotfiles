@@ -38,8 +38,6 @@ require("lazy").setup({
 
   { "echasnovski/mini.bufremove" }, -- Delete buffers
 
-  { "nvim-tree/nvim-tree.lua" },
-
   { "stevearc/oil.nvim" },
 
   { "nvim-lualine/lualine.nvim" }, -- statusline
