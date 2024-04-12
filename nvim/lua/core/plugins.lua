@@ -1,14 +1,8 @@
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  }
-end
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
+end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- Remap space as leader key
@@ -17,8 +11,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- add list of plugins to install
-require("lazy").setup {
+require("lazy").setup({
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
+  { "tpope/vim-sleuth" },
 
   -- Colorscheme
   {
@@ -37,15 +32,11 @@ require("lazy").setup {
 
   { "AndrewRadev/splitjoin.vim" },
 
-  { "kyazdani42/nvim-web-devicons" },
-
   { "akinsho/bufferline.nvim", event = "VeryLazy" },
 
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", event = "VeryLazy", opts = {} }, -- Indentation guides
 
   { "echasnovski/mini.bufremove" }, -- Delete buffers
-
-  { "nvim-tree/nvim-tree.lua" },
 
   { "stevearc/oil.nvim" },
 
@@ -54,7 +45,7 @@ require("lazy").setup {
   -- Syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate"
+    build = ":TSUpdate",
   },
 
   -- Context
@@ -68,24 +59,54 @@ require("lazy").setup {
   },
 
   -- LSP Support
-  { "neovim/nvim-lspconfig" },
   {
-    "williamboman/mason.nvim",
-    build = function()
-      pcall(vim.cmd, "MasonUpdate")
-    end,
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      { "j-hui/fidget.nvim", opts = {} },
+      { "folke/neodev.nvim", opts = {} },
+    },
   },
-  { "williamboman/mason-lspconfig.nvim" },
 
-  -- snippets
-  { "rafamadriz/friendly-snippets" }, -- useful snippets
+  -- Autocompletion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      {
+        "L3MON4D3/LuaSnip",
+        build = (function()
+          -- Build Step is needed for regex support in snippets.
+          -- This step is not supported in many windows environments.
+          -- Remove the below condition to re-enable on windows.
+          if vim.fn.has "win32" == 1 or vim.fn.executable "make" == 0 then
+            return
+          end
+          return "make install_jsregexp"
+        end)(),
+        dependencies = {
+          -- `friendly-snippets` contains a variety of premade snippets.
+          --    See the README about individual language/framework/plugin snippets:
+          --    https://github.com/rafamadriz/friendly-snippets
+          {
+            "rafamadriz/friendly-snippets",
+            config = function()
+              require("luasnip.loaders.from_vscode").lazy_load()
+            end,
+          },
+        },
+      },
+      "saadparwaiz1/cmp_luasnip",
 
-  -- autocompletion
-  { "hrsh7th/cmp-buffer" }, -- source for text in buffer
-  { "hrsh7th/cmp-path" }, -- source for file system paths
-  { "hrsh7th/nvim-cmp" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "L3MON4D3/LuaSnip" },
+      -- Adds other completion capabilities.
+      --  nvim-cmp does not ship with all sources by default. They are split
+      --  into multiple repos for maintenance purposes.
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+    },
+  },
 
   -- formatting & linting
   { "nvimtools/none-ls.nvim" }, -- configure formatters & linters
@@ -97,16 +118,36 @@ require("lazy").setup {
   -- fuzzy finding w/ telescope
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    event = "VimEnter",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        cond = function()
+          return vim.fn.executable "make" == 1
+        end,
+      },
+      { "nvim-telescope/telescope-ui-select.nvim" },
+
+      { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+    },
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+
+  -- Highlight todo, notes, etc in comments
+  {
+    "folke/todo-comments.nvim",
+    event = "VimEnter",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { signs = false },
+  },
 
   { "folke/trouble.nvim", event = "BufRead" },
 
   -- git integration
   { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
-  { 'tpope/vim-fugitive' },
+  { "tpope/vim-fugitive" },
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -114,7 +155,7 @@ require("lazy").setup {
       "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    config = true
+    config = true,
   },
 
   -- Essential plugins
@@ -126,7 +167,7 @@ require("lazy").setup {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    init = function ()
+    init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
@@ -143,8 +184,7 @@ require("lazy").setup {
 
   {
     "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    version = "v7.0.0",
   },
 
   {
@@ -153,14 +193,26 @@ require("lazy").setup {
     opts = {},
   },
 
-  {
-    "vidocqh/data-viewer.nvim",
-    opts = {},
-    event = "BufRead",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-
   { "ThePrimeagen/harpoon", event = "VeryLazy", opts = {} },
 
   { "github/copilot.vim" },
-}
+},
+{
+  ui = {
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
+  },
+})
