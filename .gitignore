@@ -175,3 +175,4 @@ containers
 raycast/extensions
 nvim/lazy-lock.json
 kitty/kitty.conf.bak
+/karabiner
