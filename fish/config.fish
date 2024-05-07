@@ -8,6 +8,8 @@ alias be="bundle exec"
 alias cat="bat --paging=never"
 alias lzg="lazygit"
 alias lzd="lazydocker"
+alias vim="nvim"
+alias gen_swagger="bundle exec rake rswag:specs:swaggerize"
 
 set -x EDITOR nvim
 set -x DISABLE_SPRING 1
