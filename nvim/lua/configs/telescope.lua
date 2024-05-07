@@ -5,6 +5,7 @@ end
 
 telescope.load_extension "fzf"
 telescope.load_extension "ui-select"
+telescope.load_extension "jsonfly"
 
 local builtin = require "telescope.builtin"
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[S]earch [H]elp" })
