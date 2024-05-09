@@ -3,8 +3,6 @@ local navic = require("nvim-navic")
 
 require("mason-lspconfig").setup {
   ensure_installed = {
-    "elixirls",
-    "gopls",
     "html",
     "jsonls",
     "solargraph",
@@ -23,13 +21,9 @@ mason_null_ls.setup {
   -- list of formatters & linters for mason to install
   ensure_installed = {
     "eslint_d",      -- ts/js linter
-    "gofmt",         -- golang
-    "goimports",     -- golang
-    "mix",           -- elixir
     "prettier",      -- ts/js formatter
     "rubocop",       -- ruby
     "stylua",        -- lua formatter
-    "terraform_fmt", -- terraform
     "yamlfmt",       -- Yaml
   },
   -- auto-install configured formatters & linters (with null-ls)
