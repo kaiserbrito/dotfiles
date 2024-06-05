@@ -69,8 +69,10 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-map("n", "<S-l>", "<cmd>bnext<CR>", opts)
-map("n", "<S-h>", "<cmd>bprevious<CR>", opts)
+map("n", "bj", "<cmd>bfirst<CR>", opts)
+map("n", "bl", "<cmd>bnext<CR>", opts)
+map("n", "bk", "<cmd>blast<CR>", opts)
+map("n", "bh", "<cmd>bprevious<CR>", opts)
 
 -- Move text up and down
 map("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
