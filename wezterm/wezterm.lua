@@ -9,5 +9,6 @@ config.send_composed_key_when_left_alt_is_pressed = true
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 15
+config.window_decorations = "RESIZE"
 
 return config
