@@ -30,7 +30,13 @@ require("lazy").setup({
 
   { "AndrewRadev/splitjoin.vim" },
 
-  { "akinsho/bufferline.nvim", event = "VeryLazy" },
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    event = "VeryLazy",
+    opts = {},
+  },
 
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", event = "VeryLazy", opts = {} }, -- Indentation guides
 
