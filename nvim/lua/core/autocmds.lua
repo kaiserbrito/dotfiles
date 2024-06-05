@@ -31,3 +31,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end
   end,
 })
+
+vim.cmd [[
+  command! -nargs=0 LinkBuild :!npm run link:build
+]]
