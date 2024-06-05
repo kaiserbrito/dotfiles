@@ -28,8 +28,6 @@ require("lazy").setup({
 
   { "aserowy/tmux.nvim" },
 
-  { "numToStr/Comment.nvim" }, -- commenting with gc
-
   { "AndrewRadev/splitjoin.vim" },
 
   { "akinsho/bufferline.nvim", event = "VeryLazy" },
