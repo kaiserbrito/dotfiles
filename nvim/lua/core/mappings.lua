@@ -39,6 +39,12 @@ map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
 map("n", "<leader>gs", "<cmd>Neogit<CR>", opts)
 map("n", "<leader>gc", "<cmd>Neogit commit<CR>", opts)
 map("n", "<leader>gP", "<cmd>Neogit push<CR>", opts)
+map("n", "<leader>gb", "<cmd>Git blame<CR>", opts)
+
+-- Resolve conflicts
+map("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", opts)
+map("n", "<leader>gdh", "<cmd>diffget //2<CR>", opts)
+map("n", "<leader>gdl", "<cmd>diffget //3<CR>", opts)
 
 -- Clear search highlight
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
