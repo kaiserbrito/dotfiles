@@ -201,6 +201,11 @@ require("lazy").setup({
   { "ThePrimeagen/harpoon", event = "VeryLazy", opts = {} },
 
   { "github/copilot.vim" },
+
+  {
+    "mistricky/codesnap.nvim",
+    build = "make",
+  },
 },
 {
   ui = {
