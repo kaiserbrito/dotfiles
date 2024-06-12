@@ -15,6 +15,10 @@ ctrl + alt - l : yabai -m window --focus east
 alt - s: yabai -m display --focus west
 alt - g: yabai -m display --focus east
 
+# Move the focused window to the next display
+ctrl + alt - n: yabai -m window --display next
+ctrl + alt - p: yabai -m window --display prev
+
 # rotate layout clockwise
 shift + alt - c : yabai -m space --rotate 270
 
