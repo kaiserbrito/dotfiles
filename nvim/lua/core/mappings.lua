@@ -81,13 +81,6 @@ map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 -- NvimTree
 map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 
--- Trouble
-map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
-map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
-map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
-map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
-map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
-
 -- Navbuddy
 map("n", "<leader>nb", "<cmd>lua require('nvim-navbuddy').open()<CR>", opts)
 
