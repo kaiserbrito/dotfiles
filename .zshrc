@@ -20,7 +20,6 @@ zinit light Aloxaf/fzf-tab
 
 # Add in snippets
 zinit snippet OMZP::git
-zinit snippet OMZP::asdf
 zinit snippet OMZP::z
 
 # Brew completion
@@ -80,3 +79,4 @@ export GPG_TTY=$(tty)
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
