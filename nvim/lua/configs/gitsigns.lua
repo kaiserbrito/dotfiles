@@ -5,41 +5,31 @@ end
 
 gitsigns.setup {
   signs = {
-    add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-    change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    delete = { hl = "GitSignsDelete", text = "▎", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    topdelete = {
-      hl = "GitSignsDelete",
-      text = "契",
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
-    },
-    changedelete = {
-      hl = "GitSignsChange",
-      text = "▎",
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
-    },
+    add          = { text = '┃' },
+    change       = { text = '┃' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+    untracked    = { text = '┆' },
   },
   signcolumn = true,
   numhl = false,
   linehl = false,
   word_diff = false,
   watch_gitdir = {
-    interval = 1000,
     follow_files = true,
   },
+  auto_attach = true,
   attach_to_untracked = true,
   current_line_blame = false,
   current_line_blame_opts = {
     virt_text = true,
-    virt_text_pos = "eol",
+    virt_text_pos = 'eol',
     delay = 1000,
     ignore_whitespace = false,
+    virt_text_priority = 100,
   },
-  current_line_blame_formatter_opts = {
-    relative_time = false,
-  },
+  current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil,
@@ -50,8 +40,5 @@ gitsigns.setup {
     relative = "cursor",
     row = 0,
     col = 1,
-  },
-  yadm = {
-    enable = false,
   },
 }
