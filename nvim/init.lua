@@ -1,23 +1,10 @@
-require("core.options")
-require("core.plugins")
-require("core.mappings")
-require("configs.icons")
-require("configs.lualine")
-require("configs.telescope")
-require("configs.nvim-cmp")
-require("configs.lsp.lspconfig")
-require("configs.null-ls")
-require("configs.gitsigns")
-require("configs.treesitter")
-require("configs.treesitter-context")
-require("configs.vim-test")
-require("configs.vim-rails")
-require("configs.terminal")
-require("configs.which-key")
-require("configs.neoscroll")
-require("configs.tmux")
-require("configs.copilot")
-require("configs.neorg")
-require("configs.oil")
-require("configs.codesnap")
-require("core.autocmds")
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
+end ---@diagnostic disable-next-line: undefined-field
+vim.opt.rtp:prepend(lazypath)
+
+require("options")
+require("mappings")
+require("lazy").setup("plugins")
