@@ -176,3 +176,4 @@ raycast/extensions
 nvim/lazy-lock.json
 kitty/kitty.conf.bak
 /karabiner
+nvim_old/lazy-lock.json
