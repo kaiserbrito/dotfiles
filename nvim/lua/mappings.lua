@@ -30,7 +30,6 @@ map("n", "<leader>cs", ":let @+=fnamemodify(expand('%'), ':~:.')<CR>", opts)
 
 -- Terminal
 map("n", "<C-\\>", "<cmd>terminal<CR>", opts)
-map("n", "<leader>lg", "<cmd>terminal lazygit<CR>", opts)
 map("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 
 -- Stay in indent mode
