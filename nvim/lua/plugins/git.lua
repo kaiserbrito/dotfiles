@@ -63,6 +63,9 @@ return {
     "tpope/vim-fugitive",
     config = function ()
       vim.api.nvim_set_keymap("n", "<leader>gb", "<cmd>Git blame<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gdh", ":diffget //2<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gdl", ":diffget //3<CR>", {})
     end,
   },
 
