@@ -13,10 +13,11 @@ return {
     },
     { "nvim-telescope/telescope-ui-select.nvim" },
 
-    { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+    { "echasnovski/mini.icons" },
+
     { "Myzel394/jsonfly.nvim" },
   },
-  config = function ()
+  config = function()
     local status_ok, telescope = pcall(require, "telescope")
     if not status_ok then
       return
