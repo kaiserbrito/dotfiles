@@ -76,7 +76,7 @@ export RUBY_YJIT_ENABLE=1
 export GPG_TTY=$(tty)
 
 # Shell integrations
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
