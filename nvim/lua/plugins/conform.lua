@@ -12,9 +12,9 @@ return {
     },
   },
   opts = {
-    notify_on_error = false,
+    notify_on_error = true,
     formatters_by_ft = {
-      javascript = { { "prettierd", "prettier" } },
+      javascript = { { "prettierd", "prettier", stop_after_first = true } },
       ruby = { "rubocop" },
     },
   },
