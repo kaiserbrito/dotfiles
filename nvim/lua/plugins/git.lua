@@ -66,22 +66,9 @@ return {
       vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gdh", ":diffget //2<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gdl", ":diffget //3<CR>", {})
-    end,
-  },
-
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function ()
-      require("neogit").setup()
-
-      vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Neogit<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Neogit commit<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gP", "<cmd>Neogit push<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Git<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Git commit<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gP", "<cmd>Git! push<CR>", {})
     end,
   },
 }
