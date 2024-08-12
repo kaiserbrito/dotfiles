@@ -1,24 +1,34 @@
 return {
-  "folke/tokyonight.nvim",
+  "catppuccin/nvim",
   lazy = false,
   priority = 1000,
   opts = {},
   config = function()
-    -- posible values: night, storm, day and moon
-    require("tokyonight").setup({
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
+    require("catppuccin").setup({
+      transparent_background = true,
+      dim_inactive = {
+        enabled = true,
+        shade = "dark",
+        percentage = 0.15,
       },
-      plugins = {
-        auto = true,
-        all = false,
-        ["indent-blankline.nvim"] = true,
+      integrations = {
+        cmp = true,
+        diffview = true,
+        fzf = true,
+        harpoon = true,
+        lsp_trouble = true,
+        mason = true,
+        mini = {
+          enabled = true,
+          indentscope_color = "",
+        },
+        noice = true,
+        notify = true,
+        treesitter = true,
+        which_key = true,
       },
-      dim_inactive = true,
-      hide_inactive_statusline = true,
     })
-    vim.cmd.colorscheme("tokyonight-moon")
+
+    vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }
