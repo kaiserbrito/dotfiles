@@ -40,7 +40,11 @@ return {
       end, { silent = true, desc = "Fuzzy complete file" })
 
     fzf.setup {
-      keymap        = {
+      fzf_opts = {
+        ["--prompt"] = " > ",
+        ["--layout"] = "reverse-list",
+      },
+      keymap = {
         -- Below are the default binds, setting any value in these tables will override
         -- the defaults, to inherit from the defaults change [1] from `false` to `true`
         builtin = {
