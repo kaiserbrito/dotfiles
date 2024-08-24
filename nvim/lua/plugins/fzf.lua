@@ -30,6 +30,15 @@ return {
     set_keymap("n", "<leader>fk", fzf.keymaps, { desc = "[F]ind [K]eymaps" }, opts)
     set_keymap("n", "<leader>fh", fzf.helptags, { desc = "[F]ind [H]elp" }, opts)
 
+    -- Insert-mode Completion
+    set_keymap({ "i" }, "<C-x><C-f>",
+      function()
+        require("fzf-lua").complete_file({
+          cmd = "rg --files",
+          winopts = { preview = { hidden = "nohidden" } }
+        })
+      end, { silent = true, desc = "Fuzzy complete file" })
+
     fzf.setup {
       keymap        = {
         -- Below are the default binds, setting any value in these tables will override
