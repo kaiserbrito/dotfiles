@@ -41,8 +41,8 @@ config.enable_scroll_bar = true
 -----------
 --disable_default_key_bindings = true,
 --line_height = 1,
-config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 15
+config.font = wezterm.font("CommitMono Nerd Font")
+config.font_size = 16
 
 -----------
 -- Keys  --
