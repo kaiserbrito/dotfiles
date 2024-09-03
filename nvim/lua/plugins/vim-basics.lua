@@ -50,6 +50,14 @@ return {
   },
 
   {
+    "echasnovski/mini.ai",
+    version = "*",
+    config = function()
+      require("mini.ai").setup()
+    end
+  },
+
+  {
     "vim-test/vim-test",
     config = function()
       vim.api.nvim_set_keymap("n", "<leader>tn", "<cmd>TestNearest<CR>", { noremap = true, silent = true })
