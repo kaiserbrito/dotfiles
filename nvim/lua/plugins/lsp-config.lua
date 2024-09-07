@@ -35,6 +35,9 @@ return {
       lspconfig.tailwindcss.setup {
         capabilities = capabilities,
       }
+      lspconfig.taplo.setup {
+        capabilities = capabilities,
+      }
       lspconfig.tsserver.setup {
         capabilities = capabilities,
       }
