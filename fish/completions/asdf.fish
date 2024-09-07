@@ -1,1 +1,0 @@
-/Users/victorguerra/.asdf/completions/asdf.fish
