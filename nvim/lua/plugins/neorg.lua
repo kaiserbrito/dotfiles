@@ -16,6 +16,7 @@ return {
             default_workspace = "work",
           },
         },
+        ["core.export"] = {},
       },
     }
 
