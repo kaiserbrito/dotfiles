@@ -10,6 +10,9 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 # Mouse follows focus when focused monitor changes
 on-focus-changed = ['move-mouse window-lazy-center']
 
+[workspace-to-monitor-force-assignment]
+5 = '^built-in retina display$'
+
 [mode.main.binding]
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
 alt-enter = '''exec-and-forget osascript -e '
@@ -70,9 +73,6 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
-
-[workspace-to-monitor-force-assignment]
-5 = '^built-in retina display$'
 
 alt-shift-c = 'reload-config'
 
