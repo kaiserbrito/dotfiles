@@ -30,6 +30,16 @@ outer.bottom =     10
 outer.top =        10
 outer.right =      20
 
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+[workspace-to-monitor-force-assignment]
+5 = '^built-in retina display$'
+
+[gaps]
+outer.top = 35
+
 [mode.main.binding]
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
 alt-enter = '''exec-and-forget osascript -e '
