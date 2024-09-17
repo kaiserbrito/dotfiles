@@ -66,7 +66,7 @@ return {
       vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gdh", ":diffget //2<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gdl", ":diffget //3<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Git<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Gedit :<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Git commit<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gP", "<cmd>Git! push<CR>", {})
     end,
