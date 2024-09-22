@@ -70,6 +70,15 @@ alias vim='nvim'
 alias lzg='lazygit'
 alias be='bundle exec'
 
+# Functions
+local-db() {
+  local db_name=$1
+  local db_user=$2
+  local db_password=$3
+
+  docker run --name local-db -e POSTGRES_USER=$db_user -e POSTGRES_PASSWORD=$db_password -e POSTGRES_DB=$db_name -p 5432:5432 -v $db_name:/var/lib/postgresql/data -d postgres:alpine
+}
+
 # Exports
 export EDITOR='nvim'
 export TERM='screen-256color'
