@@ -10,7 +10,16 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      auto_install = true,
+      automatic_installation = true,
+      ensure_installed = {
+        "html",
+        "jsonls",
+        "lua_ls",
+        "ruby_lsp",
+        "tailwindcss",
+        "taplo",
+        "ts_ls",
+      },
     },
   },
   {
@@ -22,28 +31,13 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local get_servers = require("mason-lspconfig").get_installed_servers
 
-      lspconfig.html.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.jsonls.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.lua_ls.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.ruby_lsp.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.tailwindcss.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.taplo.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.ts_ls.setup {
-        capabilities = capabilities,
-      }
+      for _, server_name in ipairs(get_servers()) do
+        lspconfig[server_name].setup {
+          capabilities = capabilities,
+        }
+      end
 
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
