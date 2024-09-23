@@ -68,7 +68,7 @@ return {
       vim.api.nvim_set_keymap("n", "<leader>gdl", ":diffget //3<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Gedit :<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Git commit<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gP", "<cmd>Git! push<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gP", "<cmd>Git! push --force-with-lease<CR>", {})
     end,
   },
 }
