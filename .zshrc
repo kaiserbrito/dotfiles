@@ -70,6 +70,10 @@ alias vim='nvim'
 alias lzg='lazygit'
 alias be='bundle exec'
 
+# Git aliases
+alias grbdia='grbd -i --autosquash'
+alias grbmia='grbm -i --autosquash'
+
 # Functions
 local-db() {
   local db_name=$1
