@@ -23,7 +23,10 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ pkgs.vim
+        [ 
+            pkgs.neovim
+            pkgs.tmux
+            pkgs.lazygit
         ];
 
       # Auto upgrade nix package and the daemon service.
@@ -45,7 +48,7 @@
       system.stateVersion = 5;
 
       # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "x86_64-darwin";
+      nixpkgs.hostPlatform = "aarch64-darwin";
     };
   in
   {
@@ -61,7 +64,7 @@
               enable = true;
 
               # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-              enableRosetta = false;
+              enableRosetta = true;
 
               # User owning the Homebrew prefix
               user = "Victor Guerra";
