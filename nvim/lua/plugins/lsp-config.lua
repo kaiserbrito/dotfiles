@@ -26,11 +26,11 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     config = function()
       local lspconfig = require("lspconfig")
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       local get_servers = require("mason-lspconfig").get_installed_servers
 
       for _, server_name in ipairs(get_servers()) do
