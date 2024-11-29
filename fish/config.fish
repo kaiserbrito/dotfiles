@@ -6,10 +6,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Aliases
 alias vim="nvim"
-alias ls='ls --color'
-alias lzg='lazygit'
-alias be='bundle exec'
-alias ber='bundle exec rspec'
+alias lzg="lazygit"
+alias be="bundle exec"
+alias ber="bundle exec rails"
+
+# eza
+abbr -a l eza -l --icons --git -a
+abbr -a lt eza --tree --level=2 --long --icons --git
+abbr -a ltree eza --tree --level=2  --icons --git
 
 # Exports
 set -x EDITOR nvim
