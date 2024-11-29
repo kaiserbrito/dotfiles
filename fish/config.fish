@@ -53,6 +53,7 @@ else
     bind '$' __history_previous_command_arguments
 end
 
+direnv hook fish | source
 fzf --fish | source
 zoxide init fish | source
 starship init fish | source
