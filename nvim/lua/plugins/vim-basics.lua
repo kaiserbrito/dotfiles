@@ -13,12 +13,6 @@ return {
 
   { "tpope/vim-sleuth" },
   { "AndrewRadev/splitjoin.vim" },
-  {
-    "echasnovski/mini.bufremove",
-    config = function()
-      vim.api.nvim_set_keymap("n", "Q", "<cmd>lua require('mini.bufremove').delete(0, false)<CR>", {})
-    end,
-  },
   { "tpope/vim-surround" },
 
   { "tpope/vim-abolish" },
