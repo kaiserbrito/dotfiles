@@ -21,7 +21,6 @@ return {
     set_keymap("n", "<leader>/", fzf.grep_curbuf, { desc = "Search [/] in current buffer" }, opts)
 
     -- Git
-    set_keymap("n", "<leader>gB", fzf.git_branches, { desc = "Git [B]ranches" }, opts)
     set_keymap("n", "<leader>fgs", fzf.git_stash, { desc = "Git [S]tashes" }, opts)
     set_keymap("n", "<leader>fc", fzf.git_bcommits, { desc = "Git commits current buffer" }, opts)
 
