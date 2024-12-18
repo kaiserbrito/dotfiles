@@ -48,6 +48,7 @@ return {
   config = function(_, opts)
     require("noice").setup(opts)
 
+    vim.go.lazyredraw = true
     vim.api.nvim_set_keymap("n", "<leader>nn", ":Noice dismiss<CR>", { noremap = true })
   end,
 }
