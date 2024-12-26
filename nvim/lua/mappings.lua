@@ -2,16 +2,6 @@ local opts = { noremap = true, silent = true }
 
 local map = vim.api.nvim_set_keymap
 
--- Better window navigation
-map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-j>", "<C-w>j", opts)
-map("n", "<C-k>", "<C-w>k", opts)
-map("n", "<C-l>", "<C-w>l", opts)
-
--- Split windows
-map("n", "vv", "<C-w>v", opts)
-map("n", "ss", "<C-w>s", opts)
-
 -- Clear search highlight
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
@@ -29,7 +19,7 @@ map("n", "^", "0", opts)
 map("n", "<leader>cs", ":let @+=fnamemodify(expand('%'), ':~:.')<CR>", opts)
 
 -- Terminal
-map("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+map("t", "<Esc><Esc>", [[<C-\><C-n><C-w>]], opts)
 
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
