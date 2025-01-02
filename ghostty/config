@@ -1,0 +1,10 @@
+theme = catppuccin-mocha
+font-family = "CommitMono Nerd Font"
+font-size = 16
+background-blur-radius = 20
+mouse-hide-while-typing = true
+window-decoration = true
+macos-option-as-alt = false
+background-opacity = 0.8
+cursor-style-blink = true
+copy-on-select = true
