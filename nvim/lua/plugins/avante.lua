@@ -5,7 +5,6 @@ return {
   version = false,
   opts = {
     provider = "copilot",
-    auto_suggestions_provider = "copilot",
     hints = { enabled = false },
   },
   build = "make",
