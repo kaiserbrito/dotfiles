@@ -13,7 +13,14 @@ return {
 
   { "tpope/vim-sleuth" },
   { "AndrewRadev/splitjoin.vim" },
-  { "tpope/vim-surround" },
+
+  {
+    "echasnovski/mini.surround",
+    version = "*",
+    config = function()
+      require("mini.surround").setup()
+    end,
+  },
 
   { "tpope/vim-abolish" },
 
