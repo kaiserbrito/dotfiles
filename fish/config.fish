@@ -22,6 +22,8 @@ set -x TERM screen-256color
 set -x FZF_DEFAULT_COMMAND "fd"
 set -x GPG_TTY (tty)
 set -x RUBY_YJIT_ENABLE 1
+set -gx LDFLAGS "-L/opt/homebrew/opt/postgresql@16/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/postgresql@16/include"
 
 # Functions needed for !! and !$
 function __history_previous_command
