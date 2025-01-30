@@ -18,5 +18,9 @@ return {
       ruby = { "rubocop" },
       eruby = { "erb_format" },
     },
+    rubocop = {
+      command = "bundle exec",
+      args = { "-A", "$FILENAME" },
+    },
   },
 }
