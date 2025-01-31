@@ -5,7 +5,7 @@ return {
     {
       "<leader>f",
       function()
-        require("conform").format { async = true, lsp_fallback = true }
+        require("conform").format { async = true, lsp_format = "fallback" }
       end,
       mode = "",
       desc = "[F]ormat buffer",
@@ -14,7 +14,7 @@ return {
   opts = {
     notify_on_error = true,
     formatters_by_ft = {
-      javascript = { { "prettierd", "prettier", stop_after_first = true } },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
       ruby = { "rubocop" },
       eruby = { "erb_format" },
     },
