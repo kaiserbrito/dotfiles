@@ -1,7 +1,7 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
-    config = function ()
+    config = function()
       require("gitsigns").setup {
         signs = {
           add          = { text = '┃' },
@@ -60,15 +60,15 @@ return {
   },
 
   {
-    "tpope/vim-fugitive",
-    config = function ()
-      vim.api.nvim_set_keymap("n", "<leader>gb", "<cmd>Git blame<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gdh", ":diffget //2<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gdl", ":diffget //3<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Gedit :<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Git commit<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gP", "<cmd>Git! push --force-with-lease<CR>", {})
-    end,
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+      "ibhagwan/fzf-lua",       -- optional
+    },
+    config = true,
+    keys = {
+      { "<leader>gs", "<cmd>Neogit<CR>", mode = "n", desc = "Open Neogit" },
+    },
   },
 }
