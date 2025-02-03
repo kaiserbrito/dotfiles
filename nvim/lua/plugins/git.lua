@@ -69,6 +69,7 @@ return {
     config = true,
     keys = {
       { "<leader>gs", "<cmd>Neogit<CR>", mode = "n", desc = "Open Neogit" },
+      { "<leader>gd", "<cmd>DiffviewOpen<CR>", mode = "n", desc = "Open Git diffview" },
     },
   },
 }
