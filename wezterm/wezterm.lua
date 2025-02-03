@@ -8,7 +8,7 @@ config.use_ime = true
 ----------------
 -- Appearance --
 ----------------
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 config.window_decorations = "RESIZE"
 config.automatically_reload_config = true
 config.color_scheme = "Catppuccin Mocha"
