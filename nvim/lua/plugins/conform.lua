@@ -1,6 +1,7 @@
 return {
   "stevearc/conform.nvim",
-  lazy = false,
+  lazy = true,
+  cmd = "ConformInfo",
   keys = {
     {
       "<leader>f",

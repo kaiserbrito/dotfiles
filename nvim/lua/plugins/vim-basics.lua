@@ -2,7 +2,7 @@ return {
   {
     "echasnovski/mini.icons",
     opts = {},
-    lazy = true,
+    event = "VeryLazy",
     init = function()
       package.preload["nvim-web-devicons"] = function()
         require("mini.icons").mock_nvim_web_devicons()
@@ -17,6 +17,7 @@ return {
   {
     "echasnovski/mini.surround",
     version = "*",
+    event = "VeryLazy",
     config = function()
       require("mini.surround").setup()
     end,
@@ -33,6 +34,7 @@ return {
   {
     "echasnovski/mini.hipatterns",
     version = "*",
+    event = "VeryLazy",
     config = function()
       local hipatterns = require('mini.hipatterns')
       hipatterns.setup({
@@ -52,6 +54,7 @@ return {
 
   {
     "echasnovski/mini.ai",
+    event = "VeryLazy",
     version = "*",
     config = function()
       require("mini.ai").setup()
