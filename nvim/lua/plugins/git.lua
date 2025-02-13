@@ -54,6 +54,7 @@ return {
       vim.api.nvim_set_keymap("n", "<leader>hS", ":Gitsigns stage_buffer<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>hR", ":Gitsigns reset_buffer<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gb", ":Gitsigns blame<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>hd", ":Gitsigns diffthis<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>', {})
