@@ -10,7 +10,6 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer", "markdown" },
-      cmdline = {},
       providers = {
         markdown = {
           name = "RenderMarkdown",
@@ -19,6 +18,7 @@ return {
         },
       },
     },
+    cmdline = { enabled = false },
     signature = { enabled = true }
   },
   opts_extend = { "sources.default" }
