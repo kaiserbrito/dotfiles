@@ -5,6 +5,7 @@ return {
   opts = {
     provider = "copilot",
     hints = { enabled = false },
+    copilot = { model = "claude-3.5-sonnet" },
   },
   build = "make",
   dependencies = {
