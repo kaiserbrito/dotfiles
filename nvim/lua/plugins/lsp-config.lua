@@ -19,6 +19,7 @@ return {
         "tailwindcss",
         "taplo",
         "ts_ls",
+        "elixirls",
       },
     },
   },
@@ -33,10 +34,27 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local get_servers = require("mason-lspconfig").get_installed_servers
 
+      -- Set up specific configurations for each server
       for _, server_name in ipairs(get_servers()) do
-        lspconfig[server_name].setup {
-          capabilities = capabilities,
-        }
+        if server_name == "elixirls" then
+          lspconfig.elixirls.setup({
+            capabilities = capabilities,
+            cmd = { vim.fn.stdpath("data") .. "/mason/bin/elixir-ls" },
+            settings = {
+              elixirLS = {
+                dialyzerEnabled = true,
+                fetchDeps = false,
+                enableTestLenses = true,
+                suggestSpecs = true,
+              }
+            },
+            filetypes = { "elixir", "eex", "heex", "surface" },
+          })
+        else
+          lspconfig[server_name].setup {
+            capabilities = capabilities,
+          }
+        end
       end
 
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
