@@ -1,9 +1,9 @@
 [tools]
 elixir = "1.18.0-otp-27"
 erlang = "27.2.3"
-go = "1.22.2"
+go = "1.23.2"
 node = "18.20.2"
 python = "3.12.3"
-ruby = "3.2.3"
+ruby = "3.2.6"
 rust = "1.79.0"
 terraform = "latest"
