@@ -5,7 +5,7 @@ return {
     "echasnovski/mini.icons",
   },
   opts = {
-    file_types = { "markdown", "Avante" },
+    file_types = { "markdown", "copilot-chat" },
   },
-  ft = { "markdown", "Avante" },
+  ft = { "markdown", "copilot-chat" },
 }
