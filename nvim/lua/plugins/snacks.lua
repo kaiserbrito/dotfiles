@@ -16,7 +16,7 @@ return {
     lazygit = { enabled = true },
     notify = { enabled = true },
     notifier = { enabled = true, timeout = 3000 },
-    picker = { enabled = true },
+    picker = { enabled = true, ui_select = true },
     profiler = { enabled = false },
     quickfile = { enabled = true },
     rename = { enabled = false },

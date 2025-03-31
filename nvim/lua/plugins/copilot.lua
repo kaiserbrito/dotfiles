@@ -36,7 +36,6 @@ return {
       svn = false,
       cvs = false,
       ["."] = false,
-      -- markdown = false,
     },
   },
 }

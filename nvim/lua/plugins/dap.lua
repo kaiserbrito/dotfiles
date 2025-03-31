@@ -26,6 +26,7 @@ return {
 
   {
     "leoluz/nvim-dap-go",
+    event = "BufReadPre",
     config = function()
       require("dap-go").setup()
     end,
