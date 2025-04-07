@@ -15,12 +15,12 @@ return {
     },
     suggestion = {
       enabled = true,
-      auto_trigger = true,
+      auto_trigger = false,
       hide_during_completion = true,
       debounce = 75,
       keymap = {
         accept = "<C-a>",
-        accept_word = false,
+        accept_word = "<C-i>",
         accept_line = false,
         next = "<C-n>",
         prev = "<C-p>",
