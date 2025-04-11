@@ -24,6 +24,7 @@ set -x GPG_TTY (tty)
 set -x RUBY_YJIT_ENABLE 1
 set -gx LDFLAGS "-L/opt/homebrew/opt/postgresql@16/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/postgresql@16/include"
+set -x FPROF 1
 
 # Functions needed for !! and !$
 function __history_previous_command
