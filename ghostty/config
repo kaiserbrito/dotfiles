@@ -4,3 +4,4 @@ background-opacity = 0.95
 macos-option-as-alt = false
 shell-integration = fish
 theme = catppuccin-mocha.conf
+copy-on-select = true
