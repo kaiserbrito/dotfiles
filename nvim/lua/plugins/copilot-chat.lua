@@ -31,7 +31,7 @@ return {
       answer_header = "## Copilot ",
       error_header = "## Error ",
       prompts = prompts,
-      model = "claude-3.7-sonnet",
+      model = "gpt-4.1",
       mappings = {
         -- Use tab for completion
         complete = {

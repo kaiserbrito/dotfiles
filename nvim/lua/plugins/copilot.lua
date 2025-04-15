@@ -10,7 +10,7 @@ return {
     },
   },
   opts = {
-    model = "claude-3.7-sonnet-copliot",
+    model = "gpt-4.1-copilot",
     panel = {
       enable = true,
     },
