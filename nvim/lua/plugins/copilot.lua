@@ -10,6 +10,7 @@ return {
     },
   },
   opts = {
+    model = "claude-3.7-sonnet-copliot",
     panel = {
       enable = true,
     },
