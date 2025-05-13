@@ -9,7 +9,7 @@ return {
       nerd_font_variant = "mono"
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "markdown" },
+      default = { "lsp", "path", "snippets", "buffer", "markdown", "codecompanion" },
       providers = {
         markdown = {
           name = "RenderMarkdown",
