@@ -35,6 +35,14 @@ return {
         },
         opts = { skip = true },
       },
+      {
+        filter = {
+          event = "lsp",
+          kind = "",
+          find = "Copilot",
+        },
+        opts = { skip = true },
+      },
     },
   },
   dependencies = {
