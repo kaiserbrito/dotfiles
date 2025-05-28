@@ -1,42 +1,33 @@
 return {
-  "zbirenbaum/copilot.lua",
+  "github/copilot.vim",
   cmd = "Copilot",
   event = "InsertEnter",
-  keys = {
-    {
-      "<leader>iC",
-      "<CMD>Copilot toggle<CR>",
-      desc = "Copilot: Toggle",
-    },
-  },
-  opts = {
-    model = "gpt-4.1-copilot",
-    panel = {
-      enable = true,
-    },
-    suggestion = {
-      enabled = true,
-      auto_trigger = false,
-      hide_during_completion = true,
-      debounce = 75,
-      keymap = {
-        accept = "<C-a>",
-        accept_word = "<C-i>",
-        accept_line = false,
-        next = "<C-n>",
-        prev = "<C-p>",
-        dismiss = "<C-Esc>",
-      },
-    },
-    filetypes = {
-      yaml = false,
-      help = false,
-      gitcommit = false,
-      gitrebase = false,
-      hgcommit = false,
-      svn = false,
-      cvs = false,
-      ["."] = false,
-    },
-  },
+  init = function()
+    -- use this table to disable/enable filetypes
+    vim.g.copilot_filetypes = { xml = false }
+
+    -- since most are enabled by default you can turn them off
+    -- using this table and only enable for a few filetypes
+    -- vim.g.copilot_filetypes = { ["*"] = false, python = true }
+
+
+    vim.cmd [[imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")]]
+    vim.g.copilot_no_tab_map = true
+    vim.g.copilot_settings = { selectedCompletionModel = "claude-sonnet-4" }
+    -- vim.keymap.set.keymap("i", "<C-a>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
+
+    -- <C-]>                   Dismiss the current suggestion.
+    -- <Plug>(copilot-dismiss)
+    --
+    --                                                 *copilot-i_ALT-]*
+    -- <M-]>                   Cycle to the next suggestion, if one is available.
+    -- <Plug>(copilot-next)
+    --
+    --                                                 *copilot-i_ALT-[*
+    -- <M-[>                   Cycle to the previous suggestion.
+    -- <Plug>(copilot-previous)
+
+
+    vim.cmd [[highlight CopilotSuggestion guifg=#555555 ctermfg=8]]
+  end
 }
