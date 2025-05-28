@@ -7,7 +7,7 @@ return {
     -- for example
     provider = "copilot",
     copilot = {
-      model = "gpt-4.1",
+      model = "claude-sonnet-4",
       timeout = 30000,
       temperature = 0,
       max_completion_tokens = 8192,

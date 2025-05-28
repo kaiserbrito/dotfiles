@@ -13,6 +13,7 @@ return {
 
     vim.cmd [[imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")]]
     vim.g.copilot_no_tab_map = true
+    vim.g.copilot_settings = { selectedCompletionModel = "claude-sonnet-4" }
     -- vim.keymap.set.keymap("i", "<C-a>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
 
     -- <C-]>                   Dismiss the current suggestion.
