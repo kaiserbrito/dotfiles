@@ -22,8 +22,8 @@ set -x TERM screen-256color
 set -x FZF_DEFAULT_COMMAND "fd"
 set -x GPG_TTY (tty)
 set -x RUBY_YJIT_ENABLE 1
-set -gx LDFLAGS "-L/opt/homebrew/opt/postgresql@16/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/postgresql@16/include"
+set -gx LDFLAGS "-L/opt/homebrew/opt/postgresql@17/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/postgresql@17/include"
 set -x FPROF 1
 
 # Functions needed for !! and !$
@@ -53,6 +53,8 @@ else
     bind ! __history_previous_command
     bind '$' __history_previous_command_arguments
 end
+
+fish_add_path /opt/homebrew/opt/postgresql@17/bin
 
 direnv hook fish | source
 fzf --fish | source
