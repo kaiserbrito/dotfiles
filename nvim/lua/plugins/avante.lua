@@ -6,11 +6,13 @@ return {
     -- add any opts here
     -- for example
     provider = "copilot",
-    copilot = {
-      model = "claude-sonnet-4",
-      timeout = 30000,
-      temperature = 0,
-      max_completion_tokens = 8192,
+    provides = {
+      copilot = {
+        model = "gpt-4.1-copilot",
+        timeout = 30000,
+        temperature = 0,
+        max_completion_tokens = 8192,
+      },
     },
   },
   build = "make",
@@ -20,8 +22,8 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
-    "echasnovski/mini.pick", -- for file_selector provider mini.pick
+    "echasnovski/mini.pick",  -- for file_selector provider mini.pick
     "echasnovski/mini.icons",
-    "github/copilot.vim", -- for providers='copilot'
+    "zbirenbaum/copilot.lua", -- for providers='copilot'
   },
 }
