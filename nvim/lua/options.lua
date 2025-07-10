@@ -25,3 +25,6 @@ vim.opt.hlsearch = true
 vim.opt.wrap = false
 vim.opt.textwidth = 99
 vim.opt.colorcolumn = "121"
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
