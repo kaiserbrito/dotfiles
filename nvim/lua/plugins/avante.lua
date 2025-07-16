@@ -6,12 +6,15 @@ return {
     -- add any opts here
     -- for example
     provider = "copilot",
-    provides = {
+    auto_suggestions = false,
+    providers = {
       copilot = {
-        model = "gpt-4.1-copilot",
+        model = "claude-sonnet-3.7",
         timeout = 30000,
-        temperature = 0,
-        max_completion_tokens = 8192,
+        extra_request_body = {
+          temperature = 0.75,
+          max_tokens = 20480,
+        },
       },
     },
   },
