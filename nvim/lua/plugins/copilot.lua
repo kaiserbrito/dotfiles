@@ -10,7 +10,7 @@ return {
     },
   },
   opts = {
-    model = "claude-sonnet-3.7",
+    model = "gpt-4.1",
     panel = {
       enable = true,
     },
