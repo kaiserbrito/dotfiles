@@ -28,3 +28,4 @@ vim.opt.colorcolumn = "121"
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
+vim.opt.laststatus = 3
