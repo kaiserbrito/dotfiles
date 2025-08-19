@@ -1,12 +1,15 @@
 return {
   "ThePrimeagen/harpoon",
+  branch = "harpoon2",
+  dependencies = { "nvim-lua/plenary.nvim" },
   event = "VeryLazy",
   config = function()
-    require("harpoon").setup({})
+    local harpoon = require("harpoon")
+    harpoon:setup()
 
-    vim.api.nvim_set_keymap("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", {})
-    vim.api.nvim_set_keymap("n", "<leader>hq", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", {})
-    vim.api.nvim_set_keymap("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", {})
-    vim.api.nvim_set_keymap("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", {})
+    vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end)
+    vim.keymap.set("n", "<leader>hq", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+    vim.keymap.set("n", "<leader>hn", function() harpoon:list():next() end)
+    vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev() end)
   end,
 }
