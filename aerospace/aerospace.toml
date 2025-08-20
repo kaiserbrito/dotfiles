@@ -7,6 +7,12 @@
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
 
+after-startup-command = [
+    # JankyBorders has a built-in detection of already running process,
+    # so it won't be run twice on AeroSpace restart
+    'exec-and-forget borders active_color=0xff89b4fa inactive_color=0xff45475a width=5.0'
+]
+
 # Mouse follows focus when focused monitor changes
 on-focus-changed = ['move-mouse window-lazy-center']
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
@@ -18,6 +24,12 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout floating",
+]
 
 [workspace-to-monitor-force-assignment]
 5 = '^built-in retina display$'
@@ -33,7 +45,7 @@ outer.right =      5
 [mode.main.binding]
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
 alt-enter = '''exec-and-forget osascript -e '
-tell application "Terminal"
+tell application "com.mitchellh.ghostty"
     do script
     activate
 end tell'
