@@ -36,4 +36,15 @@ map("n", "bl", "<cmd>bnext<CR>", opts)
 map("n", "bk", "<cmd>blast<CR>", opts)
 map("n", "bh", "<cmd>bprevious<CR>", opts)
 
+-- LSP
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show Docs" })
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Check references" })
+vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format" })
+
 vim.cmd [[iabbr bp binding.pry]]
