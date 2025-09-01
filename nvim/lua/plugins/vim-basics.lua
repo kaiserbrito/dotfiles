@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     opts = {},
     event = "VeryLazy",
     init = function()
@@ -15,7 +15,7 @@ return {
   { "AndrewRadev/splitjoin.vim" },
 
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     version = "*",
     event = "VeryLazy",
     config = function()
@@ -26,13 +26,13 @@ return {
   { "tpope/vim-abolish" },
 
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     event = "VeryLazy",
     opts = {},
   },
 
   {
-    "echasnovski/mini.hipatterns",
+    "nvim-mini/mini.hipatterns",
     version = "*",
     event = "VeryLazy",
     config = function()
@@ -53,7 +53,7 @@ return {
   },
 
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     event = "VeryLazy",
     version = "*",
     config = function()
