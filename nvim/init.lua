@@ -5,6 +5,8 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+require("core.mason-path")
+require("core.lsp")
 require("options")
 require("mappings")
 require("autocmds")
