@@ -5,3 +5,4 @@ macos-option-as-alt = false
 shell-integration = fish
 theme = catppuccin-mocha.conf
 copy-on-select = true
+keybind = shift+enter=text:\n
