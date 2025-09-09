@@ -7,6 +7,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Aliases
 alias vim="nvim"
 alias lzg="lazygit"
+alias lzd="lazydocker"
 alias be="bundle exec"
 alias ber="bundle exec rails"
 
