@@ -19,9 +19,14 @@ return {
       ruby = { "rubocop" },
       eruby = { "erb_format" },
     },
-    rubocop = {
-      command = "bundle exec",
-      args = { "-A", "$FILENAME" },
+    formatters = {
+      rubocop = {
+        command = "bundle",
+        args = { "exec", "rubocop", "-A", "--stderr", "--stdin", "$FILENAME" },
+      },
     },
   },
+  init = function ()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
 }
