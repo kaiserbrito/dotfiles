@@ -53,6 +53,7 @@ return {
       vim.api.nvim_set_keymap("v", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>hS", ":Gitsigns stage_buffer<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>hR", ":Gitsigns reset_buffer<CR>", {})
+      vim.api.nvim_set_keymap("n", "<leader>gb", ":Gitsigns blame<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>hd", ":Gitsigns diffthis<CR>", {})
       vim.api.nvim_set_keymap("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", {})
@@ -60,16 +61,18 @@ return {
     end,
   },
   {
-    "tpope/vim-fugitive",
-    config = function()
-      vim.api.nvim_set_keymap("n", "<leader>gb", "<cmd>Git blame<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>Gvdiffsplit!<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gdh", ":diffget //2<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gdl", ":diffget //3<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Gedit :<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Git commit<CR>", {})
-      vim.api.nvim_set_keymap("n", "<leader>gP", "<cmd>Git! push --force-with-lease<CR>", {})
-    end,
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
 
+      -- Only one of these is needed.
+      "folke/snacks.nvim",             -- optional
+    },
+    config = true,
+    keys = {
+      { "<leader>gs", "<cmd>Neogit<CR>", mode = "n", desc = "Open Neogit" },
+      { "<leader>gd", "<cmd>DiffviewOpen<CR>", mode = "n", desc = "Open Git diffview" },
+    },
   },
 }
