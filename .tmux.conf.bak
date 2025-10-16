@@ -1,0 +1,75 @@
+set -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",xterm-256color:RGB"
+
+unbind %
+bind | split-window -h 
+
+bind -r j resize-pane -D 5
+bind -r k resize-pane -U 5
+bind -r l resize-pane -R 5
+bind -r h resize-pane -L 5
+
+bind M-c attach-session -c "#{pane_current_path}"
+
+set -g mouse off
+
+set-window-option -g mode-keys vi
+
+bind -n S-Left  previous-window
+bind -n S-Right next-window
+bind-key "\\" split-window -h -c '#{pane_current_path}'  # Split panes vertically
+bind-key "-" split-window -v -c '#{pane_current_path}'  # Split panes horizontal
+bind = setw synchronize-panes
+
+bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+set -g detach-on-destroy off  # don't exit from tmux when closing a session
+
+bind -n S-Left  previous-window
+bind -n S-Right next-window
+bind m set -g mouse on
+bind M set -g mouse off
+
+bind-key r source-file ~/.tmux.conf
+
+bind-key -T copy-mode-vi 'v' send -X begin-selection # start selecting text with "v"
+bind-key -T copy-mode-vi 'y' send -X copy-selection # copy text with "y"
+
+unbind -T copy-mode-vi MouseDragEnd1Pane # don't exit copy mode when dragging with mouse
+
+# remove delay for exiting insert mode with ESC in Neovim
+set -sg escape-time 10
+
+# tpm plugin
+set -g @plugin 'tmux-plugins/tpm'
+
+# list of tmux plugins
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'olimorris/tmux-pomodoro-plus'
+
+
+set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-restore 'on'
+
+# Pomodoro config
+set -g status-right "#{pomodoro_status}"
+set -g @pomodoro_long_break_mins 25
+set -g @pomodoro_repeat 'on'
+set -g @pomodoro_sound 'on'
+set -g base-index 1
+set -g detach-on-destroy off
+set -g escape-time 10
+set -g history-limit 10000
+set -g mouse off
+set -g renumber-windows on
+set -g status-left "#[fg=blue,bold,bg=#1a1b26]  #S   "
+set -g status-right "#[fg=#b4befe,bold,bg=#1a1b26]%a %Y-%m-%d 󱑒 %l:%M %p"
+set -ga status-right "#($HOME/.config/tmux/scripts/cal.sh)"
+set -g status-justify left
+set -g status-left-length 200
+set -g status-right-length 200
+set -g status-position top
+
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
