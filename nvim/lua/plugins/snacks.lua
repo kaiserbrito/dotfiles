@@ -8,6 +8,7 @@ return {
     dashboard = { enabled = true },
     debug = { enabled = false },
     dim = { enabled = false },
+    gh = { enabled = true },
     git = { enabled = false },
     gitbrowser = { enabled = true },
     indent = { enabled = false },
@@ -63,5 +64,9 @@ return {
     { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
     { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
     { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
+
+    -- gh - Github CLI
+    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
+    { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
   },
 }
