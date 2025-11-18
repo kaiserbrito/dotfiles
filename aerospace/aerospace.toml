@@ -25,12 +25,6 @@ run = 'layout floating'
 if.app-name-regex-substring = 'finder'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id="com.mitchellh.ghostty"
-run= [
-  "layout floating",
-]
-
 [workspace-to-monitor-force-assignment]
 5 = '^built-in retina display$'
 
