@@ -31,10 +31,6 @@ export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
 export FPROF=1
 
-# Shell integrations
-source <(fzf --zsh)
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(mise activate zsh)"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 ### Added by Zinit's installer
@@ -60,13 +56,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# Starship
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-
-zinit light starship/starship
-zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
@@ -80,6 +70,11 @@ zinit snippet OMZP::z
 zinit snippet OMZP::eza
 zinit snippet OMZP::mise
 
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -92,3 +87,9 @@ zstyle ':omz:plugins:eza' 'dirs-first' yes
 zstyle ':omz:plugins:eza' 'git-status' yes
 zstyle ':omz:plugins:eza' 'header' yes
 zstyle ':omz:plugins:eza' 'icons' yes
+
+# Shell integrations
+source <(fzf --zsh)
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.json)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(mise activate zsh)"
