@@ -56,6 +56,12 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+# Starship
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+
+zinit light starship/starship
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -90,6 +96,5 @@ zstyle ':omz:plugins:eza' 'icons' yes
 
 # Shell integrations
 source <(fzf --zsh)
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.json)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(mise activate zsh)"
