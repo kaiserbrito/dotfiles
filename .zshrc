@@ -31,8 +31,6 @@ export FZF_DEFAULT_COMMAND='fd'
 export DISABLE_SPRING=1
 export RUBY_YJIT_ENABLE=1
 export GPG_TTY=$(tty)
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
 export FPROF=1
 
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
@@ -102,3 +100,8 @@ zstyle ':omz:plugins:eza' 'icons' yes
 source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(mise activate zsh)"
+
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
+eval "$(direnv hook zsh)"
