@@ -20,6 +20,10 @@ alias be='bundle exec'
 alias grbdia='grbd -i --autosquash'
 alias grbmia='grbm -i --autosquash'
 
+if [ -f "$HOME/.zsh_aliases_private" ]; then
+  source "$HOME/.zsh_aliases_private"
+fi
+
 # Exports
 export EDITOR='nvim'
 export TERM='screen-256color'
