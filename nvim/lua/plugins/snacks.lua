@@ -40,12 +40,12 @@ return {
 
     -- Picker
     -- -- Top Pickers & Explorer
-    { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<leader>f/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
     -- find
-    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-    { "<leader>fG", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+    { "<leader>ff", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+    { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
     { "<leader><space>", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
