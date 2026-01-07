@@ -48,4 +48,4 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Check references" })
 vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format" })
 
 vim.cmd [[iabbr bp binding.pry]]
-vim.cmd [[iabbr dbg debugger]]
+vim.cmd [[iabbr dbg require "debug"; debugger]]
