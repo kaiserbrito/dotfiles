@@ -2,7 +2,7 @@ font-family = "MesloLGMDZ Nerd Font Mono"
 font-size = 15
 background-opacity = 0.95
 macos-option-as-alt = false
-shell-integration = fish
+shell-integration = zsh
 theme = catppuccin-mocha.conf
 copy-on-select = true
-keybind = shift+enter=text:\n
+right-click-action = copy
