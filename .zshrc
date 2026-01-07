@@ -105,3 +105,9 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
 eval "$(direnv hook zsh)"
+# bun completions
+[ -s "/Users/victorguerra/.bun/_bun" ] && source "/Users/victorguerra/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
