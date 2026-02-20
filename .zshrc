@@ -77,6 +77,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::z
 zinit snippet OMZP::eza
 zinit snippet OMZP::mise
+zinit snippet OMZP::npm
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -111,3 +112,11 @@ eval "$(direnv hook zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Mole shell completion
+if output="$(mole completion zsh 2>/dev/null)"; then eval "$output"; fi
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
