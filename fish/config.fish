@@ -17,6 +17,12 @@ abbr -a l eza -l --icons --git -a
 abbr -a lt eza --tree --level=2 --long --icons --git
 abbr -a ltree eza --tree --level=2  --icons --git
 
+abbr -a stg1_console "ecs_console staging 1"
+abbr -a stg3_console "ecs_console staging 3"
+abbr -a stg5_console "ecs_console staging 5"
+abbr -a stg6_console "ecs_console staging 6"
+abbr -a prod_console "ecs_console production"
+abbr -a demo_console "ecs_console demo"
 
 # Exports
 set -x EDITOR nvim
