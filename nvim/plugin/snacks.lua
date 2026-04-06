@@ -3,7 +3,15 @@ vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 require("snacks").setup({
   bigfile = { enabled = true },
   bufdelete = { enabled = true },
-  dashboard = { enabled = false },
+  dashboard = {
+    enabled = true,
+    sections = {
+      { section = "header" },
+      { section = "keys", gap = 1, padding = 1 },
+      { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 2 },
+      { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 2 },
+    },
+  },
   debug = { enabled = false },
   dim = { enabled = false },
   gh = { enabled = true },
