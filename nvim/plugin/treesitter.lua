@@ -1,71 +1,61 @@
 vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
 
--- Defer setup with longer delay and explicit packadd
+-- Use nvim-treesitter for parser installation only
+-- Features (highlight, indent, fold) must be enabled manually
+
+local languages = {
+  "c",
+  "ruby",
+  "typescript",
+  "tsx",
+  "json",
+  "yaml",
+  "html",
+  "hcl",
+  "scss",
+  "lua",
+  "bash",
+  "fish",
+  "go",
+  "elixir",
+  "javascript",
+  "vim",
+  "vimdoc",
+  "markdown",
+  "markdown_inline",
+  "query",
+}
+
+-- Defer setup to ensure nvim-treesitter is loaded
 vim.defer_fn(function()
-  -- Ensure treesitter is loaded
+  -- Ensure nvim-treesitter is loaded
   vim.cmd.packadd('nvim-treesitter')
 
-  -- Small additional delay to ensure runtimepath is updated
-  vim.defer_fn(function()
-    -- Updated to new API: nvim-treesitter.config (without 's')
-    local ok, config = pcall(require, "nvim-treesitter.config")
-    if not ok then
-      vim.notify("Failed to load nvim-treesitter.config: " .. tostring(config), vim.log.levels.ERROR)
-      return
-    end
-
-    config.setup({
-      ensure_installed = {
-        "c",
-        "ruby",
-        "typescript",
-        "tsx",
-        "json",
-        "yaml",
-        "html",
-        "hcl",
-        "scss",
-        "lua",
-        "bash",
-        "fish",
-        "go",
-        "elixir",
-        "javascript",
-        "vim",
-        "vimdoc",
-      },
-      sync_install = false,
-      ignore_install = {},
-      auto_install = true,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { "ruby" },
-      },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
-      autopairs = {
-        enable = true,
-      },
-      incremental_selection = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-        disable = {
-          "ruby"
-        },
-      },
-      autotag = {
-        enable = true,
-      },
-      matchup = {
-        enable = true,
-      },
-      endwise = {
-        enable = true,
-      },
-    })
-  end, 50)
+  -- Install parsers if needed
+  local ok, ts = pcall(require, "nvim-treesitter")
+  if ok then
+    -- Ensure all parsers are installed
+    ts.install(languages)
+  else
+    vim.notify("Failed to load nvim-treesitter: " .. tostring(ts), vim.log.levels.WARN)
+  end
 end, 100)
+
+-- Enable treesitter highlighting for all configured languages
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = languages,
+  callback = function()
+    -- Start treesitter highlighting for this buffer
+    vim.treesitter.start()
+
+    -- Enable treesitter-based folding (disabled by default, but ready for manual use)
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.opt_local.foldenable = false
+
+    -- Enable treesitter-based indentation (disable for ruby due to issues)
+    if vim.bo.filetype ~= "ruby" then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
