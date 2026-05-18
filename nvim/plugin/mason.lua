@@ -6,7 +6,6 @@ vim.pack.add({
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-  automatic_installation = true,
   ensure_installed = {
     "html",
     "jsonls",
@@ -15,6 +14,5 @@ require("mason-lspconfig").setup({
     "tailwindcss",
     "taplo",
     "ts_ls",
-    "expert",
   },
 })
