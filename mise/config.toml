@@ -1,8 +1,9 @@
 [tools]
 elixir = "1.18.0-otp-27"
 erlang = "27.2.3"
-go = "1.23.2"
+go = "1.25.0"
 node = "latest"
+pnpm = "11.1.2"
 postgres = "17.5"
 python = "3.12.3"
 ruby = "4.0.1"
