@@ -45,7 +45,6 @@ vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "Go to ty
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Check references" })
-vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format" })
 
 vim.cmd [[iabbr bp binding.pry]]
 vim.cmd [[iabbr dbg require "debug"; debugger]]
