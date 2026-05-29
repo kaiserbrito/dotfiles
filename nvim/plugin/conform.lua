@@ -4,14 +4,7 @@ require("conform").setup({
   notify_on_error = true,
   formatters_by_ft = {
     javascript = { "prettierd", "prettier", stop_after_first = true },
-    ruby = { "rubocop" },
     eruby = { "erb_format" },
-  },
-  formatters = {
-    rubocop = {
-      command = "bundle",
-      args = { "exec", "rubocop", "-A", "--stderr", "--stdin", "$FILENAME" },
-    },
   },
 })
 
