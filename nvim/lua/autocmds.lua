@@ -38,3 +38,15 @@ vim.api.nvim_create_autocmd({"FocusLost", "BufLeave", "WinLeave"}, {
     vim.cmd("silent! wa")
   end,
 })
+
+vim.api.nvim_create_user_command("PackUpdate", function(opts)
+    if opts.args:match("%S") then
+        -- update specific plugins
+        local plugins = vim.split(opts.args, "%s+", { trimempty = true })
+		-- update only specified plugins
+        vim.pack.update(plugins)
+    else
+        -- update all
+    end
+        vim.pack.update()
+end, { nargs = "*", desc = "Update all plugins or specific ones" })
