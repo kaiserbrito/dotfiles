@@ -33,6 +33,11 @@ set -x GPG_TTY (tty)
 set -x RUBY_YJIT_ENABLE 1
 set -x FPROF 1
 set -l output (mole completion fish 2>/dev/null); and echo "$output" | source
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+
+fish_add_path $ANDROID_HOME/emulator
+fish_add_path $ANDROID_HOME/platform-tools
+fish_add_path /opt/homebrew/opt/openjdk@17/bin
 
 # Manual override if activation hook fails to prepend
 fish_add_path --move --prepend "$HOME/.local/share/mise/shims"
