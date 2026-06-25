@@ -1,5 +1,6 @@
--- blink.cmp is loaded in init.lua (needed by LSP configs)
--- This file just configures it
+vim.pack.add({
+  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }
+})
 
 require("blink.cmp").setup({
   keymap = { preset = "default" },
