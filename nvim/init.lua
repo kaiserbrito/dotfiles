@@ -9,11 +9,16 @@ vim.api.nvim_create_autocmd('PackChanged', {
       vim.cmd('TSUpdate')
     end
 
-    -- Build hook for codesnap
     if name == 'codesnap.nvim' and (kind == 'install' or kind == 'update') then
       if not ev.data.active then vim.cmd.packadd('codesnap.nvim') end
       local plugin_path = vim.fn.stdpath('data') .. '/site/pack/core/opt/codesnap.nvim'
-      vim.fn.system('cd ' .. vim.fn.shellescape(plugin_path) .. ' && make')
+      local ok_fetch, fetch = pcall(require, 'codesnap.fetch')
+      if ok_fetch then
+        local ok_lib, lib_path = pcall(fetch.ensure_lib)
+        if ok_lib and lib_path and vim.fn.filereadable(lib_path) == 1 then
+          vim.fn.system({ 'cp', '-f', lib_path, plugin_path .. '/lua/generator.so' })
+        end
+      end
     end
   end
 })
