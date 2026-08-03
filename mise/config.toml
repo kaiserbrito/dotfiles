@@ -1,14 +1,43 @@
+# Language runtimes and pinned CLI tools.
+#
+# Versions are pinned on purpose — "latest" lets a new machine drift from this
+# one. Extra per-project versions (ruby 4.0.x, erlang 28.1, node 22) aren't
+# declared here; mise picks those up from each project's own config.
+
 [tools]
+# Runtimes
 elixir = "1.18.0-otp-27"
 erlang = "27.2.3"
 go = "1.25.0"
-node = "latest"
-pnpm = "11.1.2"
-postgres = "17.5"
+node = "26.1.0"
 python = "3.12.3"
 ruby = "3.4.7"
 rust = "1.90.0"
-terraform = "latest"
+
+# Package managers
+pnpm = "11.1.2"
+uv = "0.11.25"
+
+# Infrastructure as code
+opentofu = "1.11.13"
+terraform = "1.9.8"
+tflint = "0.57.0"
+
+# AWS
+aws-cli = "2.35.23"
+aws-sam-cli = "1.163.0"
+
+# Services & data
+caddy = "2.11.2"
+postgres = "17.5"
+process-compose = "1.120.0"
+
+# Shell & repo tooling
+gum = "0.17.0"
+lefthook = "2.1.10"
+shfmt = "3.13.1"
+sops = "3.13.2"
+yq = "4.53.3"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
