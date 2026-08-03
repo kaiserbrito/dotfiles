@@ -35,7 +35,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "7adc933dabcc7c86ae6b07aff7ee68eac398491f",
+      "rev": "67029ccdac1ef8941e13b826417bc0ffac24cc86",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
     },
     "mason.nvim": {
@@ -78,7 +78,7 @@
       "version": "'stable'"
     },
     "neogit": {
-      "rev": "f8674ec894315c02449b61c9de9a116c5aafeb90",
+      "rev": "37e0f22a2345bad1bffe01b31970885882f46275",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "noice.nvim": {
@@ -90,7 +90,7 @@
       "src": "https://github.com/muniftanjim/nui.nvim"
     },
     "nvim": {
-      "rev": "058e83dc009e4dd62f30807054de9cc849699e27",
+      "rev": "79e2049a0fdf7ec840f8463fe1d962c94493196b",
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-dap": {
@@ -106,7 +106,7 @@
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
     "nvim-lspconfig": {
-      "rev": "98b0b8a52742afc9e2e2078e2e451f91beef1717",
+      "rev": "1c0d8f70dbc8827263eedc3cf7021ceba0f68689",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -114,11 +114,11 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "7248feaca45e4d944591497964bc19afa89ad1c6",
+      "rev": "7b6cc8949f9999c5ed91436cbe24aa5f99c42025",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
-      "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
+      "rev": "f3061339b8eaf9fda873600bc425b8d2d8502533",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-endwise": {
@@ -162,7 +162,7 @@
       "src": "https://github.com/tpope/vim-abolish"
     },
     "vim-matchup": {
-      "rev": "055881643e1b37038a572c883de7b1969716db77",
+      "rev": "5e3c4a3274a9766aee520caebb52572c007fc4f8",
       "src": "https://github.com/andymass/vim-matchup"
     },
     "vim-rails": {
