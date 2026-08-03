@@ -1,0 +1,23 @@
+onboarding = false
+
+[keys]
+# Prefix matches tmux (ctrl+b) — herdr default, listed for clarity.
+prefix = "ctrl+b"
+
+# Window/tab navigation — tmux Shift+Left/Right, plus herdr's prefix+p/n (keep both).
+previous_tab = ["prefix+p", "shift+left"]
+next_tab     = ["prefix+n", "shift+right"]
+
+# Splits — tmux "\" = side-by-side, "-" = stacked.
+split_vertical   = ["prefix+v", "prefix+backslash"]  # tmux "\"; keeps herdr's prefix+v as fallback
+split_horizontal = "prefix+minus"                    # tmux "-"; same as herdr default
+
+# Kill pane — tmux "x"; same as herdr default (listed to make the mapping explicit).
+close_pane = "prefix+x"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[theme]
+name = "catppuccin"
+auto_switch = false

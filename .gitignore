@@ -181,3 +181,7 @@ yarn/link
 ncspot
 mole
 /stripe
+/herdr/herdr-client.log
+/herdr/herdr-server.log
+/herdr/session.json
+/herdr/sessions/dev
