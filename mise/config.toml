@@ -41,3 +41,4 @@ yq = "4.53.3"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
+python.github_attestations = false
