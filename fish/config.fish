@@ -18,10 +18,8 @@ abbr -a lt eza --tree --level=2 --long --icons --git
 abbr -a ltree eza --tree --level=2  --icons --git
 
 abbr -a stg_console "ecs_console staging"
-abbr -a infratest_console "ecs_console test"
 abbr -a prod_console "ecs_console production"
 abbr -a demo_console "ecs_console demo"
-abbr -a bugflow_console "ecs_console bugflow"
 
 # Exports
 set -x EDITOR nvim
